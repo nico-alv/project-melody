@@ -15,7 +15,7 @@
         <div class="container mx-auto flex justify-between items-center">
             @auth
                 <img src="{{ asset('img/melody.png') }}" class="h-16 rounded">
-                <form action="{{ route('login.index') }}" method="POST">
+                <form action="{{ route('login.destroy') }}" method="GET">
                     @csrf
                     <button type="submit" class="font-bold uppercase hover:text-white transition">Cerrar Sesión</button>
                 </form>
