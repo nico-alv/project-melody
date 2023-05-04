@@ -27,9 +27,6 @@
                 </a>
                 <nav class="flex flex-col gap-2 items-center">
                     <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
-                    {{-- @if (url()->current() != route('login'))
-                        <a href="{{ route('login') }}" class="font-bold uppercase hover:text-white">Iniciar Sesión</a>
-                    @endif --}}
                     @if (url()->current() != route('register'))
                         <a href="{{ route('register') }}" class="font-bold uppercase hover:text-white">Crear Cuenta</a>
                     @endif
@@ -44,6 +41,8 @@
     <footer class="text-white text-center p-5 font-bold uppercase">
         Melody - Todos los derechos reservados {{ now()->year }}
     </footer>
+
 </body>
+
 
 </html>

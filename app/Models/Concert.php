@@ -9,9 +9,13 @@ class Concert extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'nameConcert',
-        'dateConcert',
-        'ticketsAvailable',
-        'entryPrice'
+        'name',
+        'date',
+        'stock',
+        'price'
     ];
+    public static function getConcerts()
+    {
+        return self::all();
+    }
 }
