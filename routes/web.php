@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('concert.index');
+    return view('layout.app');
 })->name('welcome');
 
 // Rutas de registro
