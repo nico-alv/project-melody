@@ -5,18 +5,15 @@ Registrar Concierto
 @section('content')
 
 <div class="md:flex md:justify-center">
-    <div class="md:w-1/2 bg-gray-200 p-6 rounded-lg shadow-lg">
+    <div class="md:w-1/2 bg-purple-200 p-6 rounded-lg shadow-lg">
         <h2 class="text-center uppercase font-bold text-3xl p-4">Registre un concierto</h2>
-        <form action="{{ route('concert.index') }}" method="POST" novalidate>
+        <form action="{{ route('concert') }}" method="POST" novalidate>
             @csrf
             <div class="mb-5">
                 <label for="name" class="mb-2 block uppercase text-white font-bold">
                     Nombre
                 </label>
-                <input id="name" name="name"
-                    class="border p-2 rounded-lg w-full
-            @error('name') border-red-600
-            @enderror" value="{{ old('name') }}" >
+                <input class="border p-2 rounded-lg w-full h-19 @error('name') border-red-600 @enderror" id="name" type="text" placeholder="Nombre" name="name" value="{{ old('name') }}" required> 
                 @error('name')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-lg text-center p-2">{{ $message }}</p>
                 @enderror
@@ -26,10 +23,7 @@ Registrar Concierto
                 <label for="price" class="mb-2 block uppercase text-white font-bold">
                     Precio
                 </label>
-                <input id="price" name="price"
-                    class="border p-2 rounded-lg w-full
-            @error('price') border-red-600
-            @enderror" value="{{ old('price') }}">
+                <input class="border p-2 rounded-lg w-full h-15 @error('price') border-red-600 @enderror" id="price" type="text" placeholder="Precio" name="price" value="{{ old('price') }}" required>
                 @error('price')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-lg text-center p-2">{{ $message }}</p>
                 @enderror
@@ -39,10 +33,7 @@ Registrar Concierto
                 <label for="stock" class="mb-2 block uppercase text-white font-bold">
                     Stock
                 </label>
-                <input id="stock" name="stock" type="text"
-                    class="border p-2 rounded-lg w-full
-            @error('stock') border-red-600
-            @enderror" value="{{ old('stock') }}">
+                <input class="border p-2 rounded-lg w-full h-19 @error('stock') border-red-600 @enderror" id="stock" type="text" placeholder="Stock" name="stock" value="{{ old('stock') }}" required>
                 @error('stock')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-lg text-center p-2">{{ $message }}</p>
                 @enderror
@@ -65,7 +56,7 @@ Registrar Concierto
                 @endif
             </div>
             <input type="submit" value="Crear Concierto"
-                class="bg-yellow-400 hover:bg-yellow-600 transition-all cursor-pointer uppercase font-bold text-black rounded w-full p-3">
+                class="bg-purple-400 hover:bg-blue-600 transition-all cursor-pointer uppercase font-bold text-black rounded w-full p-3">
         </form>
     </div>
 </div>

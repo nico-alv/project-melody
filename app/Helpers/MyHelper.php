@@ -16,6 +16,7 @@ function makeMessages()
         'email.email' => 'Ingrese una dirección de correo electrónico válida',
         'email.unique' => 'El correo electrónico ya esta registrado',
         'password.min' => 'La contraseña debe tener al menos :min caracteres.',
+        'price.min' => 'El valor de la entrada debe ser de al menos $:min.'
     ];
 
     return $messages;
