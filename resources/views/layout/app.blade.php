@@ -15,7 +15,7 @@
         <div class="container mx-auto flex justify-between items-center">
             @auth
                 <img src="{{ asset('img/melody.png') }}" class="h-16 rounded">
-                <form action="{{ route('logout') }}" method="POST">
+                <form action="{{ route('login.index') }}" method="POST">
                     @csrf
                     <button type="submit" class="font-bold uppercase hover:text-white transition">Cerrar Sesión</button>
                 </form>
@@ -27,9 +27,9 @@
                 </a>
                 <nav class="flex flex-col gap-2 items-center">
                     <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
-                    {{-- @if (url()->current() != route('login'))
-                        <a href="{{ route('login') }}" class="font-bold uppercase hover:text-white">Iniciar Sesión</a>
-                    @endif --}}
+                     @if (url()->current() != route('login.index'))
+                        <a href="{{ route('login.index') }}" class="font-bold uppercase hover:text-white">Iniciar Sesión</a>
+                    @endif
                     @if (url()->current() != route('register'))
                         <a href="{{ route('register') }}" class="font-bold uppercase hover:text-white">Crear Cuenta</a>
                     @endif
