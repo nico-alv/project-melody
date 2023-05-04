@@ -14,4 +14,8 @@ class Concert extends Model
         'ticketsAvailable',
         'entryPrice'
     ];
+    public static function getConcerts()
+    {
+        return self::all();
+    }
 }

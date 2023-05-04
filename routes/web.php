@@ -22,7 +22,7 @@ Route::get('/', function () {
 // Rutas de registro
 Route::get('register', [RegisterController::class,'index'])->name('register');
 Route::post('/register', [RegisterController::class,'store']);
-//Route::resource('concert', ConcertController::class);
+Route::resource('concert', ConcertController::class);
 //Route::get('/dashboard', [ConcertController::class, 'index'])->name('dashboard');
-Route::post('/concert', [ConcertController::class, 'store'])->name('concert');
-Route::get('concert', [ConcertController::class, 'create'])->name('concert.create');
+//Route::post('/concert', [ConcertController::class, 'store'])->name('concert');
+//Route::get('concert', [ConcertController::class, 'create'])->name('concert.create');
