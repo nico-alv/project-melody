@@ -18,9 +18,9 @@ class RegisterController extends Controller
     {
         $messages = makeMessages();
         $this->validate($request, [
-            'name' => ['required','min:3','regex:/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/'],
-            'email' => ['required','email','unique:users'],
-            'password' => ['required','min:8','regex:/^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]+$/']
+            'name' => ['required', 'min:3', 'regex:/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/'],
+            'email' => ['required', 'email', 'unique:users'],
+            'password' => ['required', 'min:8', 'regex:/^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]+$/']
 
         ], $messages);
 
@@ -32,11 +32,10 @@ class RegisterController extends Controller
         ]);
 
         auth()->attempt([
-            'email'=>$request->email,
-            'password'=>$request->password
+            'email' => $request->email,
+            'password' => $request->password
         ]);
 
-        return view('welcome');
-
+        return view('login');
     }
 }

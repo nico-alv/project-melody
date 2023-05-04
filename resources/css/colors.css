@@ -1,0 +1,355 @@
+:root{
+    --orange-dark: #81030d;
+    --orange-med-dark: #d22a12;
+    --orange-med-light: #f3320d;
+    --orange-light: #fb5115;
+    --yellow-dark:#b27106;
+    --yellow-med-dark: #eba503;
+    --yellow-med-light: #fcc104;
+    --yellow-light: #fde701;
+    --blue-dark: #094069;
+    --blue-med-dark: #0257d2;
+    --blue-med-light: #046ce9;
+    --blue-light: #00b1fd;
+    --green-dark: #046e71;
+    --green-med-dark: #00b87d;
+    --green-med-light: #00c586;
+    --green-light: #00d29f;
+    --pink-dark: #860068;
+    --pink-med-dark: #d4009f;
+    --pink-med-light: #da01a3;
+    --pink-light: #f100bd;
+    --purple-dark: #a10194;
+    --purple-med: #b000ab;
+    --purple-light: #b101b1;
+    --black-dark: #000001;
+    --black-med-dark: #070a0b;
+    --black-med-light: #141414;
+    --black-light: #22211f;
+    --white: #ffffff;
+}
+
+.bg-orange-dark{
+    background-color: var(--orange-dark);
+}
+
+.bg-orange-med-dark{
+    background-color: var(--orange-med-dark);
+}
+
+.bg-orange-med-light{
+    background-color: var(--orange-med-light);
+}
+
+.bg-orange-light{
+    background-color: var(--orange-light);
+}
+
+.bg-yellow-dark{
+    background-color: var(--yellow-dark);
+}
+
+.bg-yellow-med-dark{
+    background-color: var(--yellow-med-dark);
+}
+
+.bg-yellow-med-light{
+    background-color: var(--yellow-med-light);
+}
+
+.bg-yellow-light{
+    background-color: var(--yellow-light);
+}
+
+.bg-blue-dark{
+    background-color: var(--blue-dark);
+}
+
+.bg-blue-med-dark{
+    background-color: var(--blue-med-dark);
+}
+
+.bg-blue-med-light{
+    background-color: var(--blue-med-light);
+}
+
+.bg-blue-light{
+    background-color: var(--blue-light);
+}
+
+.bg-green-dark{
+    background-color: var(--green-dark);
+}
+
+.bg-green-med-dark{
+    background-color: var(--green-med-dark);
+}
+
+.bg-green-med-light{
+    background-color: var(--green-med-light);
+}
+
+.bg-green-light{
+    background-color: var(--green-light);
+}
+
+.bg-pink-dark{
+    background-color: var(--pink-dark);
+}
+
+.bg-pink-med-dark{
+    background-color: var(--pink-med-dark);
+}
+
+.bg-pink-med-light{
+    background-color: var(--pink-med-light);
+}
+
+.bg-pink-light{
+    background-color: var(--pink-light);
+}
+
+.bg-purple-dark{
+    background-color: var(--purple-dark);
+}
+
+.bg-purple-med{
+    background-color: var(--purple-med);
+}
+
+.bg-purple-light{
+    background-color: var(--purple-light);
+}
+
+.bg-black-dark{
+    background-color: var(--black-dark);
+}
+
+.bg-black-med-dark{
+    background-color: var(--black-med-dark);
+}
+
+.bg-black-med-light{
+    background-color: var(--black-med-light);
+}
+
+.bg-black-light{
+    background-color: var(--black-light);
+}
+
+.text-orange-dark{
+    color: var(--orange-dark);
+}
+
+.text-orange-med-dark{
+    color: var(--orange-med-dark);
+}
+
+.text-orange-med-light{
+    color: var(--orange-med-light);
+}
+
+.text-orange-light{
+    color: var(--orange-light);
+}
+
+.text-yellow-dark{
+    color: var(--yellow-dark);
+}
+
+.text-yellow-med-dark{
+    color: var(--yellow-med-dark);
+}
+
+.text-yellow-med-light{
+    color: var(--yellow-med-light);
+}
+
+.text-yellow-light{
+    color: var(--yellow-light);
+}
+
+.text-blue-dark{
+    color: var(--blue-dark);
+}
+
+.text-blue-med-dark{
+    color: var(--blue-med-dark);
+}
+
+.text-blue-med-light{
+    color: var(--blue-med-light);
+}
+
+.text-blue-light{
+    color: var(--blue-light);
+}
+
+.text-green-dark{
+    color: var(--green-dark);
+}
+
+.text-green-med-dark{
+    color: var(--green-med-dark);
+}
+
+.text-green-med-light{
+    color: var(--green-med-light);
+}
+
+.text-green-light{
+    color: var(--green-light);
+}
+
+.text-pink-dark{
+    color: var(--pink-dark);
+}
+
+.text-pink-med-dark{
+    color: var(--pink-med-dark);
+}
+
+.text-pink-med-light{
+    color: var(--pink-med-light);
+}
+
+.text-pink-light{
+    color: var(--pink-light);
+}
+
+.text-purple-dark{
+    color: var(--purple-dark);
+}
+
+.text-purple-med{
+    color: var(--purple-med);
+}
+
+.text-purple-light{
+    color: var(--purple-light);
+}
+
+.text-black-dark{
+    color: var(--black-dark);
+}
+
+.text-black-med-dark{
+    color: var(--black-med-dark);
+}
+
+.text-black-med-light{
+    color: var(--black-med-light);
+}
+
+.text-black-light{
+    color: var(--black-light);
+}
+
+.border-orange-dark{
+    border-color: var(--orange-dark);
+}
+
+.border-orange-med-dark{
+    border-color: var(--orange-med-dark);
+}
+
+.border-orange-med-light{
+    border-color: var(--orange-med-light);
+}
+
+.border-orange-light{
+    border-color: var(--orange-light);
+}
+
+.border-yellow-dark{
+    border-color: var(--yellow-dark);
+}
+
+.border-yellow-med-dark{
+    border-color: var(--yellow-med-dark);
+}
+
+.border-yellow-med-light{
+    border-color: var(--yellow-med-light);
+}
+
+.border-yellow-light{
+    border-color: var(--yellow-light);
+}
+
+.border-blue-dark{
+    border-color: var(--blue-dark);
+}
+
+.border-blue-med-dark{
+    border-color: var(--blue-med-dark);
+}
+
+.border-blue-med-light{
+    border-color: var(--blue-med-light);
+}
+
+.border-blue-light{
+    border-color: var(--blue-light);
+}
+
+.border-green-dark{
+    border-color: var(--green-dark);
+}
+
+.border-green-med-dark{
+    border-color: var(--green-med-dark);
+}
+
+.border-green-med-light{
+    border-color: var(--green-med-light);
+}
+
+.border-green-light{
+    border-color: var(--green-light);
+}
+
+.border-pink-dark{
+    border-color: var(--pink-dark);
+}
+
+.border-pink-med-dark{
+    border-color: var(--pink-med-dark);
+}
+
+.border-pink-med-light{
+    border-color: var(--pink-med-light);
+}
+
+.border-pink-light{
+    border-color: var(--pink-light);
+}
+
+.border-purple-dark{
+    border-color: var(--purple-dark);
+}
+
+.border-purple-med{
+    border-color: var(--purple-med);
+}
+
+.border-purple-light{
+    border-color: var(--purple-light);
+}
+
+.border-black-dark{
+    border-color: var(--black-dark);
+}
+
+.border-black-med-dark{
+    border-color: var(--black-med-dark);
+}
+
+.border-black-med-light{
+    border-color: var(--black-med-light);
+}
+
+.border-black-light{
+    border-color: var(--black-light);
+}
+

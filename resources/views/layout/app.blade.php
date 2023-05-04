@@ -5,12 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @vite('resources/css/app.css')
+    @vite('resources/css/colors.css')
     @vite('resources/css/app.js')
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Melody - @yield('title')</title>
 </head>
 
-<body class="bg-cyan-800">
+<body class="bg-orange-med-light">
     <header class="p-5 border-b border-blue-400 bg-rd-custom-50">
         <div class="container mx-auto flex justify-between items-center">
             @auth
