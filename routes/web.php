@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ConcertController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('layout.app');
+})->name('welcome');
+
+// Rutas de registro
+Route::get('register', [RegisterController::class,'index'])->name('register');
+Route::post('/register', [RegisterController::class,'store']);
+Route::resource('concert', ConcertController::class);
