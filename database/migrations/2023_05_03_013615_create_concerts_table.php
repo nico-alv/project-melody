@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('concerts', function (Blueprint $table) {
-            $table->id('concert_id')->unique();
-            $table->string('concert_name');
-            $table->timestamp('concert_date');
-            $table->integer('available_tickets');
-            $table->integer('ticket_price');
+            $table->id()->unique();
+            $table->string('name');
+            $table->integer('price');
+            $table->integer('stock');
+            $table->timestamp('date');
+            $table->timestamps();
         });
     }
 
