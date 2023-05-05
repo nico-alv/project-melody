@@ -14,7 +14,7 @@
                     <h2 class="text-center text-white uppercase font-bold text-3xl p-6">Selecciona una opción</h2>
                     <div class="md:flex md:justify-evenly">
                         <div>
-                            <a href="{{ route('concert.create') }}"
+                            <a href="{{ route('concert') }}"
                                 class="text-center text-black font-bold p-3 bg-red-500 rounded hover:bg-red-800 transition">
                                 Comprar ticket </a>
                         </div>
@@ -30,7 +30,7 @@
             <h2 class="text-center text-white uppercase font-bold text-3xl p-6">Selecciona una opción</h2>
             <div class="md:flex md:justify-evenly">
                 <div>
-                    <a href="{{ route('concert.create') }}"
+                    <a href="{{ route('concert') }}"
                         class="text-center text-black font-bold p-3 bg-red-500 rounded hover:bg-red-800 transition">Agregar
                         Concierto</a>
                 </div>
