@@ -4,25 +4,22 @@
 
 @section('content')
 
-  <h1 class="text-5xl text-center pt-24"> LOGIN </h1>
-  <form class="mt-4" method="POST" action="">
+
+  <form class="mt-4 bg-gray-200  rounded-lg shadow-lg" method="POST" action="">
+    <h1 class=" text-center uppercase font-bold text-3xl p-4 "> LOGIN </h1>
     @csrf
     @error('email')
     <p class="border border-red-500 rounded-md bg-red-100 w-full
     text-red-600 p-2 my-2">{{$message}}</p>
   @enderror
-    <input type="email" class="border border-gray-200 rounded-md bg-gray-200 w-full
-    text-lg placeholder-gray-900 p-2 my-2 focus:bg-white" placeholder="Email"
+    <input type="email" class=" shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light " placeholder="Email"
     id="email" name="email">
-
     @error('password')
-    <p class="border border-red-500 rounded-md bg-red-100 w-full
-    text-red-600 p-2 my-2">{{$message}}</p>
+    <p class=" border border-red-500 rounded-md bg-red-100 w-full
+    text-red-600 p-2 my-2 ">{{$message}}</p>
   @enderror
-    <input type="password" class="border border-gray-200 rounded-md bg-gray-200 w-full
-    text-lg placeholder-gray-900 p-2 my-2 focus:bg-white" placeholder="Password"
+    <input type="password" class=" shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light " placeholder="Password"
     id="password" name="password">
-
     @error('password')
       <p class="border border-red-500 rounded-md bg-red-100 w-full
       text-red-600 p-2 my-2"> {{$message}} </p>
