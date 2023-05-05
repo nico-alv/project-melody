@@ -31,7 +31,7 @@ Registrar Cliente
                 @enderror
             </div>
             <div class="flex justify-center bg-orange-dark hover:bg-green-dark rounded-lg">
-                <button type="submit" class="text-black font-medium rounded-lg text-sm p-3 text-center w-full">Crear cuenta</button>
+                <button  type="submit" class="text-black font-medium rounded-lg text-sm p-3 text-center w-full">Crear cuenta</button>
             </div>
             <p class="flex justify-center text-sm font-light text-gray-500 mt-1">
                 ¿Ya tienes una cuenta?&nbsp<a href="#" class="font-medium text-primary-600 hover:underline">Inicia sesión aquí</a>

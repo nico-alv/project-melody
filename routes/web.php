@@ -21,9 +21,9 @@ Route::get('/', function () {
 })->name('welcome');
 
 // Rutas de registro
-Route::get('register', [RegisterController::class,'index'])->name('register');
-Route::post('/register', [RegisterController::class,'store']);
+Route::get('register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'store']);
 Route::resource('concert', ConcertController::class);
 Route::get('login', [SessionController::class, 'create'])->name('login.index');
-Route::post('/login', [SessionController::class, 'store'])->name('login.index');
+Route::post('/login', [SessionController::class, 'store']);
 Route::get('/logout', [SessionController::class, 'destroy'])->name('login.destroy');

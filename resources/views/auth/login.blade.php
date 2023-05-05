@@ -5,7 +5,7 @@
 @section('content')
 
 
-  <form class="mt-4 bg-gray-200  rounded-lg shadow-lg" method="POST" action="">
+  <form class="mt-4 bg-gray-200  rounded-lg shadow-lg" method="POST" action="{{ route('login.index')}}">
     <h1 class=" text-center uppercase font-bold text-3xl p-4 "> LOGIN </h1>
     @csrf
     @error('email')
