@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 class SessionController extends Controller
 {
-    public function create(){
-        return view ('auth.login');
+    public function create()
+    {
+        return view('auth.login');
     }
     public function store(Request $request)
     {
@@ -16,7 +17,7 @@ class SessionController extends Controller
         $this->validate($request, [
             'email' => ['required', 'email'],
             'password' => ['required', 'min:8']
-        ] , $messages);
+        ], $messages);
 
         // Se intenta autenticar al usuario
         if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {
@@ -24,9 +25,9 @@ class SessionController extends Controller
         }
         return view('layout.dashboard');
     }
-    public function destroy() {
+    public function destroy()
+    {
         auth()->logout();
         return redirect()->to('/');
-
     }
 }
