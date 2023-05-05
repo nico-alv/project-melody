@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ConcertController;
-use App\Http\Controllers\Sessioncontroller;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
