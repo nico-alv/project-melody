@@ -7,51 +7,35 @@ module.exports = {
     ],
   theme: {
     colors: {
-        transparent: 'transparent',
-        current: 'current',
-        'red-custom':{
-            50:'#81030d', //dark
-            100:'#d22a12', //medium dark
-            150:'#f3320d', //medium light
-            200:'#fb5115', //light
+        'orange-dark': '#81030d',
+        'orange-medium-dark': '#d22a12',
+        'orange-medium-light': '#f3320d',
+        'orange-light': '#fb5115',
+        'yellow-dark': '#b27106',
+        'yellow-medium-dark': '#eba503',
+        'yellow-medium-light': '#fcc104',
+        'yellow-light': '#fde701',
+        'blue-dark': '#0750b9',
+        'blue-medium-dark': '#0257d2',
+        'blue-medium-light': '#046ce9',
+        'blue-light': '#00b1fd',
+        'green-dark': '#046e71',
+        'green-medium-dark': '#00b87d',
+        'green-medium-light': '#00c586',
+        'green-light': '#00d29f',
+        'pink-dark': '#860068',
+        'pink-medium-dark': '#d4009f',
+        'pink-medium-light': '#da01a3',
+        'pink-light': '#f100bd',
+        'purple-dark': '#a10194',
+        'purple-medium': '#b000ab',
+        'purple-light': '#b101b1',
+        'black-dark': '#000001',
+        'black-medium-dark': '#070a0b',
+        'black-medium-light': '#141414',
+        'black-light': '#22211f',
+        'white': '#ffffff',
         },
-        'yellow-custom':{
-            50:'#b27106', //dark
-            100:'#eba503',//medium dark
-            150:'#fcc104',//medium light
-            200:'#fde701',//light
-        },
-        'blue-custom':{
-            50:'#094069', //dark
-            100:'#0257d2',//medium dark
-            150:'#046ce9',//medium light
-            200:'#00b1fd',//light
-        },
-        'green-custom':{
-            50:'#046e71', //dark
-            100:'#00b87d',//medium dark
-            150:'#00c586',//medium light
-            200:'#00d29f',//light
-        },
-        'pink-custom':{
-            50:'#860068', //dark
-            100:'#d4009f',//medium dark
-            150:'#da01a3',//medium light
-            200:'#f100bd',//light
-        },
-        'purple-custom':{
-            50:'#a10194', //dark
-            100:'#b000ab',//medium
-            200:'#b101b1',//light
-        },
-        'black-custom':{
-            50:'#000001', //dark
-            100:'#070a0b',//medium dark
-            150:'#141414',//medium light
-            200:'#22211f',//light
-        }
-    },
-   extend: {},
   },
   plugins: [],
 }

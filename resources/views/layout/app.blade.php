@@ -10,40 +10,49 @@
     <title>Melody - @yield('title')</title>
 </head>
 
-<body class="bg-cyan-800">
-    <header class="p-5 border-b border-blue-400 bg-rd-custom-50">
-        <div class="container mx-auto flex justify-between items-center">
-            @auth
-                <img src="{{ asset('img/melody.png') }}" class="h-16 rounded">
-                <form action="{{ route('login.destroy') }}" method="GET">
-                    @csrf
-                    <button type="submit" class="font-bold uppercase hover:text-white transition">Cerrar Sesión</button>
-                </form>
-            @endauth
-            @guest
-                {{-- <a href="{{ route('welcome') }}" class="text-2xl font-black uppercase"> --}}
-                    <a href="#" class="text-2xl font-black uppercase">
-                    <img src="{{ asset('img/melody.png') }}" class="h-16 rounded">
-                </a>
-                <nav class="flex flex-col gap-2 items-center">
-                    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
-                     @if (url()->current() != route('login.index'))
-                        <a href="{{ route('login.index') }}" class="font-bold uppercase hover:text-white">Iniciar Sesión</a>
-                    @endif
-                    @if (url()->current() != route('register'))
-                        <a href="{{ route('register') }}" class="font-bold uppercase hover:text-white">Crear Cuenta</a>
-                    @endif
-                </nav>
-            @endguest
-        </div>
-    </header>
-    <main class="container mx-auto mt-10">
-        <h2 class="text-white font-bold text-center text-3xl mb-10 uppercase">@yield('title-page')</h2>
-        @yield('content')
-    </main>
-    <footer class="text-white text-center p-5 font-bold uppercase">
-        Melody - Todos los derechos reservados {{ now()->year }}
-    </footer>
+<body class="bg-blue-medium-light">
+    <div class="min-h-screen flex flex-col">
+        <header>
+            <nav class="flex flex-wrap bg-white justify-between items-center mx-auto">
+                <a href={{route('welcome')}}><img src="{{ asset('img/melody.png') }}" class="h-12 pl-4" alt="Melody Logo"></a>
+                <div class="flex items-center">
+                    @auth
+                        <div class="bg-green-dark">
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <a href="{{ route('welcome') }}"class="flex justify-center text-sm bg-pink-light px-2 py-5">Cerrar sesión</a>
+                            </form>
+                        </div>
+                    @endauth
+                    @guest
+                        <div>
+                            @if (url()->current() == route('login'))
+                                <p class="flex justify-center bg-blue-medium-light shadow-lg rounded-t-lg text-xs uppercase font-bold select-none px-2 py-6">Iniciar Sesión</p>
+                            @else
+                                <a href="{{ route('login') }}" class="flex justify-center text-white bg-blue-medium-dark rounded-t-lg text-xs hover:bg-blue-dark uppercase font-bold px-2 py-6">Iniciar Sesión</a>
+                            @endif
+                        </div>
+                        <div>
+                            @if (url()->current() == route('register'))
+                                <p class="flex justify-center bg-blue-medium-light shadow-lg rounded-t-lg text-xs uppercase font-bold select-none px-2 py-6">Crear Cuenta</p>
+                            @else
+                                <a href="{{ route('register') }}" class="flex justify-center text-white bg-blue-medium-dark rounded-t-lg text-xs hover:bg-blue-dark uppercase font-bold px-2 py-6">Crear Cuenta</a>
+                            @endif
+                        </div>
+                    @endguest
+                </div>
+            </nav>
+        </header>
+        <main class="container mx-auto mt-10 flex-1">
+            <h2 class="text-white font-bold text-center text-3xl mb-10 uppercase">@yield('title-page')</h2>
+            @yield('content')
+        </main>
+        <footer class="text-white text-center p-5 font-medium">
+            <hr class="my-6 border-gray-200 dark:border-gray-700">
+            <span class="block text-sm text-center text-black-dark dark:text-gray-400">©{{ now()->year }} <a href="{{ route('welcome') }}">  Melody</a> es una marca registrada. Todos los derechos reservados.
+        </span>
+        </footer>
+    </div>
 </body>
-
+  </div>
 </html>
