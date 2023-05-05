@@ -26,10 +26,10 @@
                     @endauth
                     @guest
                         <div>
-                            @if (url()->current() == route('login.index'))
+                            @if (url()->current() == route('login'))
                                 <p class="flex justify-center bg-blue-medium-light shadow-lg rounded-t-lg text-xs uppercase font-bold select-none px-2 py-6">Iniciar Sesión</p>
                             @else
-                                <a href="{{ route('login.index') }}" class="flex justify-center text-white bg-blue-medium-dark rounded-t-lg text-xs hover:bg-blue-dark uppercase font-bold px-2 py-6">Iniciar Sesión</a>
+                                <a href="{{ route('login') }}" class="flex justify-center text-white bg-blue-medium-dark rounded-t-lg text-xs hover:bg-blue-dark uppercase font-bold px-2 py-6">Iniciar Sesión</a>
                             @endif
                         </div>
                         <div>

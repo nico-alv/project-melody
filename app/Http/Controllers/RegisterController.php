@@ -36,6 +36,6 @@ class RegisterController extends Controller
             'password' => $request->password
         ]);
 
-        return view('welcome');
+        return view('auth.login');
     }
 }

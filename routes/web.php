@@ -24,6 +24,6 @@ Route::get('/', function () {
 Route::get('register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 Route::resource('concert', ConcertController::class);
-Route::get('login', [SessionController::class, 'create'])->name('login.index');
+Route::get('login', [SessionController::class, 'create'])->name('login');
 Route::post('/login', [SessionController::class, 'store']);
 Route::get('/logout', [SessionController::class, 'destroy'])->name('login.destroy');

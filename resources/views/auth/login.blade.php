@@ -5,16 +5,12 @@
 @section('content')
 
 
-  <form class="mt-4 bg-gray-200  rounded-lg shadow-lg" method="POST" action="{{ route('login.index')}}">
+  <form class="mt-4 bg-gray-200  rounded-lg shadow-lg" method="POST" action="{{ route('login')}}">
     <h1 class=" text-center uppercase font-bold text-3xl p-4 "> LOGIN </h1>
     @csrf
-    @error('email')
-    <p class="border border-red-500 rounded-md bg-red-100 w-full
-    text-red-600 p-2 my-2">{{$message}}</p>
-  @enderror
     <input type="email" class=" shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light " placeholder="Email"
     id="email" name="email">
-    @error('password')
+    @error('email')
     <p class=" border border-red-500 rounded-md bg-red-100 w-full
     text-red-600 p-2 my-2 ">{{$message}}</p>
   @enderror
