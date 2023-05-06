@@ -18,12 +18,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('layout.app');
-})->name('welcome');
+})->middleware('auth') -> name('home');
 
 // Rutas de registro
 Route::get('register', [RegisterController::class,'index'])->name('register');
 Route::post('/register', [RegisterController::class,'store']);
-Route::resource('concert', ConcertController::class);
-Route::get('login', [SessionController::class, 'create'])->name('login.index');
-Route::post('/login', [SessionController::class, 'store'])->name('login.index');
-Route::get('/logout', [SessionController::class, 'destroy'])->name('login.destroy');
+Route::resource('/concert', ConcertController::class);
+Route::get('dashboard', [ConcertController::class, 'index'])->name('dashboard');
+Route::get('login', [SessionController::class, 'index'])->name('login');
+Route::post('/login', [SessionController::class, 'store']);
+Route::post('/logout', [SessionController::class, 'destroy'])->name('login.destroy');

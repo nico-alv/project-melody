@@ -15,20 +15,20 @@
         <div class="container mx-auto flex justify-between items-center">
             @auth
                 <img src="{{ asset('img/melody.png') }}" class="h-16 rounded">
-                <form action="{{ route('login.destroy') }}" method="GET">
+                <form action="{{ route('login.destroy') }}" method="POST">
                     @csrf
                     <button type="submit" class="font-bold uppercase hover:text-white transition">Cerrar Sesión</button>
                 </form>
             @endauth
             @guest
                 {{-- <a href="{{ route('welcome') }}" class="text-2xl font-black uppercase"> --}}
-                    <a href="#" class="text-2xl font-black uppercase">
+                    <a href=" {{ route ('home')}} " class="text-2xl font-black uppercase">
                     <img src="{{ asset('img/melody.png') }}" class="h-16 rounded">
                 </a>
                 <nav class="flex flex-col gap-2 items-center">
                     <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
-                     @if (url()->current() != route('login.index'))
-                        <a href="{{ route('login.index') }}" class="font-bold uppercase hover:text-white">Iniciar Sesión</a>
+                     @if (url()->current() != route('login'))
+                        <a href="{{ route('login') }}" class="font-bold uppercase hover:text-white">Iniciar Sesión</a>
                     @endif
                     @if (url()->current() != route('register'))
                         <a href="{{ route('register') }}" class="font-bold uppercase hover:text-white">Crear Cuenta</a>

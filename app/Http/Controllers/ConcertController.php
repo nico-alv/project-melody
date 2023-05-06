@@ -16,12 +16,12 @@ class ConcertController extends Controller
     public function index()
     {
         // Retornar al dashboard
-        return view('concert.index');
+        return view('concerts.index');
     }
 
     public function create()
     {
-        return view('concert.create');
+        return view('concerts.create');
     }
 
     public function store(Request $request)
