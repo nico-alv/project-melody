@@ -20,7 +20,7 @@
                         <div class="bg-green-dark">
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
-                                <a href="{{ route('welcome') }}"class="flex justify-center text-sm bg-pink-light px-2 py-5">Cerrar sesión</a>
+                                <input type="submit" class="flex justify-center text-white bg-blue-medium-dark rounded-t-lg text-xs hover:bg-blue-dark uppercase font-bold px-2 py-6" value="Cerrar Sesión">
                             </form>
                         </div>
                     @endauth
