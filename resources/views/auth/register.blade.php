@@ -30,8 +30,9 @@ Registrar Cliente
                 <p>{{ $message }}</p>
                 @enderror
             </div>
-            <div class="flex justify-center bg-orange-dark hover:bg-green-dark rounded-lg">
-                <button type="submit" class="text-black font-medium rounded-lg text-sm p-3 text-center w-full">Crear cuenta</button>
+
+            <div class="flex justify-center rounded-lg bg-orange-dark hover:bg-green-dark transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 ">
+                <button type="submit" class="text-black font-medium text-center py-2 px-4 flex justify-center w-full">Crear cuenta</button>
             </div>
             <p class="flex justify-center text-sm font-light text-gray-500 mt-1">
                 ¿Ya tienes una cuenta?&nbsp<a href="{{route('login')}}"class="font-medium text-primary-600 hover:underline">Inicia sesión aquí</a>

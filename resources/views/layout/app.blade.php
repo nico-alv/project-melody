@@ -17,10 +17,15 @@
                 <a href={{route('welcome')}}><img src="{{ asset('img/melody.png') }}" class="h-12 pl-4" alt="Melody Logo"></a>
                 <div class="flex items-center">
                     @auth
-                        <div class="bg-green-dark">
+                        @if (url()->current() != route('dashboard'))
+                            <a href="{{ route('dashboard')}}" class="flex justify-center text-white bg-blue-medium-dark rounded-t-lg text-xs hover:bg-blue-dark uppercase font-bold px-2 py-6">Menú principal</a>
+                        @else
+                            <p class="flex justify-center bg-blue-medium-light shadow-lg rounded-t-lg text-xs uppercase font-bold select-none px-2 py-6">Menú principal</p>
+                        @endif
+                        <div class="rounded-t-lg bg-green-medium-dark">
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
-                                <input type="submit" class="flex justify-center text-white bg-blue-medium-dark rounded-t-lg text-xs hover:bg-blue-dark uppercase font-bold px-2 py-6" value="Cerrar Sesión">
+                                <input type="submit" class="flex justify-center text-white hover:rounded-t-lg text-xs cursor-pointer hover:bg-green-dark uppercase font-bold px-2 py-6" value="Cerrar Sesión">
                             </form>
                         </div>
                     @endauth
