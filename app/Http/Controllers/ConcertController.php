@@ -27,7 +27,7 @@ class ConcertController extends Controller
     {
         $messages = makeMessages();
         $this->validate($request, [
-            'name' => ['required', 'min:5'],
+            'concert_name' => ['required', 'min:5'],
             'price' => ['required', 'numeric', 'min:20000', 'max:2147483647'],
             'stock' => ['required', 'numeric', 'between:100,400'],
             'date' => ['required', 'date']
@@ -41,11 +41,10 @@ class ConcertController extends Controller
             return back()->with('message', 'Ya existe un concierto para el dia ingresado');
         }
         Concert::create([
-            'name' => $request->name,
+            'concert_name' => $request->concert_name,
             'price' => $request->price,
             'stock' => $request->stock,
-            'date' => $request->date,
-            'image' => "843392092f000"
+            'date' => $request->date
         ]);
         return redirect()->route('dashboard');
     }

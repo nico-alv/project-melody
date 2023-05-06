@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('concerts', function (Blueprint $table) {
             $table->id()->unique();
-            $table->string('name');
+            $table->string('concert_name');
             $table->integer('price');
             $table->integer('stock');
             $table->timestamp('date');

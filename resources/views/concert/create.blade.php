@@ -10,11 +10,11 @@ Registrar Concierto
         <form action="{{ route('concert') }}" method="POST" novalidate>
             @csrf
             <div class="mb-5">
-                <label for="name" class="mb-2 block uppercase text-white font-bold">
+                <label for="concert_name" class="mb-2 block uppercase text-white font-bold">
                     Nombre
                 </label>
-                <input class="border p-2 rounded-lg w-full h-19 @error('name') border-red-600 @enderror" id="name" type="text" placeholder="Nombre" name="name" value="{{ old('name') }}" required> 
-                @error('name')
+                <input class="border p-2 rounded-lg w-full h-19 @error('concert_name') border-red-600 @enderror" id="concert_name" type="text" placeholder="Nombre" name="concert_name" value="{{ old('concert_name') }}" required> 
+                @error('concert_name')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-lg text-center p-2">{{ $message }}</p>
                 @enderror
             </div>
