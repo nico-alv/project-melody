@@ -13,7 +13,7 @@ Registrar Concierto
                 <label for="concert_name" class="mb-2 block uppercase text-white font-bold">
                     Nombre
                 </label>
-                <input class="border p-2 rounded-lg w-full h-19 @error('concert_name') border-red-600 @enderror" id="concert_name" type="text" placeholder="Nombre" name="concert_name" value="{{ old('concert_name') }}" required> 
+                <input class="border p-2 rounded-lg w-full h-19 @error('concert_name') border-red-600 @enderror" id="concert_name" type="text" placeholder="Nombre" name="concert_name" value="{{ old('concert_name') }}" required>
                 @error('concert_name')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-lg text-center p-2">{{ $message }}</p>
                 @enderror
