@@ -18,7 +18,7 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', function () {
-    return view('layout.app');
+    return view('welcome');
 })->name('welcome');
 
 // Rutas de registro
