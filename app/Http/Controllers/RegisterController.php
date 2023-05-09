@@ -20,7 +20,7 @@ class RegisterController extends Controller
         $this->validate($request, [
             'name' => ['required', 'min:3', 'regex:/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/'],
             'email' => ['required', 'email', 'unique:users'],
-            'password' => ['required', 'min:8', 'regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/']
+            'password' => ['required', 'min:8', 'regex:/^(?=.*[A-Za-zñÑ])(?=.*\d)[A-Za-zñÑ\d]+$/']
 
         ], $messages);
 
