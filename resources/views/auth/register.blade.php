@@ -14,21 +14,21 @@ Registrar Cliente
                 <label  for="name" class="text-black-dark font-bold"> Nombre </label>
                 <input id="name" name="name" placeholder="Ingrese su nombre" class="shadow rounded-lg w-full mt-1 py-2 px-3"/>
                 @error('name')
-                    <p>{{ $message }}</p>
+                    <p class="bg-pink-medium-light border border-pink-dark text-pink-dark mt-1 px-4 py-2 rounded-full">{{ $message }}</p>
                 @enderror
             </div>
             <div class="mb-5">
                 <label for="email" class="text-black-dark font-bold"> Correo electrónico </label>
                 <input id="email" name='email' placeholder="Ingrese su correo electrónico" class="shadow rounded-lg w-full mt-1 py-2 px-3"/>
                 @error('email')
-                    <p>{{ $message }}</p>
+                    <p class="bg-pink-medium-light border border-pink-dark text-pink-dark mt-1 px-4 py-2 rounded-full">{{ $message }}</p>
                 @enderror
             </div>
             <div class="mb-5">
-                <label for="password" class="text-black-dark font-bold" for="password">Contraseña</label>
-                <input id="password" type="password" placeholder="Ingrese su contraseña" class="shadow rounded-lg w-full mt-1 py-2 px-3"/>
+                <label for="password" class="text-black-dark font-bold">Contraseña</label>
+                <input id="password" name="password" type="password" placeholder="Ingrese su contraseña" class="shadow rounded-lg w-full mt-1 py-2 px-3"/>
                 @error('password')
-                    <p>{{ $message }}</p>
+                    <p class="bg-pink-medium-light border border-pink-dark text-pink-dark mt-1 px-4 py-2 rounded-full">{{ $message }}</p>
                 @enderror
             </div>
             <div class="flex justify-center">
