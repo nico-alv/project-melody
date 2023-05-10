@@ -14,7 +14,6 @@ class ConcertController extends Controller
     }
     public function index()
     {
-        // Retornar al dashboard
         return view('layout.dashboard');
     }
 

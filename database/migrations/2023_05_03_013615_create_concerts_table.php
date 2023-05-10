@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('concert_name');
             $table->integer('price');
             $table->integer('stock');
-            $table->timestamp('date');
+            $table->date('date')->unique();
             $table->timestamps();
         });
     }
