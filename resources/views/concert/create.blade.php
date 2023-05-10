@@ -49,7 +49,7 @@ Registrar Concierto
             </div>
             <div class="flex justify-center">
                 <div class="flex justify-center rounded-lg bg-yellow-medium-light hover:bg-yellow-light transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:scale-110 mt-2">
-                    <button type="submit" class="text-black font-medium text-center py-2 px-4">Crear cuenta</button>
+                    <button type="submit" class="text-black font-medium text-center py-2 px-4">Crear concierto</button>
                 </div>
             </div>
         </form>
