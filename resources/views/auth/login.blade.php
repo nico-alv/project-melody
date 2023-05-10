@@ -32,3 +32,4 @@ Inicia sesion
         </form>
     </div>
 </div>
+@endsection
