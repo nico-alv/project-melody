@@ -12,24 +12,23 @@ Registrar Concierto
             @csrf
             <div class="mb-5">
                 <label for="concert_name" class="text-black-dark font-bold">Nombre</label>
-                <input id="concert_name" name="concert_name" placeholder="Ingrese el nombre" class="border p-2 rounded-lg w-full h-19">
+                <input id="concert_name" name="concert_name" placeholder="Ingrese el nombre" class="shadow rounded-lg w-full mt-1 py-2 px-3">
                 @error('concert_name')
                 <p class="bg-pink-medium-light border border-pink-dark text-pink-dark mt-1 px-4 py-2 rounded-full">{{ $message }}</p>
                 @enderror
             </div>
             <div class="mb-5">
                 <label for="price" class="text-black-dark font-bold">Precio</label>
-                <input id="price" name="price" placeholder="Ingrese el precio" class="border p-2 rounded-lg w-full h-15">
+                <input id="price" name="price" placeholder="Ingrese el precio" class="shadow rounded-lg w-full mt-1 py-2 px-3">
                 @error('price')
                     <p class="bg-pink-medium-light border border-pink-dark text-pink-dark mt-1 px-4 py-2 rounded-full">{{ $message }}</p>
                 @enderror
             </div>
-
             <div class="mb-5">
                 <label for="stock" class="text-black-dark font-bold">
                     Stock
                 </label>
-                <input id="stock" placeholder="Ingrese el stock" name="stock" class="border p-2 rounded-lg w-full h-19">
+                <input id="stock" placeholder="Ingrese el stock" name="stock" class="shadow rounded-lg w-full mt-1 py-2 px-3">
                 @error('stock')
                 <p class="bg-pink-medium-light border border-pink-dark text-pink-dark mt-1 px-4 py-2 rounded-full">{{ $message }}</p>
                 @enderror
@@ -56,5 +55,4 @@ Registrar Concierto
     </div>
  </div>
 </div>
-
 @endsection
