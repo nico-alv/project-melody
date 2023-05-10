@@ -25,6 +25,7 @@ Route::get('/', function () {
 Route::get('register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
+//Rutas del registro de conciertos
 Route::get('/dashboard', [ConcertController::class, 'index'])->name('dashboard');
 Route::post('/concert', [ConcertController::class, 'store'])->name('concert');
 Route::get('concert', [ConcertController::class, 'create'])->name('concert.create');
