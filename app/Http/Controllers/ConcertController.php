@@ -12,6 +12,7 @@ class ConcertController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function index()
     {
         return view('layout.dashboard');
@@ -31,13 +32,11 @@ class ConcertController extends Controller
             'stock' => ['required', 'numeric', 'between:100,400'],
             'date' => ['required', 'date']
         ], $messages);
-        $invalidDate = validDate($request->date);
-        if ($invalidDate) {
+        if (isDateValid($request->date)) {
             return back()->with('message', 'La fecha debe ser mayor a ' . date("d-m-Y"));
         }
-        $existConcert = existConcertDay($request->date);
-        if ($existConcert) {
-            return back()->with('message', 'Ya existe un concierto para el dia ingresado');
+        if (concertDayExists($request->date)) {
+            return back()->with('message', 'Ya existe un concierto para el dia ingresado.');
         }
         Concert::create([
             'concert_name' => $request->concert_name,

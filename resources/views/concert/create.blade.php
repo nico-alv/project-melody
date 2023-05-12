@@ -35,10 +35,7 @@ Registrar Concierto
             </div>
             <div class="mb-5">
                 <label for="date" class="text-black-dark font-bold">Fecha</label>
-                <input id="date" name="date" type="date" onkeydown="return false"
-                    class="border p-2 rounded-lg w-full
-            @error('date') border-red-600
-            @enderror" value="{{ old('date') }}">
+                <input id="date" name="date" type="date" onkeydown="return false" class="shadow rounded-lg w-full mt-1 py-2 px-3">
                 @error('date')
                 <p class="bg-pink-medium-light border border-pink-dark text-pink-dark mt-1 px-4 py-2 rounded-full">{{ $message }}</p>
                 @enderror
