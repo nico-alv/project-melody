@@ -15,7 +15,7 @@ class LoginController extends Controller
         $messages = makeMessages();
         $this->validate($request, [
             'email' => ['required', 'email'],
-            'password' => ['required', 'min:8', 'regex:/^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]+$/']
+            'password' => ['required', 'min:8', 'regex:/^(?=.*[A-Za-zñÑ])(?=.*\d)[A-Za-zñÑ\d]+$/']
         ], $messages);
 
         if (!auth()->attempt(['email' => $request->email, 'password' => $request->password])) {
