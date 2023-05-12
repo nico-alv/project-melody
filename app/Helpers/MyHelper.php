@@ -5,7 +5,7 @@ use App\Models\Concert;
 
 function makeMessages()
 {
-    $messages = [
+    return [
         'concert_name.required' => 'Debe indicar el campo nombre del concierto.',
         'concert_name.min' => 'El campo nombre del concierto no puede ser inferior a 5 caracteres.',
         'name.min' => 'El largo el nombre es inferior a 3 carácteres.',
@@ -23,32 +23,18 @@ function makeMessages()
         'price.min' => 'El valor de la entrada no puede ser inferior a $20.000 pesos.',
         'name.regex' => 'El nombre contiene carácteres no permitidos, Ingrese solo letras',
         'password.regex' => 'La contraseña ingresada no es alfanumérica',
-
     ];
-
-    return $messages;
 }
 
-function validDate($date)
+function isDateValid($date)
 {
-    $fechaActual = date("d-m-Y");
-    $fechaVerificar = Carbon::parse($date);
-
-    if ($fechaVerificar->lessThanOrEqualTo($fechaActual)) {
-        return true;
-    }
-
-    return false;
+    return Carbon::parse($date)->lessThanOrEqualTo(date("d-m-Y"));
 }
 
-function existConcertDay($date_concert)
+function concertDayExists($date_concert)
 {
-    $concerts = Concert::getConcerts();
-    $date = date($date_concert);
-
-    foreach ($concerts as $concert) {
-
-        if ($concert->date == $date) {
+    foreach (Concert::getConcerts() as $concert) {
+        if ($concert->date == date($date_concert)) {
             return true;
         }
     }
