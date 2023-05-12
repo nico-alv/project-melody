@@ -11,7 +11,6 @@
     @endif
 
     @if (auth()->user()->role === 'Administrador')
-        {{-- Opciones Administrador --}}
         <div class="md:flex-col md:justify-center bg-gray-800 p-6 rounded-lg shadow-lg ">
             <h2 class="text-center text-white uppercase font-bold text-3xl p-6">Selecciona una opción</h2>
             <div class="md:flex md:justify-evenly">
