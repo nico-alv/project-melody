@@ -43,7 +43,7 @@ Registrar Cliente
 
 @section('alert')
 <script>
-    // Aqui va nuestro script de sweetalert
+
     const button = document.getElementById("button");
     const form = document.getElementById("form");
 
@@ -53,13 +53,13 @@ Registrar Cliente
             title: '¿Seguro que quieres continuar?',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#00c586',
-            cancelButtonColor: '#f3320d',
+            confirmButtonColor: '#00c586', //green-medium-light
+            cancelButtonColor: '#f3320d',  // orange-medium-light
             confirmButtonText: 'Enviar',
             cancelButtonText: 'Cancelar',
             allowOutsideClick: false,
         }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
+
             if (result.isConfirmed) {
                 form.submit();
             }
