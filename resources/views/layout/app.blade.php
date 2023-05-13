@@ -71,6 +71,6 @@
         </footer>
     </div>
 </body>
-@yield('alerta')
+@yield('alert')
 
 </html>
