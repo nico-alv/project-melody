@@ -24,20 +24,7 @@ function makeMessages()
         'price.numeric' => 'El valor de la entrada debe ser numerico.',
         'name.regex' => 'El nombre contiene carácteres no permitidos, ingrese solo letras.',
         'password.regex' => 'La contraseña ingresada no es alfanumérica.',
+        'date.after' => 'La fecha debe ser mayor a ' . now()->format('d-m-Y') . '.',
+        'date.unique' => 'Ya existe un concierto para el día ingresado.'
     ];
-}
-
-function isDateValid($date)
-{
-    return Carbon::parse($date)->lessThanOrEqualTo(date("d-m-Y"));
-}
-
-function concertDayExists($date_concert)
-{
-    foreach (Concert::getConcerts() as $concert) {
-        if ($concert->date == date($date_concert)) {
-            return true;
-        }
-    }
-    return false;
 }
