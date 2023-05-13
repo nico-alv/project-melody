@@ -14,7 +14,12 @@
     <div class="min-h-screen flex flex-col">
         <header>
             <nav class="flex flex-wrap bg-white justify-between items-center mx-auto">
-                <a href={{route('welcome')}}><img src="{{ asset('img/melody.png') }}" class="h-12 pl-4" alt="Melody Logo"></a>
+                @auth
+                    <a href={{route('dashboard')}}><img src="{{ asset('img/melody.png') }}" class="h-12 pl-4" alt="Melody Logo"></a>
+                @endauth
+                @guest
+                    <a href={{route('welcome')}}><img src="{{ asset('img/melody.png') }}" class="h-12 pl-4" alt="Melody Logo"></a>
+                @endguest
                 <div class="flex items-center">
                     @auth
                         @if (url()->current() != route('dashboard'))
@@ -54,8 +59,13 @@
         </main>
         <footer class="text-white text-center p-5 font-medium">
             <hr class="my-6 border-gray-200 dark:border-gray-700">
-            <span class="block text-sm text-center text-black-dark dark:text-gray-400">©{{ now()->year }} <a href="{{ route('welcome') }}">  Melody</a> es una marca registrada. Todos los derechos reservados.
-        </span>
+            @auth
+                <span class="block text-sm text-center text-black-dark dark:text-gray-400">©{{ now()->year }} <a href="{{ route('dashboard') }}">  Melody</a> es una marca registrada. Todos los derechos reservados.
+            @endauth
+            @guest
+                <span class="block text-sm text-center text-black-dark dark:text-gray-400">©{{ now()->year }} <a href="{{ route('welcome') }}">  Melody</a> es una marca registrada. Todos los derechos reservados.
+            @endguest
+            </span>
         </footer>
     </div>
 </body>
