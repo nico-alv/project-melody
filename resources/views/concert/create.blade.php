@@ -8,7 +8,7 @@ Registrar Concierto
         <h2 class="bg-orange-medium-light text-center rounded-t-lg uppercase font-bold text-3xl p-4">Registrar concierto</h2>
     </div>
     <div>
-        <form id="formulario"  action="{{ route('concert') }}" method="POST" novalidate class="bg-orange-light shadow-xl rounded-b-lg px-8 py-7">
+        <form action="{{ route('concert') }}" method="POST" novalidate class="bg-orange-light shadow-xl rounded-b-lg px-8 py-7">
             @csrf
             <div class="mb-5">
                 <label for="concert_name" class="text-black-dark font-bold">Nombre</label>
@@ -45,36 +45,11 @@ Registrar Concierto
             </div>
             <div class="flex justify-center">
                 <div class="flex justify-center rounded-lg bg-yellow-medium-light hover:bg-yellow-light transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:scale-110 mt-2">
-                    <button id="boton" type="button" class="text-black font-medium text-center py-2 px-4">Crear concierto</button>
+                    <button type="submit" class="text-black font-medium text-center py-2 px-4">Crear concierto</button>
                 </div>
             </div>
         </form>
     </div>
  </div>
 </div>
-@endsection
-@section('alerta')
-<script>
-    // Aqui va nuestro script de sweetalert
-    const boton = document.getElementById("boton");
-    const formulario = document.getElementById("formulario");
-    boton.addEventListener('click', (e) => {
-        e.preventDefault();
-        Swal.fire({
-            title: '¿Estás seguro que quieres enviar estos datos?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#f3320d',
-            cancelButtonColor: '#fcc104',
-            confirmButtonText: 'Enviar',
-            cancelButtonText: 'Cancelar',
-            allowOutsideClick: false,
-        }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
-                formulario.submit();
-            }
-        })
-    })
-</script>
 @endsection
