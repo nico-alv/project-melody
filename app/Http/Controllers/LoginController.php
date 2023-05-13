@@ -19,7 +19,7 @@ class LoginController extends Controller
         ], $messages);
 
         if (!auth()->attempt(['email' => $request->email, 'password' => $request->password])) {
-            return back()->with('message', 'Las credenciales son incorrectas');
+            return back()->with('message', 'Correo electronico o contraseña son incorrectas, intente nuevamente');
         }
 
         return redirect()->route('dashboard');

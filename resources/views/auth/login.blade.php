@@ -10,6 +10,9 @@ Inicia sesion
     <div>
         <form action="{{ route('login')}}" method="POST" novalidate class="bg-orange-light shadow-xl rounded-b-lg px-8 py-7">
             @csrf
+            @if (session('message'))
+                     <p class="bg-pink-medium-light border border-pink-dark text-pink-dark mt-1 px-4 py-2 rounded-full">{{ session('message') }}</p>
+            @endif
             <div class="mb-5">
                 <label for="email" class="text-black-dark font-bold"> Correo electrónico </label>
                 <input id="email" name='email' placeholder="Ingrese su correo electrónico" class="shadow rounded-lg w-full mt-1 py-2 px-3"/>
