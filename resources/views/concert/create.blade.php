@@ -8,7 +8,7 @@ Registrar Concierto
         <h2 class="bg-orange-medium-light text-center rounded-t-lg uppercase font-bold text-3xl p-4">Registrar concierto</h2>
     </div>
     <div>
-        <form action="{{ route('concert') }}" method="POST" novalidate class="bg-orange-light shadow-xl rounded-b-lg px-8 py-7">
+        <form id="form" action="{{ route('concert') }}" method="POST" novalidate class="bg-orange-light shadow-xl rounded-b-lg px-8 py-7">
             @csrf
             <div class="mb-5">
                 <label for="concert_name" class="text-black-dark font-bold">Nombre</label>
@@ -45,11 +45,35 @@ Registrar Concierto
             </div>
             <div class="flex justify-center">
                 <div class="flex justify-center rounded-lg bg-yellow-medium-light hover:bg-yellow-light transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:scale-110 mt-2">
-                    <button type="submit" class="text-black font-medium text-center py-2 px-4">Crear concierto</button>
+                    <button id="button" type="button" class="text-black font-medium text-center py-2 px-4">Crear concierto</button>
                 </div>
             </div>
         </form>
     </div>
  </div>
 </div>
+@endsection
+
+@section('alert')
+<script>
+    const button = document.getElementById("button");
+    const form = document.getElementById("form");
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        Swal.fire({
+            title: '¿Seguro que quieres continuar?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#00c586', //green-medium-light
+            cancelButtonColor: '#f3320d',  //orange-medium-light
+            confirmButtonText: 'Enviar',
+            cancelButtonText: 'Cancelar',
+            allowOutsideClick: false,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit();
+            }
+        })
+    })
+</script>
 @endsection
