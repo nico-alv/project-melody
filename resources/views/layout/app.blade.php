@@ -7,6 +7,8 @@
     @vite('resources/css/app.css')
     @vite('resources/css/app.js')
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
     <title>Melody - @yield('title')</title>
 </head>
 
@@ -69,5 +71,5 @@
         </footer>
     </div>
 </body>
-
+    @yield('alert')
 </html>
