@@ -66,7 +66,7 @@ Registrar Concierto
             showCancelButton: true,
             confirmButtonColor: '#00c586', //green-medium-light
             cancelButtonColor: '#f3320d',  //orange-medium-light
-            confirmButtonText: 'Enviar',
+            confirmButtonText: 'Aceptar',
             cancelButtonText: 'Cancelar',
             allowOutsideClick: false,
         }).then((result) => {

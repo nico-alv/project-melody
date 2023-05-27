@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //No se va a usar esta iteracion
         Schema::create('ticket_reservations', function (Blueprint $table) {
             $table->id('reservation_id')->unique();
             $table->integer('user_id');
