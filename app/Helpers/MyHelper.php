@@ -10,7 +10,7 @@ function makeMessages()
         'concert_name.min' => 'El campo nombre del concierto no puede ser inferior a 5 caracteres.',
         'name.min' => 'El largo el nombre es inferior a 3 carácteres.',
         'name.required' => 'Debe completar el campo nombre.',
-        'email.required' => 'Debe completar el campo email.',
+        'email.required' => 'Debe completar el campo correo electrónico.',
         'password.required' => 'Debe completar el campo contraseña.',
         'price.required' => 'Debe indicar el campo precio.',
         'date.required' => 'Debe indicar el campo fecha.',
