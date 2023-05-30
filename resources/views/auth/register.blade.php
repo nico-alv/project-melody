@@ -5,7 +5,7 @@ Registrar Cliente
 @section('content')
 <div class="max-w-lg mx-auto">
     <div>
-        <h2 class="bg-orange-medium-light text-center rounded-t-lg uppercase font-bold text-3xl p-4">Registrate</h2>
+        <h2 class="bg-orange-medium-light text-center rounded-t-lg uppercase font-bold text-3xl p-4">Regístrate</h2>
     </div>
     <div>
         <form id="form" action="{{ route('register')}}" method="POST" novalidate class="bg-orange-light shadow-xl rounded-b-lg px-8 py-7">
