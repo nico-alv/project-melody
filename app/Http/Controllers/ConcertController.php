@@ -25,15 +25,13 @@ class ConcertController extends Controller
 
     public function store(Request $request)
     {
-
         $messages = makeMessages();
         $this->validate($request, [
             'concert_name' => ['required', 'min:5'],
             'price' => ['required', 'numeric', 'min:20000', 'max:2147483647'],
             'stock' => ['required', 'numeric', 'between:100,400'],
-            'date' => ['required', 'unique:concerts,date', 'date', 'after:' . now()->format('d-m-Y')]
+            'date' => ['required', 'date']
         ], $messages);
-
         Concert::create([
             'concert_name' => $request->concert_name,
             'price' => $request->price,
