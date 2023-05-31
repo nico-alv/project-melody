@@ -62,10 +62,10 @@
         <footer class="text-white text-center p-5 font-medium">
             <hr class="my-6 border-gray-200 dark:border-gray-700">
             @auth
-                <span class="block text-sm text-center text-black-dark dark:text-gray-400">©{{ now()->year }} <a href="{{ route('dashboard') }}">  Melody</a> es una marca registrada. Todos los derechos reservados.
+                <span class="block text-sm text-center text-white">©{{ now()->year }} <a href="{{ route('dashboard') }}">  Melody</a> es una marca registrada. Todos los derechos reservados.
             @endauth
             @guest
-                <span class="block text-sm text-center text-black-dark dark:text-gray-400">©{{ now()->year }} <a href="{{ route('welcome') }}">  Melody</a> es una marca registrada. Todos los derechos reservados.
+                <span class="block text-sm text-center text-white">©{{ now()->year }} <a href="{{ route('welcome') }}">  Melody</a> es una marca registrada. Todos los derechos reservados.
             @endguest
             </span>
         </footer>
