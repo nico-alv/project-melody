@@ -38,6 +38,7 @@ class ConcertController extends Controller
             'stock' => $request->stock,
             'date' => $request->date
         ]);
+        toastr()->success('El concierto fue creado con éxito', 'Concierto creado!');
         return redirect()->route('dashboard');
     }
 }
