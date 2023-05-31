@@ -15,12 +15,12 @@ class LoginController extends Controller
         $messages = makeMessages();
         $this->validate($request, [
             'email' => ['required', 'email'],
-            'password' => ['required', 'min:8', 'regex:/^(?=.*[A-Za-zñÑ])(?=.*\d)[A-Za-zñÑ\d]+$/']
+            'password' => ['required']
         ], $messages);
 
         if (!auth()->attempt(['email' => $request->email, 'password' => $request->password])) {
             return back()->with('message',
-            'Correo electronico o contraseña son incorrectas, intente nuevamente');
+            'Usuario no registrado o contraseña incorrecta');
         }
 
         return redirect()->route('dashboard');
