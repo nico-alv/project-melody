@@ -19,7 +19,7 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 })->middleware('auth')->name('welcome');
 
 // Rutas de registro
