@@ -40,13 +40,10 @@ Registrar Cliente
     </div>
 </div>
 @endsection
-
 @section('alert')
 <script>
-
     const button = document.getElementById("button");
     const form = document.getElementById("form");
-
     button.addEventListener('click', (e) => {
         e.preventDefault();
         Swal.fire({
@@ -67,3 +64,4 @@ Registrar Cliente
     })
 </script>
 @endsection
+
