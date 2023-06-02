@@ -11,9 +11,11 @@
         @if ($concerts->count() >0)
 
             @foreach ($concerts as $concert)
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
 
 
 
+                </div>
             @endforeach
 
         @endif
