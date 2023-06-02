@@ -8,6 +8,15 @@
 @section('content')
     @if (auth()->user()->role === 'Usuario')
         {{-- Opciones Cliente --}}
+        @if ($concerts->count() >0)
+
+            @foreach ($concerts as $concert)
+
+
+
+            @endforeach
+
+        @endif
     @endif
 
     @if (auth()->user()->role === 'Administrador')
@@ -23,3 +32,4 @@
         </div>
     @endif
 @endsection
+

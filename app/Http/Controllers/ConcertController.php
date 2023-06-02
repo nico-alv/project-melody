@@ -15,7 +15,8 @@ class ConcertController extends Controller
 
     public function index()
     {
-        return view('layout.dashboard');
+        $concerts = Concert::getConcerts();
+        return view('layout.dashboard', ['concerts' => $concerts]);
     }
 
     public function create()
