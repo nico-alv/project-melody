@@ -19,13 +19,11 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('dashboard');
 })->middleware('auth')->name('welcome');
 
 // Rutas de registro
-Route::get('register', [RegisterController::class, 'index'])
-->middleware('guest')
-->name('register');
+Route::get('register', [RegisterController::class, 'index'])->middleware('guest')->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
 //Rutas del registro de conciertos
@@ -34,10 +32,6 @@ Route::post('/concert', [ConcertController::class, 'store'])->name('concert');
 Route::get('concert', [ConcertController::class, 'create'])->name('concert.create');
 
 //Rutas para Login
-Route::get('/login', [LoginController::class, 'index'])
-->middleware('guest')
-->name('login');
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'store']);
-Route::post('/logout', [LogoutController::class, 'store'])
-->middleware('auth')
-->name('logout');
+Route::post('/logout', [LogoutController::class, 'store'])->middleware('auth')->name('logout');
