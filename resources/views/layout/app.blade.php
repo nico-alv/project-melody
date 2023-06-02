@@ -46,7 +46,7 @@
                         </div>
                         <div>
                             @if (url()->current() == route('register'))
-                                <p class="flex justify-center bg-blue-medium-light shadow-lg rounded-t-lg text-xs uppercase font-bold select-none px-2 py-6">Crear Cuenta</p>
+                                <p class="flex justify-center bg-blue-medium-light shadow-lg rounded-t-lg text-xs uppercase font-bold select-none px-2 py-6">Crear cuenta</p>
                             @else
                                 <a href="{{ route('register') }}" class="flex justify-center text-white bg-blue-medium-dark rounded-t-lg text-xs hover:bg-blue-dark uppercase font-bold px-2 py-6">Crear Cuenta</a>
                             @endif
@@ -62,14 +62,15 @@
         <footer class="text-white text-center p-5 font-medium">
             <hr class="my-6 border-gray-200 dark:border-gray-700">
             @auth
-                <span class="block text-sm text-center text-black-dark dark:text-gray-400">©{{ now()->year }} <a href="{{ route('dashboard') }}">  Melody</a> es una marca registrada. Todos los derechos reservados.
+                <span class="block text-sm text-center text-white">©{{ now()->year }} <a href="{{ route('dashboard') }}">  Melody</a> es una marca registrada. Todos los derechos reservados.
             @endauth
             @guest
-                <span class="block text-sm text-center text-black-dark dark:text-gray-400">©{{ now()->year }} <a href="{{ route('welcome') }}">  Melody</a> es una marca registrada. Todos los derechos reservados.
+                <span class="block text-sm text-center text-white">©{{ now()->year }} <a href="{{ route('welcome') }}">  Melody</a> es una marca registrada. Todos los derechos reservados.
             @endguest
             </span>
         </footer>
     </div>
 </body>
-    @yield('alert')
+@yield('alert')
+
 </html>

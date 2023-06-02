@@ -26,7 +26,6 @@ class ConcertController extends Controller
 
     public function store(Request $request)
     {
-
         $messages = makeMessages();
         $this->validate($request, [
             'concert_name' => ['required', 'min:5'],
@@ -34,13 +33,13 @@ class ConcertController extends Controller
             'stock' => ['required', 'numeric', 'between:100,400'],
             'date' => ['required', 'unique:concerts,date', 'date', 'after:' . now()->format('d-m-Y')]
         ], $messages);
-
         Concert::create([
             'concert_name' => $request->concert_name,
             'price' => $request->price,
             'stock' => $request->stock,
             'date' => $request->date
         ]);
+        toastr()->success('El concierto fue creado con éxito', 'Concierto creado!');
         return redirect()->route('dashboard');
     }
 }
