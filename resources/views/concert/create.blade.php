@@ -5,27 +5,27 @@ Registrar Concierto
 @section('content')
 <div class="max-w-lg mx-auto">
     <div>
-        <h2 class="bg-orange-medium-light text-center rounded-t-lg uppercase font-bold text-3xl p-4">Registrar concierto</h2>
+        <h2 class="bg-orange-medium-light text-center text-white rounded-t-lg uppercase font-bold text-3xl p-4">Registrar concierto</h2>
     </div>
     <div>
         <form id="form" action="{{ route('concert') }}" method="POST" novalidate class="bg-orange-light shadow-xl rounded-b-lg px-8 py-7">
             @csrf
             <div class="mb-5">
-                <label for="concert_name" class="text-black-dark font-bold">Nombre</label>
+                <label for="concert_name" class="text-white font-bold">Nombre</label>
                 <input id="concert_name" name="concert_name" placeholder="Ingrese el nombre" class="shadow rounded-lg w-full mt-1 py-2 px-3">
                 @error('concert_name')
                     <p class="bg-pink-medium-light border border-pink-dark text-white mt-1 px-4 py-2 rounded-full">{{ $message }}</p>
                 @enderror
             </div>
             <div class="mb-5">
-                <label for="price" class="text-black-dark font-bold">Precio</label>
+                <label for="price" class="text-white font-bold">Precio</label>
                 <input id="price" name="price" placeholder="Ingrese el precio" class="shadow rounded-lg w-full mt-1 py-2 px-3">
                 @error('price')
                     <p class="bg-pink-medium-light border border-pink-dark text-white mt-1 px-4 py-2 rounded-full">{{ $message }}</p>
                 @enderror
             </div>
             <div class="mb-5">
-                <label for="stock" class="text-black-dark font-bold">
+                <label for="stock" class="text-white font-bold">
                     Stock
                 </label>
                 <input id="stock" placeholder="Ingrese el stock" name="stock" class="shadow rounded-lg w-full mt-1 py-2 px-3">
@@ -34,7 +34,7 @@ Registrar Concierto
                 @enderror
             </div>
             <div class="mb-5">
-                <label for="date" class="text-black-dark font-bold">Fecha</label>
+                <label for="date" class="text-white font-bold">Fecha</label>
                 <input id="date" name="date" type="date" onkeydown="return false" class="shadow rounded-lg w-full mt-1 py-2 px-3">
                 @error('date')
                     <p class="bg-pink-medium-light border border-pink-dark text-white mt-1 px-4 py-2 rounded-full">{{ $message }}</p>

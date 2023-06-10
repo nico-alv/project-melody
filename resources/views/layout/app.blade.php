@@ -27,28 +27,28 @@
                         @if (url()->current() != route('dashboard'))
                             <a href="{{ route('dashboard')}}" class="flex justify-center text-white bg-blue-medium-dark rounded-t-lg text-xs hover:bg-blue-dark uppercase font-bold px-2 py-6">Menú principal</a>
                         @else
-                            <p class="flex justify-center bg-blue-medium-light shadow-lg rounded-t-lg text-xs uppercase font-bold select-none px-2 py-6">Menú principal</p>
+                            <p class="flex justify-center bg-blue-medium-light shadow-lg rounded-t-lg text-xs text-white uppercase font-bold select-none px-2 py-6">Menú principal</p>
                         @endif
                         <div class="rounded-t-lg bg-green-medium-dark">
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
-                                <input type="submit" class="flex justify-center text-white hover:rounded-t-lg text-xs cursor-pointer hover:bg-green-dark uppercase font-bold px-2 py-6" value="Cerrar Sesión">
+                                <input type="submit" class="flex justify-center hover:rounded-t-lg text-xs cursor-pointer hover:bg-green-dark uppercase font-bold px-2 py-6" value="Cerrar Sesión">
                             </form>
                         </div>
                     @endauth
                     @guest
                         <div>
                             @if (url()->current() == route('login'))
-                                <p class="flex justify-center bg-blue-medium-light shadow-lg rounded-t-lg text-xs uppercase font-bold select-none px-2 py-6">Iniciar Sesión</p>
+                                <p class="flex justify-center bg-blue-medium-light shadow-lg rounded-t-lg text-xs text-white uppercase font-bold select-none px-2 py-6">Iniciar Sesión</p>
                             @else
-                                <a href="{{ route('login') }}" class="flex justify-center text-white bg-blue-medium-dark rounded-t-lg text-xs hover:bg-blue-dark uppercase font-bold px-2 py-6">Iniciar Sesión</a>
+                                <a href="{{ route('login') }}" class="flex justify-center bg-green-medium-dark rounded-t-lg text-xs hover:bg-green-dark uppercase font-bold px-2 py-6">Iniciar Sesión</a>
                             @endif
                         </div>
                         <div>
                             @if (url()->current() == route('register'))
-                                <p class="flex justify-center bg-blue-medium-light shadow-lg rounded-t-lg text-xs uppercase font-bold select-none px-2 py-6">Crear cuenta</p>
+                                <p class="flex justify-center bg-blue-medium-light shadow-lg rounded-t-lg text-xs text-white uppercase font-bold select-none px-2 py-6">Crear cuenta</p>
                             @else
-                                <a href="{{ route('register') }}" class="flex justify-center text-white bg-blue-medium-dark rounded-t-lg text-xs hover:bg-blue-dark uppercase font-bold px-2 py-6">Crear Cuenta</a>
+                                <a href="{{ route('register') }}" class="flex justify-center bg-green-medium-dark rounded-t-lg text-xs hover:bg-green-dark uppercase font-bold px-2 py-6">Crear Cuenta</a>
                             @endif
                         </div>
                     @endguest
