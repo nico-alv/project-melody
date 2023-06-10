@@ -15,7 +15,15 @@ class ConcertController extends Controller
 
     public function index()
     {
-        return view('layout.dashboard');
+        $user = auth()->user();
+        if ($user->role == "Administrador") {
+            $concerts = Concert::getConcerts();
+            return view('admin.dashboard', [
+                'concerts' => $concerts,
+            ]);
+        } else {
+            return view('client.dashboard');
+        }
     }
 
     public function create()
@@ -41,4 +49,12 @@ class ConcertController extends Controller
         toastr()->success('El concierto fue creado con éxito', 'Concierto creado!');
         return redirect()->route('dashboard');
     }
+    public function myConcerts()
+    {
+        // dd(auth()->user());
+        return view('client.my_concerts', [
+            'user' => auth()->user()
+        ]);
+    }
+
 }
