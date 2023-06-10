@@ -14,11 +14,11 @@ return new class extends Migration
         //No se va a usar esta iteracion
         Schema::create('ticket_reservations', function (Blueprint $table) {
             $table->id('reservation_id')->unique();
-            $table->integer('user_id');
-            $table->integer('concert_id');
             $table->string('payment_method');
             $table->integer('ticket_quantity');
             $table->timestamp('purchase_date');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('concert_id')->constrained('concerts');
         });
     }
 
