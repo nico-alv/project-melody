@@ -8,9 +8,6 @@
 @section('content')
     @if (auth()->user()->role === 'Usuario')
         {{-- Opciones Cliente --}}
-
-
-
     @endif
     @if (auth()->user()->role === 'Administrador')
         <div class="md:flex-col md:justify-center bg-gray-800 p-6 rounded-lg shadow-lg ">
@@ -25,3 +22,4 @@
         </div>
     @endif
 @endsection
+
