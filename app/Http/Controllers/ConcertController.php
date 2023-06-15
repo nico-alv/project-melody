@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Concert;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class ConcertController extends Controller
 {
@@ -17,7 +18,10 @@ class ConcertController extends Controller
     {
         $user = auth()->user();
         if ($user->role == "Administrador") {
-            $concerts = Concert::getConcerts();
+            $currentDate = Carbon::now()->format('Y-m-d');
+
+            $concerts = Concert::where('date', '>=', $currentDate)->orderBy('date', 'asc')->get();
+
             return view('admin.dashboard', [
                 'concerts' => $concerts,
             ]);
@@ -40,6 +44,7 @@ class ConcertController extends Controller
             'stock' => ['required', 'numeric', 'between:100,400'],
             'date' => ['required', 'unique:concerts,date', 'date', 'after:' . now()->format('d-m-Y')]
         ], $messages);
+
         Concert::create([
             'concert_name' => $request->concert_name,
             'price' => $request->price,
@@ -47,14 +52,46 @@ class ConcertController extends Controller
             'date' => $request->date
         ]);
         toastr()->success('El concierto fue creado con éxito', 'Concierto creado');
+
         return redirect()->route('dashboard');
     }
+
+    public function searchDate(Request $request)
+    {
+        $messages = makeMessages();
+        $this->validate($request, [
+            'date_search' => ['required']
+        ], $messages);
+
+        $date = date($request->date_search);
+        if ($date == null) {
+            $concerts = Concert::getConcerts();
+            return view('client.index', [
+                'concerts' => $concerts,
+            ]);
+        } else {
+            $concerts = Concert::where('date', "=", $date)->simplePaginate(1);
+            return view('client.index', [
+                'concerts' => $concerts
+            ]);
+        }
+    }
+
+    public function concertsList()
+    {
+        $currentDate = Carbon::now()->format('Y-m-d');
+
+        $concerts = Concert::where('date', '>=', $currentDate)->orderBy('date', 'asc')->get();
+
+        return view('client.index', [
+            'concerts' => $concerts,
+        ]);
+    }
+
     public function myConcerts()
     {
-        // dd(auth()->user());
         return view('client.my_concerts', [
             'user' => auth()->user()
         ]);
     }
-
 }

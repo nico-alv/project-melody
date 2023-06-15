@@ -9,7 +9,7 @@
         <h2 class="text-center text-white uppercase font-bold text-3xl p-6">Selecciona una opción</h2>
         <div class="md:flex md:justify-evenly">
             <div>
-                <a href="https://www.youtube.com/playlist?list=PLzmzDS3JCHZ-yV3ZL47b_fanch7ICExU6"
+                <a href="{{ route('concert.list') }}"
                     class="text-center text-black font-bold p-3 bg-blue-500 rounded hover:bg-blue-800 transition">Ver conciertos</a>
             </div>
 

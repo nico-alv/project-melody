@@ -72,5 +72,5 @@
     </div>
 </body>
 @yield('alert')
-
+@yield('script')
 </html>
