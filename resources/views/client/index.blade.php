@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('title')
-    Home
+    Conciertos
 @endsection
 
 @push('styles')
@@ -13,89 +13,130 @@
 
 @section('content')
 
+
 <form action="{{ route('concert.search') }}" method="POST" class="my-12">
     @csrf
-    <div class="flex items-center">
-        <label for="date" class="sr-only">Search</label>
-        <div class="relative w-full">
-            <input type="date" name="date_search"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-        </div>
-        <button type="submit"
-            class="p-2.5 ml-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-            </svg>
-            <span class="sr-only">Search</span>
-        </button>
+    <div class="flex justify-center">
 
-        <a type="button" href={{ route('concert.list') }}
-            class="p-2.5 ml-2 text-sm font-medium text-white bg-amber-500 rounded-lg hover:bg-amber-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-refresh hover:animate-spin" width="22"
-                height="22" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
-                <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
-            </svg>
-            <span class="sr-only">Search</span>
+        <!-- Fechas -->
+        <label for="date" class="my-auto pr-2 font-medium">Seleccione una fecha:</label>
+        <div class="flex justify-center">
+            <input type="date" id="date_search" name="date_search" min="{{ date('Y-m-d') }}"
+            class="pl-10 p-2.5 rounded-lg border border-black-medium-light text-sm">
+        </div>
+
+        <!-- Boton buscar -->
+        <div class="flex justify-center" title="Buscar fecha">
+            <div class="ml-1.5 flex justify-center rounded-lg bg-yellow-medium-dark hover:bg-yellow-dark">
+                <button type="submit"  class="p-3 text-sm font-medium text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- Boton refresh -->
+        <div class="flex justify-center" title="Refrescar página">
+            <div class="ml-1.5 flex justify-center rounded-lg bg-orange-medium-light hover:bg-orange-medium-dark">
+                <a id="refresh_button" type="button" href={{ route('concert.list') }}
+                class="p-3 text-sm font-medium text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-refresh width="20"
+                    height="20" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
+                    <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
+                </svg>
         </a>
+            </div>
+        </div>
     </div>
-    @error('date_search')
-        <p class="bg-red-500 text-white my-2 rounded-lg text-lg text-center p-2">
-            {{ $message }}</p>
-    @enderror
 </form>
     @if ($concerts->count() >0)
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 ml-3">
+    <div class="mx-32">
+        <div class="grid grid-cols-3">
+
             @foreach ($concerts as $concert)
 
-                <div class="w-full max-w-xs bg-white border border-gray-200 rounded-lg shadow">
-                    <a href="#">
-                        <img class="p-8 rounded-t-lg" src="{{ asset('img/default-concert.png') }}" alt="imagen concierto" />
-                    </a>
-                    <div class="px-5 pb-5">
+                    <div class="p-2">
+
+                        <div class="w-9/12 max-w-xs mx-auto pb-2 bg-white rounded-lg border border-blue-dark">
+
+                        <img class="p-5 rounded-t-lg" src="{{ asset('img/default-concert.png') }}" alt="imagen concierto" />
                         <a href="#">
-                            <h5 class="text-xl font-bold tracking-tight">
+                            <h5 class="flex justify-center text-lg font-bold">
                                 {{ $concert->concert_name }}
                             </h5>
                         </a>
 
-                        <p class="text-xl font-bold tracking-tight text-gray-900 dark:text-white uppercase">
-                            Fecha: {{ date('d/m/Y', strtotime($concert->date)) }}
+                        <p class="flex justify-center text-base tracking-tighter font-medium">
+
+                            @php
+                                $dateTime = DateTime::createFromFormat('Y-m-d', $concert->date);
+                                $dia = $dateTime->format('d');
+                                $mes = $dateTime->format('F');
+                                $mesesEnEspanol = [
+                                    'January' => 'enero', 'February' => 'febrero', 'March' => 'marzo', 'April' => 'abril', 'May' => 'mayo',
+                                    'June' => 'junio', 'July' => 'julio', 'August' => 'agosto', 'September' => 'septiembre', 'October' => 'octubre',
+                                    'November' => 'noviembre', 'December' => 'diciembre',
+                                ];
+                                $mesEnEspanol = $mesesEnEspanol[$mes];
+                                $fechaFormateada = $dia . ' de ' . $mesEnEspanol;
+                            @endphp
+
+                        Día: {{ $fechaFormateada }}
                         </p>
 
-                        <p class="text-sm font-bold tracking-tight text-gray-900 uppercase">
-                            Stock: {{ $concert->stock }}
+                        <p class="flex justify-center text-base tracking-tighter font-medium">
+                            Entradas disponibles: {{ $concert->stock }}
                         </p>
 
-                        <div class="flex items-center justify-between">
-                            <span class="text-3xl font-bold text-gray-900">
-                                {{ '$' . $concert->price }}
+                        <div class=" text-base tracking-tighter font-semibold mt-2">
+                            <span class="flex justify-center">
+                                {{ 'Valor de la entrada: $' . number_format($concert->price, 0, ',', '.') }}
                             </span>
+                        </div>
 
-                            @if ($concert->stock > 0)
-                            <a href="{{ route('concert.order', ['id' => $concert->id]) }}"
-                                class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 mx-auto"
-                                type="submit">
-                                Comprar Entrada
-                            </a>
+                        @if ($concert->stock > 0)
+                        <div class="flex justify-center mt-2">
+                            <div class="flex justify-center rounded-lg bg-green-medium-dark hover:bg-green-dark">
+                                <a href="{{ route('concert.order', ['id' => $concert->id]) }}"
+                                    class="text-white font-medium text-base px-5 py-2 text-center"
+                                    type="submit">
+                                    Comprar Entrada
+                                </a>
+                            </div>
+                        </div>
+
                         @else
-                            <button href="#" id="add-concert"
-                                class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 cursor-not-allowed disabled: opacity-75 ">
+                        <div class="flex justify-center mt-2 ">
+                            <div class="flex justify-center rounded-lg bg-black-medium-dark opacity-75 px-5">
+                                <button href="#" id="add-concert"
+                                class="text-white font-medium text-base px-5 py-2 text-center cursor-not-allowed">
                                 Agotado
                             </button>
-                        @endif
+                            </div>
                         </div>
+                        @endif
                     </div>
                 </div>
             @endforeach
         </div>
+    </div>
     @else
-        <p class="text-2xl text-white text-center font-bold">No hay conciertos por mostrar</p>
+        @if (isset($errorMessage))
+            <p class="text-2xl text-white text-center font-bold">
+                {{ $errorMessage }}
+            </p>
+        @else
+            <p class="text-2xl text-white text-center font-bold">
+                No hay conciertos en sistema. Intente más tarde.
+            </p>
+        @endif
     @endif
 
 @endsection
-

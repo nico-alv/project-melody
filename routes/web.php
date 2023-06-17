@@ -37,7 +37,7 @@ Route::get('/dashboard', [ConcertController::class, 'index'])->name('dashboard')
 //Rutas de conciertos
 Route::post('/concert', [ConcertController::class, 'store'])->name('concert');
 Route::get('concert', [ConcertController::class, 'create'])->name('concert.create');
-Route::post('concert-search', [ConcertController::class, 'searchDate'])->name('concert.search');
+Route::post('/concert-list', [ConcertController::class, 'searchDate'])->name('concert.search');
 Route::get('/concert-list', [ConcertController::class, 'concertsList'])->name('concert.list');
 
 //ruta detalle de compras
