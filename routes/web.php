@@ -1,6 +1,11 @@
 <?php
 
+use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ConcertController;
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +19,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return redirect()->route('dashboard');
+})->middleware('auth')->name('welcome');
+
+// Rutas de registro
+Route::get('register', [RegisterController::class, 'index'])->middleware('guest')->name('register');
+Route::post('/register', [RegisterController::class, 'store']);
+
+//Rutas del registro de conciertos
+Route::get('/dashboard', [ConcertController::class, 'index'])->name('dashboard');
+Route::post('/concert', [ConcertController::class, 'store'])->name('concert');
+Route::get('concert', [ConcertController::class, 'create'])->name('concert.create');
+
+//Rutas para Login
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
+Route::post('/login', [LoginController::class, 'store']);
+Route::post('/logout', [LogoutController::class, 'store'])->middleware('auth')->name('logout');
