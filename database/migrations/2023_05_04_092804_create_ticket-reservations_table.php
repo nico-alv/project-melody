@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //No se va a usar esta iteracion
         Schema::create('ticket_reservations', function (Blueprint $table) {
-            $table->id('reservation_id')->unique();
-            $table->string('payment_method');
+            $table->id()->unique();
+            $table->string('reservation_number');
             $table->integer('ticket_quantity');
-            $table->timestamp('purchase_date');
+            $table->string('payment_method');
+            $table->integer('total');
+            $table->date('purchase_date');
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('concert_id')->constrained('concerts');
+            $table->timestamps();
         });
     }
 

@@ -9,9 +9,10 @@ class Ticket_reservation extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'reservation_id',
-        'payment_method',
+        'reservation_number',
         'ticket_quantity',
+        'payment_method',
+        'total',
         'purchase_date',
         'user_id',
         'concert_id'
@@ -19,6 +20,9 @@ class Ticket_reservation extends Model
     public function concertDate(){
         return $this->belongsTo(Concert::class,'concert_id');
     }
-
+    public function ticket()
+    {
+        return $this->hasOne(Ticket::class, 'ticket_reservation_id');
+    }
 
 }

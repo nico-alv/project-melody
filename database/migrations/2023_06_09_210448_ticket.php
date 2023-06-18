@@ -12,12 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         //
-        Schema::create('ticket', function (Blueprint $table) {
+        Schema::create('tickets', function (Blueprint $table) {
             $table->id()->unique();
+            $table->string('pdf_name');
+            $table->string('path');
+            $table->foreignId('ticket_reservation_id')->constrained('ticket_reservations');
             $table->date('date');
-            $table->string('uri');
             $table->timestamps();
-            $table->foreignId('Ticket_reservationid')->constrained('Ticket_reservations');
         });
 
     }
