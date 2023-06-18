@@ -34,13 +34,18 @@
                 <th scope="col" class="px-6 py-3 bg-orange-light">
                     medio de pago
                 </th>
+                <th scope="col" class="px-6 py-3 bg-orange-light">
+                    <p class="text-center">
+                        Descargar
+                    </p>
+                </th>
             </tr>
         </thead>
         <tbody>
             @foreach ($user->concertsClient as $concert)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white ">
-                        {{$concert -> reservation_id }}
+                    <td class="px-6 py-4">
+                        {{ $concert -> reservation_number }}
                     </td>
                     <td class="px-6 py-4">
                         {{ $concert -> concertDate -> concert_name  }}
@@ -63,6 +68,13 @@
                     </td>
                     <td class="px-6 py-4">
                         {{ $concert -> payment_method  }}
+                    </td>
+                    <td class="px-6 py-4">
+                        <a class="w-auto h-auto" href="{{ route('pdf.descargar', ['id' => $concert->ticket->id]) }}">
+                            <p class="bg-yellow-medium-light rounded-full text-center text-black-dark font-semibold">
+                                descargar detalle
+                            </p>
+                        </a>
                     </td>
                 </tr>
             @endforeach
