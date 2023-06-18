@@ -20,7 +20,7 @@ class ConcertController extends Controller
         if ($user->role == "Administrador") {
             $currentDate = Carbon::now()->format('Y-m-d');
 
-            $concerts = Concert::where('date', '>=', $currentDate)->orderBy('date', 'asc')->get();
+            $concerts = Concert::where('date', '>', $currentDate)->orderBy('date', 'asc')->get();
 
             return view('admin.dashboard', [
                 'concerts' => $concerts,
@@ -63,7 +63,7 @@ class ConcertController extends Controller
 
         $currentDate = Carbon::now()->format('Y-m-d');
 
-        $concerts = Concert::where('date', '>=', $currentDate)->orderBy('date', 'asc');
+        $concerts = Concert::where('date', '>', $currentDate)->orderBy('date', 'asc');
 
         if (!empty($date)) {
             $concerts->whereDate('date', $date);
