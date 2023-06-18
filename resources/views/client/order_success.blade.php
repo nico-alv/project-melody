@@ -5,84 +5,44 @@
 @endsection
 
 @section('content')
-    <div class="max-w-xl mx-auto my-4 border-b-2 pb-4 bg-gray-100 rounded p-4 mb-8">
-        <div class="flex pb-3">
-            <div class="flex-1">
-            </div>
+    <div class="max-w-lg mx-auto my-4 border-b-1 pb-4 bg-yellow-medium-light rounded p-8 mb-6">
+        <div>
+            <h2 class="sr-only">Pasos</h2>
+            <div
+            class="relative after:absolute after:inset-x-0 after:top-1/2 after:block after:h-0.5 after:-translate-y-1/2 after:rounded-lg after:bg-black"
+            >
+            <ol
+                class="relative z-10 flex justify-between text-basefont-medium text-black"
+            >
+                <li class="flex items-center gap-2 bg-yellow-medium-light p-2">
+                <span
+                    class="h-6 w-6 rounded-full bg-yellow-medium-dark text-center text-[10px]/6 font-bold text-white">
+                    1
+                </span>
 
-            <div class="flex-1">
-                <div class="w-10 h-10 bg-green-500 mx-auto rounded-full text-lg text-white flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="28"
-                        height="28" viewBox="0 0 24 24" stroke-width="3" stroke="#000000" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M5 12l5 5l10 -10" />
-                    </svg>
-                </div>
-            </div>
+                <span class="hidden sm:block font-semibold"> Selección </span>
+                </li>
 
+                <li class="flex items-center gap-2 bg-yellow-medium-light p-2">
+                <span
+                    class="h-6 w-6 rounded-full bg-yellow-medium-dark text-center text-[10px]/6 font-bold text-white">
+                    2
+                </span>
 
-            <div class="w-1/4 align-center items-center align-middle content-center flex">
-                <div class="w-full bg-green-400 rounded items-center align-middle align-center flex-1">
-                    <div class="bg-green-light text-xs leading-none py-1 text-center text-grey-darkest rounded "
-                        style="width: 100%"></div>
-                </div>
-            </div>
-
-
-            <div class="flex-1">
-                <div
-                    class="w-10 h-10 bg-green-500 mx-auto rounded-full text-lg text-white flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="28"
-                        height="28" viewBox="0 0 24 24" stroke-width="3" stroke="#000000" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M5 12l5 5l10 -10" />
-                    </svg>
-                </div>
-            </div>
-
-            <div class="w-1/4 align-center items-center align-middle content-center flex">
-                <div class="w-full bg-green-400 rounded items-center align-middle align-center flex-1">
-                    <div class="bg-green-light text-xs leading-none py-1 text-center text-grey-darkest rounded "
-                        style="width: 100%"></div>
-                </div>
-            </div>
-
-            <div class="flex-1">
-                <div
-                    class="w-10 h-10 bg-green-500 mx-auto rounded-full text-lg text-white flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="28"
-                        height="28" viewBox="0 0 24 24" stroke-width="3" stroke="#000000" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M5 12l5 5l10 -10" />
-                    </svg>
-                </div>
-            </div>
-
-            <div class="flex-1">
-            </div>
-
-        </div>
-
-        <div class="flex text-xs content-center text-center">
-            <div class="w-1/3">
-                <h3 class="status-font font-semibold text-lg">Selecciona tu concierto</h3>
-            </div>
-
-            <div class="w-1/3">
-                <h3 class="status-font font-semibold text-lg">Método de pago</h3>
-            </div>
-
-            <div class="w-1/3">
-                <h3 class="status-font font-semibold text-lg">Detalle</h3>
+                <span class="hidden sm:block font-semibold"> Forma de pago </span>
+                </li>
+                <li class="flex items-center gap-2 bg-yellow-medium-light p-2">
+                <span
+                    class="h-6 w-6 rounded-full bg-green-medium-dark text-center text-[10px]/6 font-bold text-white">
+                    3
+                </span>
+                <span class="hidden sm:block font-semibold"> Detalle </span>
+                </li>
+            </ol>
             </div>
         </div>
     </div>
 
-
-    {{-- Detalle de la compra --}}
     <div class="flex flex-col items-center">
         <div class="w-1/3 bg-orange-light border border-orange-dark rounded-lg shadow">
             <div class="bg-orange-medium-dark p-10 rounded-t-lg"">
@@ -91,12 +51,11 @@
             </div>
             <div class="flex flex-col px-5 pt-5 pb-1 bg-orange-light">
 
-                {{-- Empieza el contenido de la tabla --}}
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <tbody>
                             <tr
-                                class="bg-orange-medium-light border-b border-orange-dark">
+                                class="bg-white border-b border-orange-dark">
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-black-dark whitespace-nowrap">
                                     Número de reserva
@@ -106,7 +65,7 @@
                                 </td>
                             </tr>
                             <tr
-                                class="bg-orange-medium-light border-b border-orange-dark">
+                                class="bg-white border-b border-orange-dark">
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-black-dark whitespace-nowrap">
                                     Medio de pago
@@ -115,7 +74,7 @@
                                     {{ $ticket_reservation->payment_method }}
                                 </td>
                             </tr>
-                            <tr class="bg-orange-medium-light border-b border-orange-dark">
+                            <tr class="bg-white border-b border-orange-dark">
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-black-dark whitespace-nowrap">
                                     Concierto
@@ -124,7 +83,7 @@
                                     {{ $ticket_reservation->concertDate->concert_name }}
                                 </td>
                             </tr>
-                            <tr class="bg-orange-medium-light border-b border-orange-dark">
+                            <tr class="bg-white border-b border-orange-dark">
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-black-dark whitespace-nowrap">
                                     Cantidad de entradas
@@ -133,7 +92,7 @@
                                     {{ $ticket_reservation->ticket_quantity }}
                                 </td>
                             </tr>
-                            <tr class="bg-orange-medium-light border-b border-orange-dark">
+                            <tr class="bg-white border-b border-orange-dark">
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-black-dark whitespace-nowrap">
                                     Total pagado
