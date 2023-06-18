@@ -59,21 +59,29 @@ class ConcertController extends Controller
 
     public function searchDate(Request $request)
     {
-        $messages = makeMessages();
-        $this->validate($request, [
-            'date_search' => ['required']
-        ], $messages);
 
         $date = date($request->date_search);
-        if ($date == null) {
-            $concerts = Concert::getConcerts();
+
+        $currentDate = Carbon::now()->format('Y-m-d');
+
+        $concerts = Concert::where('date', '>=', $currentDate)->orderBy('date', 'asc');
+
+        if (!empty($date)) {
+            $concerts->whereDate('date', $date);
+        }
+
+        $concerts = $concerts->get();
+
+        if ($concerts->count() > 0) {
             return view('client.index', [
                 'concerts' => $concerts,
+                'date' => $date,
             ]);
         } else {
-            $concerts = Concert::where('date', "=", $date)->simplePaginate(1);
             return view('client.index', [
-                'concerts' => $concerts
+                'concerts' => $concerts,
+                'date' => $date,
+                'errorMessage' => 'No hay conciertos disponibles para la fecha seleccionada. Intenta con otra fecha o recarga la página.',
             ]);
         }
     }
@@ -82,7 +90,11 @@ class ConcertController extends Controller
     {
         $currentDate = Carbon::now()->format('Y-m-d');
 
-        $concerts = Concert::where('date', '>=', $currentDate)->orderBy('date', 'asc')->get();
+        $concerts = Concert::where('date', '>=', $currentDate)->get();
+
+        $concerts = $concerts->sortBy('date')->sortBy(function ($concert) {
+            return $concert->stock > 0 ? 0 : 1;
+        });
 
         return view('client.index', [
             'concerts' => $concerts,
