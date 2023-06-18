@@ -96,6 +96,4 @@ class TicketReservationController extends Controller
     {
         //
     }
-
-
 }

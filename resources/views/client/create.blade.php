@@ -105,18 +105,18 @@
         </div>
 
         <div class="p-4">
-            <div class="flex items-center gap-2">
-                <label for="ticket_quantity" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cantidad de
+            <div class="flex justify-between">
+                <label for="ticket_quantity" class="block my-auto text-sm font-medium text-gray-900 dark:text-white">Cantidad de
                     entradas:</label>
                 <select id="ticket_quantity" name="ticket_quantity"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-2/3 focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option selected value="">--Seleccione las entradas--</option>
                     @for ($i = 1; $i <= $concert->stock; $i++)
                         <option value="{{ $i }}">{{ $i }}</option>
                     @endfor
                 </select>
-
             </div>
+        </div>
             @error('ticket_quantity')
                     <p class="bg-pink-medium-light border border-pink-dark text-white mt-1 px-4 py-2 rounded-full">{{ $message }}</p>
             @enderror
@@ -125,11 +125,11 @@
                     {{ session('message') }}</p>
             @endif
         <div class="p-4">
-            <div class="flex items-center gap-0">
-                <label for="payment_method" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Forma de
-                    pago</label>
+            <div class="flex justify-between">
+                <label for="payment_method" class="block my-auto text-sm font-medium text-gray-900 dark:text-white">Forma de
+                    pago:</label>
                 <select id="payment_method" name="payment_method"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-85 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-2/3 focus:ring-blue-500 focus:border-blue-500 block w-85 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option selected value="">--Seleccione un método de pago--</option>
                     <option value="1">Efectivo</option>
                     <option value="2">Transferencia</option>
@@ -141,7 +141,6 @@
         @error('payment_method')
         <p class="bg-pink-medium-light border border-pink-dark text-white mt-1 px-4 py-2 rounded-full">{{ $message }}</p>
         @enderror
-        </div>
 
         <div class="flex items-center justify-center">
             <h2 class="font-bold text-xl uppercase mr-3">Total</h2>
