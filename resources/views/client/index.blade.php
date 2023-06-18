@@ -64,73 +64,73 @@
 
             @foreach ($concerts as $concert)
 
-                    <div class="p-2">
+                <div class="p-2">
 
-                        <div class="w-9/12 max-w-xs mx-auto pb-2 bg-white rounded-lg border border-blue-dark">
+                    <div class="w-9/12 max-w-xs mx-auto bg-white rounded-lg border border-blue-dark">
                         @if ($concert->stock > 0)
                             <img class="p-5 rounded-t-lg" src="{{ asset('img/default-concert.png') }}" alt="imagen concierto" />
                         @else
-                            <div class="relative">
+                            <div class="relative ">
                                 <img class="p-5 rounded-t-lg" src="{{ asset('img/default-concert.png') }}" alt="imagen concierto" />
-                                <img src="{{ asset('img/soldout.png') }}" alt="Sold Out" class="absolute bottom-14 right-0 ">
+                                <img src="{{ asset('img/soldout.png') }}" alt="Sold Out" class="absolute bottom-14 right-0 rotate-45 ">
                             </div>
                         @endif
 
-                            <a href="#">
-                            <h5 class="flex justify-center text-lg font-bold">
-                                {{ $concert->concert_name }}
-                            </h5>
-                        </a>
-
-                        <p class="flex justify-center text-base tracking-tighter font-medium">
-
-                            @php
-                                $dateTime = DateTime::createFromFormat('Y-m-d', $concert->date);
-                                $day = $dateTime->format('d');
-                                $month = $dateTime->format('F');
-                                $translate = [
-                                    'January' => 'enero', 'February' => 'febrero', 'March' => 'marzo', 'April' => 'abril', 'May' => 'mayo',
-                                    'June' => 'junio', 'July' => 'julio', 'August' => 'agosto', 'September' => 'septiembre', 'October' => 'octubre',
-                                    'November' => 'noviembre', 'December' => 'diciembre',
-                                ];
-                                $translate = $translate[$month];
-                                $ff = $day . ' de ' . $translate;
-                            @endphp
-
-                        Día: {{ $ff }}
-                        </p>
-
-                        <p class="flex justify-center text-base tracking-tighter font-medium">
-                            Entradas disponibles: {{ $concert->stock }}
-                        </p>
-
-                        <div class=" text-base tracking-tighter font-semibold mt-2">
-                            <span class="flex justify-center">
-                                {{ 'Valor de la entrada: $' . number_format($concert->price, 0, ',', '.') }}
-                            </span>
+                        <div class="bg-yellow-medium-light">
+                            <p class="flex justify-center text-lg font-bold">{{ $concert->concert_name }}</p>
                         </div>
+                        <div class="bg-yellow-light pb-2 rounded-b-lg">
 
-                        @if ($concert->stock > 0)
-                        <div class="flex justify-center mt-2">
-                            <div class="flex justify-center rounded-lg bg-green-medium-dark hover:bg-green-dark">
-                                <a href="{{ route('concert.order', ['id' => $concert->id]) }}"
-                                    class="text-white font-medium text-base px-5 py-2 text-center"
-                                    type="submit">
-                                    Comprar Entrada
-                                </a>
+                            <p class="flex justify-center text-base tracking-tighter font-medium">
+
+                                @php
+                                    $dateTime = DateTime::createFromFormat('Y-m-d', $concert->date);
+                                    $day = $dateTime->format('d');
+                                    $month = $dateTime->format('F');
+                                    $translate = [
+                                        'January' => 'enero', 'February' => 'febrero', 'March' => 'marzo', 'April' => 'abril', 'May' => 'mayo',
+                                        'June' => 'junio', 'July' => 'julio', 'August' => 'agosto', 'September' => 'septiembre', 'October' => 'octubre',
+                                        'November' => 'noviembre', 'December' => 'diciembre',
+                                    ];
+                                    $translate = $translate[$month];
+                                    $ff = $day . ' de ' . $translate;
+                                @endphp
+
+                            Día: {{ $ff }}
+                            </p>
+
+                            <p class="flex justify-center text-base tracking-tighter font-medium">
+                                Entradas disponibles: {{ $concert->stock }}
+                            </p>
+
+                            <div class=" text-base tracking-tighter font-semibold mt-2">
+                                <span class="flex justify-center">
+                                    {{ 'Valor de la entrada: $' . number_format($concert->price, 0, ',', '.') }}
+                                </span>
                             </div>
-                        </div>
 
-                        @else
-                        <div class="flex justify-center mt-2 ">
-                            <div class="flex justify-center rounded-lg bg-black-medium-dark opacity-75 px-5">
-                                <button href="#" id="add-concert"
-                                class="text-white font-medium text-base px-5 py-2 text-center cursor-not-allowed">
-                                Agotado
-                            </button>
+                            @if ($concert->stock > 0)
+                            <div class="flex justify-center mt-2">
+                                <div class="flex justify-center rounded-lg bg-green-medium-dark hover:bg-green-dark">
+                                    <a href="{{ route('concert.order', ['id' => $concert->id]) }}"
+                                        class="text-white font-medium text-base px-5 py-2 text-center"
+                                        type="submit">
+                                        Comprar Entrada
+                                    </a>
+                                </div>
                             </div>
+
+                            @else
+                            <div class="flex justify-center mt-2 ">
+                                <div class="flex justify-center rounded-lg bg-black-light px-5">
+                                    <button href="#" id="add-concert"
+                                    class="text-white font-medium text-base px-5 py-2 text-center cursor-not-allowed">
+                                    Agotado
+                                </button>
+                                </div>
+                            </div>
+                            @endif
                         </div>
-                        @endif
                     </div>
                 </div>
             @endforeach
