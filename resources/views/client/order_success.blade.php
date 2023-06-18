@@ -41,6 +41,7 @@
             </ol>
             </div>
         </div>
+
     </div>
 
     <div class="flex flex-col items-center">
@@ -106,7 +107,7 @@
                 </div>
 
                 <a href="{{ route('pdf.descargar', ['id' => $ticket->id]) }}"
-                    class="inline-flex items-center mx-auto my-4 px-3 py-2 text-sm font-medium text-center bg-green-medium-dark hover:bg-green-dark rounded-lg ">
+                    class="inline-flex items-center mx-auto my-4 px-3 py-2 text-sm font-medium text-center bg-green-medium-light hover:bg-green-medium-dark rounded-lg ">
                     Descargar Comprobante
                     <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
@@ -118,7 +119,7 @@
             </div>
             <div class="flex items-center justify-center p-6 border-t bg-orange-light rounded-b-lg border-orange-dark ">
                 <div class="flex justify-center">
-                    <div class="flex justify-center rounded-lg bg-yellow-medium-dark hover:bg-yellow-dark">
+                    <div class="flex justify-center rounded-lg bg-yellow-medium-light hover:bg-yellow-medium-dark">
                         <a href="{{ route('dashboard') }}" type="button"
                             class="font-medium text-sm px-5 py-2.5">
                             Finalizar

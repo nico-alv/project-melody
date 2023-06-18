@@ -29,7 +29,7 @@
 
         <!-- Boton buscar -->
         <div class="flex justify-center" title="Buscar fecha">
-            <div class="ml-1.5 flex justify-center rounded-lg bg-yellow-medium-dark hover:bg-yellow-dark">
+            <div class="ml-1.5 flex justify-center rounded-lg bg-yellow-medium-light hover:bg-yellow-medium-dark">
                 <button type="submit"  class="p-3 text-sm font-medium text-white">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +43,7 @@
 
         <!-- Boton refresh -->
         <div class="flex justify-center" title="Refrescar página">
-            <div class="ml-1.5 flex justify-center rounded-lg bg-green-medium-dark hover:bg-green-dark">
+            <div class="ml-1.5 flex justify-center rounded-lg bg-green-medium-light hover:bg-green-medium-dark">
                 <a id="refresh_button" type="button" href={{ route('concert.list') }}
                 class="p-3 text-sm font-medium text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-refresh width="20"

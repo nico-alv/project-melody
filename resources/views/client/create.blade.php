@@ -42,6 +42,7 @@
               </ol>
             </div>
           </div>
+
     </div>
 
 
@@ -115,7 +116,7 @@
 
         <div class="flex items-center justify-center p-6 space-x-2 rounded-b dark:border-gray-600">
             <div class="flex justify-center">
-                <div class="flex justify-center rounded-lg bg-green-medium-dark hover:bg-green-dark">
+                <div class="flex justify-center rounded-lg bg-green-medium-light hover:bg-green-medium-dark">
                     <button id="button" type="button"
                         class="font-medium text-sm px-5 py-2.5">
                         Finalizar compra
@@ -124,7 +125,7 @@
             </div>
 
             <div class="flex justify-center">
-                <div class="flex justify-center rounded-lg bg-yellow-medium-dark hover:bg-yellow-dark">
+                <div class="flex justify-center rounded-lg bg-yellow-medium-light hover:bg-yellow-medium-dark">
                     <a href="{{ route('concert.list') }}" type="button"
                         class="font-medium text-sm px-5 py-2.5">
                         Volver
