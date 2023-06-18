@@ -3,7 +3,9 @@
 @section('title')
     Conciertos
 @endsection
-
+@section('title-page')
+    Próximos conciertos
+@endsection
 @push('styles')
     @vite(['resources/css/fonts.css', 'resources/css/order-status.css'])
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,13 +18,13 @@
 
 <form action="{{ route('concert.search') }}" method="POST" class="my-12">
     @csrf
-    <div class="flex justify-center">
+    <div class="flex justify-center bg-orange-medium-light py-4">
 
         <!-- Fechas -->
         <label for="date" class="my-auto pr-2 font-medium">Seleccione una fecha:</label>
         <div class="flex justify-center">
             <input type="date" id="date_search" name="date_search" min="{{ date('Y-m-d') }}"
-            class="pl-10 p-2.5 rounded-lg border border-black-medium-light text-sm">
+            class="pl-10 p-2.5 rounded-lg border bg-orange-medium-light brightness-105 border-black-medium-light text-sm">
         </div>
 
         <!-- Boton buscar -->
@@ -41,7 +43,7 @@
 
         <!-- Boton refresh -->
         <div class="flex justify-center" title="Refrescar página">
-            <div class="ml-1.5 flex justify-center rounded-lg bg-orange-medium-light hover:bg-orange-medium-dark">
+            <div class="ml-1.5 flex justify-center rounded-lg bg-green-medium-dark hover:bg-green-dark">
                 <a id="refresh_button" type="button" href={{ route('concert.list') }}
                 class="p-3 text-sm font-medium text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-refresh width="20"
@@ -65,9 +67,16 @@
                     <div class="p-2">
 
                         <div class="w-9/12 max-w-xs mx-auto pb-2 bg-white rounded-lg border border-blue-dark">
+                        @if ($concert->stock > 0)
+                            <img class="p-5 rounded-t-lg" src="{{ asset('img/default-concert.png') }}" alt="imagen concierto" />
+                        @else
+                            <div class="relative">
+                                <img class="p-5 rounded-t-lg" src="{{ asset('img/default-concert.png') }}" alt="imagen concierto" />
+                                <img src="{{ asset('img/soldout.png') }}" alt="Sold Out" class="absolute bottom-14 right-0 ">
+                            </div>
+                        @endif
 
-                        <img class="p-5 rounded-t-lg" src="{{ asset('img/default-concert.png') }}" alt="imagen concierto" />
-                        <a href="#">
+                            <a href="#">
                             <h5 class="flex justify-center text-lg font-bold">
                                 {{ $concert->concert_name }}
                             </h5>
@@ -77,18 +86,18 @@
 
                             @php
                                 $dateTime = DateTime::createFromFormat('Y-m-d', $concert->date);
-                                $dia = $dateTime->format('d');
-                                $mes = $dateTime->format('F');
-                                $mesesEnEspanol = [
+                                $day = $dateTime->format('d');
+                                $month = $dateTime->format('F');
+                                $translate = [
                                     'January' => 'enero', 'February' => 'febrero', 'March' => 'marzo', 'April' => 'abril', 'May' => 'mayo',
                                     'June' => 'junio', 'July' => 'julio', 'August' => 'agosto', 'September' => 'septiembre', 'October' => 'octubre',
                                     'November' => 'noviembre', 'December' => 'diciembre',
                                 ];
-                                $mesEnEspanol = $mesesEnEspanol[$mes];
-                                $fechaFormateada = $dia . ' de ' . $mesEnEspanol;
+                                $translate = $translate[$month];
+                                $ff = $day . ' de ' . $translate;
                             @endphp
 
-                        Día: {{ $fechaFormateada }}
+                        Día: {{ $ff }}
                         </p>
 
                         <p class="flex justify-center text-base tracking-tighter font-medium">
