@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Voucher extends Model
+class Ticket extends Model
 {
     use HasFactory;
     protected $fillable = [
         'pdf_name',
         'path',
         'date',
-        'detail_order_id'
+        'ticket_reservation_id'
     ];
 
 }

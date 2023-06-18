@@ -24,6 +24,36 @@ function makeMessages()
         'name.regex' => 'El nombre contiene carácteres no permitidos, ingrese solo letras.',
         'password.regex' => 'La contraseña ingresada no es alfanumérica.',
         'date.after' => 'La fecha debe ser mayor a ' . now()->format('d-m-Y') . '.',
-        'date.unique' => 'Ya existe un concierto para el día ingresado.'
+        'date.unique' => 'Ya existe un concierto para el día ingresado.',
+        'ticket_quantity' => 'La cantidad de entradas ingresadas no es
+        numérica o supera las entradas disponibles a comprar.',
+        'payment_method' => 'El campo forma de pago es requerido.'
     ];
+}
+
+function verifyStock($id, $quantity)
+{
+    $concert = Concert::find($id);
+
+    if ($quantity > $concert->stock) {
+        return false;
+    }
+    return true;
+}
+
+function discountStock($id, $quantity)
+{
+    $concert = Concert::find($id);
+
+    $concert->stock -= $quantity;
+    $concert->save();
+    return true;
+}
+
+function generateReservationNumber()
+{
+    do {
+        $number = mt_rand(1000, 9999);
+    } while (substr($number, 0, 1) === '0');
+    return $number;
 }

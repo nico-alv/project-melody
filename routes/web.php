@@ -6,6 +6,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ConcertController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TicketReservationController;
+use App\Http\Controllers\TicketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,4 +46,14 @@ Route::get('/concert-list', [ConcertController::class, 'concertsList'])->name('c
 Route::get('/my-concerts', [ConcertController::class, 'myConcerts'])->name('client.concerts');
 
 // Order Concerts
-Route::get('/concert-order/{id}', [TickerReservationController::class, 'create'])->name('concert.order');
+Route::get('/concert-order/{id}', [TicketReservationController::class, 'create'])->name('concert.order');
+
+// Order Concerts
+Route::get('/concert-order/{id}', [TicketReservationController::class, 'create'])->name('concert.order');
+Route::post('/concert-order/{id}', [TicketReservationController::class, 'store'])->name('concert.order.pay');
+Route::get('/my-concerts', [ConcertController::class, 'myConcerts'])->name('client.concerts');
+
+// Ticket
+Route::get('/detail-order/{id}', [TicketController::class, 'generatePDF'])->name('generate.pdf');
+Route::get('descargar-pdf/{id}', [TicketController::class, 'downloadPDF'])->name('pdf.descargar');
+Route::get('/pdf', [TicketController::class, 'pdf'])->name('pdf.example');
