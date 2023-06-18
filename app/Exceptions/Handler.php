@@ -11,7 +11,18 @@ class Handler extends ExceptionHandler
      * A list of exception types with their corresponding custom log levels.
      *
      * @var array<class-string<\Throwable>, \Psr\Log\LogLevel::*>
+     *
+     *
      */
+    public function render($request, Throwable $exception)
+    {
+        if($exception instanceof NotFoundHttpException){
+            return redirect()->route('error-404');
+        }
+        return parent::render($request, $exception);
+    }
+
+
     protected $levels = [
         //
     ];

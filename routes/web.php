@@ -57,3 +57,8 @@ Route::get('/my-concerts', [ConcertController::class, 'myConcerts'])->name('clie
 Route::get('/detail-order/{id}', [TicketController::class, 'generatePDF'])->name('generate.pdf');
 Route::get('descargar-pdf/{id}', [TicketController::class, 'downloadPDF'])->name('pdf.descargar');
 Route::get('/pdf', [TicketController::class, 'pdf'])->name('pdf.example');
+
+//Error 404
+Route::get('/error-404', function(){
+    return view('errors.404');
+})->name('error-404');
