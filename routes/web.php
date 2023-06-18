@@ -53,7 +53,7 @@ Route::get('/concert-order/{id}', [TicketReservationController::class, 'create']
 Route::post('/concert-order/{id}', [TicketReservationController::class, 'store'])->name('concert.order.pay');
 Route::get('/my-concerts', [ConcertController::class, 'myConcerts'])->name('client.concerts');
 
-// Voucher
+// Ticket
 Route::get('/detail-order/{id}', [TicketController::class, 'generatePDF'])->name('generate.pdf');
 Route::get('descargar-pdf/{id}', [TicketController::class, 'downloadPDF'])->name('pdf.descargar');
 Route::get('/pdf', [TicketController::class, 'pdf'])->name('pdf.example');

@@ -1,6 +1,7 @@
 @extends('layout.app')
 
 @section('title')
+    Compra realizada
 @endsection
 
 @section('content')
