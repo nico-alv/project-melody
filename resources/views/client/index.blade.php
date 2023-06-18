@@ -122,7 +122,7 @@
 
                             @else
                             <div class="flex justify-center mt-2 ">
-                                <div class="flex justify-center rounded-lg bg-black-light ">
+                                <div class="flex justify-center rounded-lg bg-black-light">
                                     <button href="#" id="add-concert"
                                     class="text-white font-medium text-base px-10 py-2 text-center cursor-not-allowed">
                                     Agotado
