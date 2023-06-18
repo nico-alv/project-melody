@@ -18,4 +18,9 @@ class Concert extends Model
     {
         return self::all();
     }
+    public function save($data)
+    {
+        $this->fill($data);
+        $this->save();
+    }
 }
