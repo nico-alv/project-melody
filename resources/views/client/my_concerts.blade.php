@@ -71,7 +71,7 @@
 </div>
 @endif
 @if ( $count == 0 )
-<p class="bg-blue-500 text-white text-center p-4 rounded-full font-semibold">
+<p class="bg-orange-medium-light text-white text-center p-4 rounded-full font-semibold">
     No hay entradas adquiridas por desplegar
 </p>
 @endif
