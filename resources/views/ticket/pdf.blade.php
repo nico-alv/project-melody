@@ -69,7 +69,7 @@
             <span>{{ $ticket_reservation->reservation_number }}</span>
         </p>
         <p>Concierto:
-            <span>{{ $ticket_reservation->concertDate->name }}</span>
+            <span>{{ $ticket_reservation->concertDate->concert_name }}</span>
         </p>
         <p>Fecha del concierto:
             <span>{{ $ticket_reservation->concertDate->date }}</span>
@@ -78,7 +78,7 @@
             <span>{{ $ticket_reservation->ticket_quantity }}</span>
         </p>
         <p>Valor Entrada:
-            <span>{{ $ticket_reservation->concertDate->price }}</span>
+            <span>{{ '$' . number_format($ticket_reservation->concertDate->price , 0, ',', '.') }}</span>
         </p>
     </div>
     <hr>
@@ -93,7 +93,7 @@
     </div>
     <hr>
     <div class="total">
-        <p class="total-pay">Total pagado: {{ $ticket_reservation->total }}</p>
+        <p class="total-pay">{{ 'Total pagado: $' . number_format($ticket_reservation->total , 0, ',', '.') }}</p>
         <p class="method-pay">{{ $ticket_reservation->payment_method }}</p>
     </div>
 </body>

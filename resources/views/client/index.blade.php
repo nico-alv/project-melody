@@ -53,7 +53,7 @@
                     <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
                     <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
                 </svg>
-        </a>
+                </a>
             </div>
         </div>
     </div>
@@ -122,9 +122,9 @@
 
                             @else
                             <div class="flex justify-center mt-2 ">
-                                <div class="flex justify-center rounded-lg bg-black-light px-5">
+                                <div class="flex justify-center rounded-lg bg-black-light">
                                     <button href="#" id="add-concert"
-                                    class="text-white font-medium text-base px-5 py-2 text-center cursor-not-allowed">
+                                    class="text-white font-medium text-base px-10 py-2 text-center cursor-not-allowed">
                                     Agotado
                                 </button>
                                 </div>
@@ -138,11 +138,11 @@
     </div>
     @else
         @if (isset($errorMessage))
-            <p class="text-2xl text-white text-center font-bold">
+            <p class="text-2xl text-white text-center font-bold bg-blue-medium-dark py-5">
                 {{ $errorMessage }}
             </p>
         @else
-            <p class="text-2xl text-white text-center font-bold">
+            <p class="text-2xl text-white text-center font-bold bg-blue-medium-dark py-5">
                 No hay conciertos en sistema. Intente más tarde.
             </p>
         @endif
