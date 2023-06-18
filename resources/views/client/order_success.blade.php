@@ -84,62 +84,62 @@
 
     {{-- Detalle de la compra --}}
     <div class="flex flex-col items-center">
-        <div class="w-1/3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <div class="bg-cyan-600 p-10 rounded-t-lg"">
-                <p class="text-xl text-white text-center">Tu pago ha sido <br> <span class="font-bold text-2xl">realizado con
-                        éxito</span></p>
+        <div class="w-1/3 bg-orange-light border border-orange-dark rounded-lg shadow">
+            <div class="bg-orange-medium-dark p-10 rounded-t-lg"">
+                <p class="font-bold text-2xl text-white text-center">Tu pago ha sido <br> realizado con
+                        éxito
             </div>
-            <div class="flex flex-col p-5">
+            <div class="flex flex-col px-5 pt-5 pb-1 bg-orange-light">
 
                 {{-- Empieza el contenido de la tabla --}}
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <tbody>
                             <tr
-                                class="bg-cyan-100 border-b border-cyan-500 dark:bg-gray-800 dark:border-gray-700">
+                                class="bg-orange-medium-light border-b border-orange-dark">
                                 <th scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    class="px-6 py-4 font-medium text-black-dark whitespace-nowrap">
                                     Número de reserva
                                 </th>
-                                <td class="px-6 py-4">
+                                <td class="px-6 py-4 text-black-dark">
                                     {{ $ticket_reservation->reservation_number }}
                                 </td>
                             </tr>
                             <tr
-                                class="bg-cyan-100 border-b border-cyan-500 dark:bg-gray-800 dark:border-gray-700">
+                                class="bg-orange-medium-light border-b border-orange-dark">
                                 <th scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    class="px-6 py-4 font-medium text-black-dark whitespace-nowrap">
                                     Medio de pago
                                 </th>
-                                <td class="px-6 py-4">
+                                <td class="px-6 py-4 text-black-dark">
                                     {{ $ticket_reservation->payment_method }}
                                 </td>
                             </tr>
-                            <tr class="bg-cyan-100 border-b border-cyan-500">
+                            <tr class="bg-orange-medium-light border-b border-orange-dark">
                                 <th scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    class="px-6 py-4 font-medium text-black-dark whitespace-nowrap">
                                     Concierto
                                 </th>
-                                <td class="px-6 py-4">
-                                    {{ $ticket_reservation->concertDate->name }}
+                                <td class="px-6 py-4 text-black-dark">
+                                    {{ $ticket_reservation->concertDate->concert_name }}
                                 </td>
                             </tr>
-                            <tr class="bg-cyan-100 border-b border-cyan-500">
+                            <tr class="bg-orange-medium-light border-b border-orange-dark">
                                 <th scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    class="px-6 py-4 font-medium text-black-dark whitespace-nowrap">
                                     Cantidad de entradas
                                 </th>
-                                <td class="px-6 py-4">
+                                <td class="px-6 py-4 text-black-dark">
                                     {{ $ticket_reservation->ticket_quantity }}
                                 </td>
                             </tr>
-                            <tr class="bg-cyan-100 border-b border-cyan-500">
+                            <tr class="bg-orange-medium-light border-b border-orange-dark">
                                 <th scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    class="px-6 py-4 font-medium text-black-dark whitespace-nowrap">
                                     Total pagado
                                 </th>
-                                <td class="px-6 py-4">
-                                    {{ $ticket_reservation->total }}
+                                <td class="px-6 py-4 text-black-dark">
+                                    {{'$' . number_format($ticket_reservation->total, 0, ',', '.') }}
                                 </td>
                             </tr>
                         </tbody>
@@ -147,7 +147,7 @@
                 </div>
 
                 <a href="{{ route('pdf.descargar', ['id' => $ticket->id]) }}"
-                    class="inline-flex items-center mx-auto my-4 px-3 py-2 text-sm font-medium text-center text-white bg-cyan-700 rounded-lg hover:bg-cyan-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    class="inline-flex items-center mx-auto my-4 px-3 py-2 text-sm font-medium text-center bg-green-medium-dark hover:bg-green-dark rounded-lg ">
                     Descargar Comprobante
                     <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
@@ -157,12 +157,16 @@
                     </svg>
                 </a>
             </div>
-            <div class="flex items-center justify-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+            <div class="flex items-center justify-center p-6 border-t bg-orange-light rounded-b-lg border-orange-dark ">
+                <div class="flex justify-center">
+                    <div class="flex justify-center rounded-lg bg-yellow-medium-dark hover:bg-yellow-dark">
+                        <a href="{{ route('dashboard') }}" type="button"
+                            class="font-medium text-sm px-5 py-2.5">
+                            Finalizar
+                        </a>
+                    </div>
+                </div>
 
-                <a href="{{ route('dashboard') }}" type="button"
-                    class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
-                    Finalizar
-                </a>
             </div>
         </div>
     </div>

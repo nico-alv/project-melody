@@ -57,13 +57,10 @@ class TicketReservationController extends Controller
             'user_id' => auth()->user()->id,
             'concert_id' => $id
         ]);
-
         discountStock($id, $request->ticket_quantity);
 
         return redirect()->route('generate.pdf', [
             'id' => $ticket_reservation->id
         ]);
     }
-
-
 }

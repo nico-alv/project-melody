@@ -51,6 +51,7 @@ function discountStock($id, $quantity)
 
 function generateReservationNumber()
 {
+
     do {
         $number = mt_rand(1000, 9999);
     } while (substr($number, 0, 1) === '0');
