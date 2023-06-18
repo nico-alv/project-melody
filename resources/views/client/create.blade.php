@@ -84,27 +84,27 @@
 
 
     <div class=" max-w-lg mx-auto shadow-xl">
-        <div class="flex flex-col bg-orange-medium-dark rounded-t-lg py-2">
-            <div class="flex items-center ml-8">
+        <div class="flex flex-col bg-orange-medium-dark border border-orange-dark rounded-t-lg py-2">
+            <div class="flex items-center ml-8 text-white">
                 <h2 class="text-xl font-bold w-1/2">Nombre del concierto:</h2>
-                <p class="text-2xl font-medium w-1/2">{{ $concert->concert_name }}</p>
+                <p class="text-xl font-medium w-1/2">{{ $concert->concert_name }}</p>
             </div>
 
-            <div class="flex items-center ml-8">
+            <div class="flex items-center ml-8 text-white">
                 <h2 class="text-xl font-bold w-1/2">Fecha:</h2>
-                <p class="text-2xl font-medium w-1/2">{{ date('d/m/Y', strtotime($concert->date)) }}</p>
+                <p class="text-xl font-medium w-1/2">{{ date('d/m/Y', strtotime($concert->date)) }}</p>
             </div>
 
-            <div class="flex items-center ml-8">
+            <div class="flex items-center ml-8 text-white">
                 <h2 class="text-xl font-bold w-1/2">Valor entrada:</h2>
-                <p class="text-2xl font-medium text-center">{{ '$' . number_format($concert->price, 0, ',', '.') }}</p>
+                <p class="text-xl font-medium text-center">{{ '$' . number_format($concert->price, 0, ',', '.') }}</p>
             </div>
         </div>
     </div>
 
 
     <form id="form" action="{{ route('concert.order.pay', ['id' => $concert->id]) }}" method="POST" novalidate
-        class="max-w-lg mx-auto bg-orange-light shadow-xl rounded-b-lg px-8 pt-7 pb-2">
+        class="max-w-lg mx-auto bg-orange-light border border-orange-dark shadow-xl rounded-b-lg px-8 pt-7 pb-2">
         @csrf
 
         <div class="pt-4 pb-2">
