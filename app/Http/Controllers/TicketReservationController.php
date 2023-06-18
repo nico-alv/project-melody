@@ -58,7 +58,7 @@ class TicketReservationController extends Controller
             'concert_id' => $id
         ]);
 
-        discountStock($id, $request->quantity);
+        discountStock($id, $request->ticket_quantity);
 
         return redirect()->route('generate.pdf', [
             'id' => $ticket_reservation->id
