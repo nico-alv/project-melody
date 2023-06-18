@@ -96,7 +96,7 @@
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <tbody>
                             <tr
-                                class="bg-orange-medium-light border-b border-orange-dark">
+                                class="bg-white border-b border-orange-dark">
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-black-dark whitespace-nowrap">
                                     Número de reserva
@@ -106,7 +106,7 @@
                                 </td>
                             </tr>
                             <tr
-                                class="bg-orange-medium-light border-b border-orange-dark">
+                                class="bg-white border-b border-orange-dark">
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-black-dark whitespace-nowrap">
                                     Medio de pago
@@ -115,7 +115,7 @@
                                     {{ $ticket_reservation->payment_method }}
                                 </td>
                             </tr>
-                            <tr class="bg-orange-medium-light border-b border-orange-dark">
+                            <tr class="bg-white border-b border-orange-dark">
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-black-dark whitespace-nowrap">
                                     Concierto
@@ -124,7 +124,7 @@
                                     {{ $ticket_reservation->concertDate->concert_name }}
                                 </td>
                             </tr>
-                            <tr class="bg-orange-medium-light border-b border-orange-dark">
+                            <tr class="bg-white border-b border-orange-dark">
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-black-dark whitespace-nowrap">
                                     Cantidad de entradas
@@ -133,7 +133,7 @@
                                     {{ $ticket_reservation->ticket_quantity }}
                                 </td>
                             </tr>
-                            <tr class="bg-orange-medium-light border-b border-orange-dark">
+                            <tr class="bg-white border-b border-orange-dark">
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-black-dark whitespace-nowrap">
                                     Total pagado
@@ -147,7 +147,7 @@
                 </div>
 
                 <a href="{{ route('pdf.descargar', ['id' => $ticket->id]) }}"
-                    class="inline-flex items-center mx-auto my-4 px-3 py-2 text-sm font-medium text-center bg-green-medium-dark hover:bg-green-dark rounded-lg ">
+                    class="inline-flex items-center mx-auto my-4 px-3 py-2 text-sm font-medium text-center bg-green-medium-light hover:bg-green-medium-dark rounded-lg ">
                     Descargar Comprobante
                     <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
@@ -159,7 +159,7 @@
             </div>
             <div class="flex items-center justify-center p-6 border-t bg-orange-light rounded-b-lg border-orange-dark ">
                 <div class="flex justify-center">
-                    <div class="flex justify-center rounded-lg bg-yellow-medium-dark hover:bg-yellow-dark">
+                    <div class="flex justify-center rounded-lg bg-yellow-medium-light hover:bg-yellow-medium-dark">
                         <a href="{{ route('dashboard') }}" type="button"
                             class="font-medium text-sm px-5 py-2.5">
                             Finalizar

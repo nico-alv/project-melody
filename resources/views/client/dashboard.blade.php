@@ -14,12 +14,12 @@
         <div class="md:flex md:justify-center pb-4">
             <div>
                 <a href="{{ route('concert.list') }}"
-                    class="text-center text-black font-bold p-3 mx-3 rounded bg-blue-medium-light  hover:bg-blue-medium-dark transition">Ver conciertos</a>
+                    class="text-center text-black font-bold p-3 mx-3 rounded bg-yellow-medium-light  hover:bg-yellow-medium-dark transition">Ver conciertos</a>
             </div>
 
             <div>
                 <a href="{{ route('client.concerts') }}"
-                    class="text-center text-black font-bold p-3 mx-3 rounded bg-blue-medium-light hover:bg-blue-medium-dark transition">Mis conciertos</a>
+                    class="text-center text-black font-bold p-3 mx-3 rounded bg-yellow-medium-light hover:bg-yellow-medium-dark transition">Mis conciertos</a>
             </div>
         </div>
     </div>
