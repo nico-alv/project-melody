@@ -24,7 +24,10 @@ function makeMessages()
         'name.regex' => 'El nombre contiene carácteres no permitidos, ingrese solo letras.',
         'password.regex' => 'La contraseña ingresada no es alfanumérica.',
         'date.after' => 'La fecha debe ser mayor a ' . now()->format('d-m-Y') . '.',
-        'date.unique' => 'Ya existe un concierto para el día ingresado.'
+        'date.unique' => 'Ya existe un concierto para el día ingresado.',
+        'ticket_quantity' => 'La cantidad de entradas ingresadas no es
+        numérica o supera las entradas disponibles a comprar.',
+        'payment_method' => 'El campo forma de pago es requerido.'
     ];
 }
 
