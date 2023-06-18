@@ -120,7 +120,7 @@
                                     Concierto
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{ $ticket_reservation->concertDate->name }}
+                                    {{ $ticket_reservation->concertDate->concert_name }}
                                 </td>
                             </tr>
                             <tr class="bg-cyan-100 border-b border-cyan-500">
@@ -138,7 +138,7 @@
                                     Total pagado
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{ $ticket_reservation->total }}
+                                    {{'$' . number_format($ticket_reservation->total, 0, ',', '.') }}
                                 </td>
                             </tr>
                         </tbody>
