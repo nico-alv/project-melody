@@ -55,8 +55,6 @@ function generateReservationNumber()
 
     do {
         $number = mt_rand(1000, 9999);
-        // ejecutar foreach
     } while (substr($number, 0, 1) === '0');
-
     return $number;
 }
