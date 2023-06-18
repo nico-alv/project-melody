@@ -138,11 +138,11 @@
     </div>
     @else
         @if (isset($errorMessage))
-            <p class="text-2xl text-white text-center font-bold">
+            <p class="text-2xl text-white text-center font-bold bg-blue-medium-dark py-5">
                 {{ $errorMessage }}
             </p>
         @else
-            <p class="text-2xl text-white text-center font-bold">
+            <p class="text-2xl text-white text-center font-bold bg-blue-medium-dark py-5">
                 No hay conciertos en sistema. Intente más tarde.
             </p>
         @endif
