@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ticket_reservation;
 use App\Models\User;
 use App\Models\Concert;
 use Illuminate\Http\Request;
@@ -102,8 +103,14 @@ class ConcertController extends Controller
 
     public function myConcerts()
     {
+        $user=auth()->user();
+        $count_1=0;
+        for ($i=0;$i<count($user->concertsClient);$i++){
+            $count_1 +=1;
+        }
         return view('client.my_concerts', [
-            'user' => auth()->user()
+            'user' => $user,
+            'count'=> $count_1
         ]);
     }
 }
