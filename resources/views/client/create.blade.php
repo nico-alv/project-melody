@@ -118,10 +118,8 @@
 
             </div>
             @error('ticket_quantity')
-                <p class="bg-red-500 text-white my-2 rounded-lg text-lg text-center p-2">
-                    {{ $message }}</p>
+                    <p class="bg-pink-medium-light border border-pink-dark text-white mt-1 px-4 py-2 rounded-full">{{ $message }}</p>
             @enderror
-
             @if (session('message'))
                 <p class="bg-red-500 text-white my-2 rounded-xl text-sm text-center p-2">
                     {{ session('message') }}</p>
@@ -140,10 +138,9 @@
                 </select>
             </div>
         </div>
-            @error('payment_method')
-                <p class="bg-red-500 text-white my-2 rounded-lg text-lg text-center p-2">
-                    {{ $message }}</p>
-            @enderror
+        @error('payment_method')
+        <p class="bg-pink-medium-light border border-pink-dark text-white mt-1 px-4 py-2 rounded-full">{{ $message }}</p>
+        @enderror
         </div>
 
         <div class="flex items-center justify-center">
@@ -190,13 +187,12 @@
     </script>
 @endsection
 
-
 @section('script')
     <script>
         const button = document.getElementById('add-concert');
         const cantidad = document.getElementById('ticket_quantity');
         const total = document.getElementById('total');
-        const total_Submit = document.getElementById('total-s');
+        const totalSubmit = document.getElementById('total-s');
 
         window.addEventListener('DOMContentLoaded', (e) => {
             e.preventDefault();
