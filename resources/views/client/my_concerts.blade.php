@@ -7,7 +7,7 @@
 
 @section('content')
 
-@if ( $count > 0 )
+
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left text-black">
         <thead class="text-xs text-white uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -42,8 +42,9 @@
             </tr>
         </thead>
         <tbody>
+            @if ( $count > 0 )
             @foreach ($user->concertsClient as $concert)
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <tr class="bg-white border-b">
                     <td class="px-6 py-4">
                         {{ $concert -> reservation_number }}
                     </td>
@@ -80,13 +81,15 @@
                     </td>
                 </tr>
             @endforeach
+        @endif
         </tbody>
     </table>
 </div>
-@endif
+
 @if ( $count == 0 )
-<p class="bg-orange-medium-light text-white text-center p-4 rounded-full font-semibold">
-    No hay entradas adquiridas por desplegar
-</p>
+    <p class="text-2xl text-white text-center font-bold bg-blue-medium-dark py-5 mt-5">
+        No hay entradas adquiridas por desplegar
+    </p>
+
 @endif
 @endsection
