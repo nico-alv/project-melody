@@ -189,19 +189,19 @@
 
 @section('script')
     <script>
-        const button = document.getElementById('add-concert');
-        const cantidad = document.getElementById('ticket_quantity');
+        //const button = document.getElementById('add-concert');
+        const amount = document.getElementById('ticket_quantity');
         const total = document.getElementById('total');
         const totalSubmit = document.getElementById('total-s');
-
+        /*
         window.addEventListener('DOMContentLoaded', (e) => {
             e.preventDefault();
             button.disabled = true;
         })
-
-        cantidad.addEventListener('click', (e) => {
+        */
+        amount.addEventListener('click', (e) => {
             e.preventDefault();
-            const venta = {{ $concert->price }} * cantidad.value;
+            const venta = {{ $concert->price }} * amount.value;
             total.textContent = venta;
             totalSubmit.value = venta;
         })
