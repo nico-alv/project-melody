@@ -44,7 +44,6 @@ function verifyStock($id, $quantity)
 function discountStock($id, $quantity)
 {
     $concert = Concert::find($id);
-
     $concert->stock -= $quantity;
     $concert->save();
     return true;
