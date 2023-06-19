@@ -22,52 +22,48 @@ class ConcertTest extends TestCase
         parent::tearDown();
     }
 
-    public function testInvalidConcertPrice()
+    public function testSuccessfulConcertCreation()
     {
         $admin = User::create([
             'name' => 'admin de prueba',
-            'email' => 'admin@correo.com',
+            'email' => 'testadmin@correo.com',
             'role' => 'Administrador',
             'password' => bcrypt('1234567k')
         ]);
-
         $response = $this->post('/login', [
-            'email' => 'admin@correo.com',
+            'email' => 'testadmin@correo.com',
             'password' => '1234567k',
         ]);
         $this->assertAuthenticatedAs($admin);
         $concertData = [
             'concert_name' => 'Concierto de prueba',
-            'price' => 1,
+            'price' => 1000000,
             'stock' => 100,
             'date' => Carbon::today()->addDays(rand(3, 30))->format('Y-m-d')
         ];
         $response = $this->post('/concert', $concertData);
-        $response->assertSessionHasErrors('price');
-        $response->assertSessionDoesntHaveErrors('date');
+        $response->assertSessionDoesntHaveErrors([
+            'concert_name',
+            'price',
+            'stock',
+            'date'
+        ]);
+        $response->assertRedirect('/dashboard');
     }
-
-    public function testInvalidConcertCreatorUser()
+    public function testInvalidConcertPrice()
     {
-        $admin = User::create([
-            'name' => 'usuario de prueba',
-            'email' => 'testuser@correo.com',
-            'role' => 'Usuario',
-            'password' => bcrypt('1234567k')
-        ]);
-
         $response = $this->post('/login', [
-            'email' => 'testuser@correo.com',
-            'password' => '1234567k',
+            'email' => 'italo.donoso@ucn.cl',
+            'password' => 'Melody91',
         ]);
-        $this->assertAuthenticatedAs($admin);
-        $concertData = [
+        $response->assertStatus(302);
+        $concert = [
             'concert_name' => 'Concierto de prueba',
             'price' => 1,
             'stock' => 100,
             'date' => Carbon::today()->addDays(rand(3, 30))->format('Y-m-d')
         ];
-        $response = $this->post('/concert', $concertData);
-        $response->assertStatus(302);
+        $response = $this->post('/concert', $concert);
+        $response->assertSessionHasErrors('price');
     }
 }

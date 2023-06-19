@@ -16,12 +16,18 @@
             text-align: center;
         }
 
+        .center{
+            text-align: center;
+        }
+
         h2 {
-            color: #a00318;
+            color: #81030d;
+            font-weight:900;
         }
 
         h3 {
-            font-weight: bold;
+            font-weight: lighter;
+            font-size:medium;
 
         }
 
@@ -36,6 +42,7 @@
         }
 
         .total {
+            color: #b000ab;
             display: flex;
             flex-direction: column;
             align-items: flex-end;
@@ -47,7 +54,7 @@
         }
 
         .method-pay {
-            color: #a9a9a9;
+
             font-weight: bold;
             margin-top: 5px;
             text-align: center;
@@ -56,33 +63,29 @@
 </head>
 
 <body>
-    <h1 class=" title">Comprobante de Entradas: {{ $ticket_reservation->reservation_number }}</h1>
     <div>
-        <h3>Productora Melody</h3>
-        <h3>Fecha:
-            <span>{{ $date }}</span>
-        </h3>
+        <h3>Fecha: {{ $date }} </h3>
     </div>
-    <div>
-        <h2>Datos del concierto</h2>
-        <p>Reserva de número:
-            <span>{{ $ticket_reservation->reservation_number }}</span>
-        </p>
-        <p>Concierto:
+    <h1 class=" title">Comprobante de compra</h1>
+    <h4 class=" title">Número de reserva: {{ $ticket_reservation->reservation_number }}</h4>
+
+    <div class="center">
+        <h2>Información sobre concierto</h2>
+        <p>Nombre:
             <span>{{ $ticket_reservation->concertDate->concert_name }}</span>
         </p>
-        <p>Fecha del concierto:
+        <p>Fecha:
             <span>{{ $ticket_reservation->concertDate->date }}</span>
         </p>
         <p>Cantidad de entradas:
             <span>{{ $ticket_reservation->ticket_quantity }}</span>
         </p>
-        <p>Valor Entrada:
+        <p>Valor entrada:
             <span>{{ '$' . number_format($ticket_reservation->concertDate->price , 0, ',', '.') }}</span>
         </p>
     </div>
     <hr>
-    <div>
+    <div class="center">
         <h2>Datos del cliente</h2>
         <p>Cliente:
             <span>{{ $user->name }}</span>
@@ -94,7 +97,7 @@
     <hr>
     <div class="total">
         <p class="total-pay">{{ 'Total pagado: $' . number_format($ticket_reservation->total , 0, ',', '.') }}</p>
-        <p class="method-pay">{{ $ticket_reservation->payment_method }}</p>
+        <p class="method-pay">{{'Método de pago: ' . $ticket_reservation->payment_method }}</p>
     </div>
 </body>
 
