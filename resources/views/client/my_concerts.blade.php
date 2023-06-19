@@ -63,7 +63,8 @@
                     </td>
                     <td class="px-6 py-4">
                         {{
-                            ($concert-> ticket_quantity)*($concert->concertDate->price)
+                            '$' . number_format(($concert-> ticket_quantity)*($concert->concertDate->price), 0, ',', '.')
+
 
                         }}
                     </td>

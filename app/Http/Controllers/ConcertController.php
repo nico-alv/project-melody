@@ -102,14 +102,14 @@ class ConcertController extends Controller
 
     public function myConcerts()
     {
-        $user = auth()->user();
-        $count_1 = 0;
-        for ($i = 0; $i < count($user->concertsClient); $i++) {
-            $count_1 += 1;
+        $user=auth()->user();
+        $count_1=0;
+        for ($i=0;$i<count($user->concertsClient);$i++){
+            $count_1 +=1;
         }
         return view('client.my_concerts', [
-            'user' => $user,
-            'count' => $count_1
+            'user' => auth()->user(),
+            'count'=> $count_1
         ]);
     }
 }
