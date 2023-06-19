@@ -20,7 +20,7 @@ class LoginTest extends TestCase
         $user = User::create([
             'name' => 'usertest',
             'email' => 'usertest@correo.com',
-            'role' => 1,
+            'role' => 'Administrador',
             'password' => bcrypt('1234567k')
         ]);
 
@@ -40,7 +40,7 @@ class LoginTest extends TestCase
     $user = User::create([
         'name' => 'usertest1',
         'email' => 'usertest1@correo.com',
-        'role' => 1,
+        'role' => 'Administrador',
         'password' => bcrypt('1234567k')
     ]);
 
