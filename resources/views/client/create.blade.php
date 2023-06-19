@@ -74,13 +74,21 @@
             <div class="flex justify-between">
                 <label for="ticket_quantity" class="block my-auto text-sm font-medium">Cantidad de
                     entradas:</label>
+                @if($concert->stock > 0)
                 <select id="ticket_quantity" name="ticket_quantity"
                     class="border border-black-light text-sm rounded-lg w-2/3 block p-2.5">
-                    <option selected value="">--Seleccione las entradas--</option>
-                    @for ($i = 1; $i <= $concert->stock; $i++)
-                        <option value="{{ $i }}">{{ $i }}</option>
-                    @endfor
+
+                        <option selected value="">--Seleccione las entradas--</option>
+                        @for ($i = 1; $i <= $concert->stock; $i++)
+                            <option value="{{ $i }}">{{ $i }}</option>
+                        @endfor
                 </select>
+                @else
+                <select class="border border-black-light text-sm rounded-lg w-2/3 block p-2.5" disabled>
+                    <option selected value="">--No hay entradas disponibles--</option>
+                </select>
+
+                @endif
             </div>
         </div>
             @error('ticket_quantity')
@@ -93,14 +101,21 @@
         <div class="pt-4 pb-2">
             <div class="flex justify-between">
                 <label for="payment_method" class="block my-auto text-sm font-medium">Forma de pago:</label>
-                <select id="payment_method" name="payment_method"
-                    class="border border-black-light text-sm rounded-lg w-2/3 block p-2.5">
+                @if($concert->stock > 0)
+                    <select id="payment_method" name="payment_method"
+                        class="border border-black-light text-sm rounded-lg w-2/3 block p-2.5">
+                        <option selected value="">--Seleccione un método de pago--</option>
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="Transferencia">Transferencia</option>
+                        <option value="Débito">Debito</option>
+                        <option value="Crédito">Credito</option>
+                    </select>
+                @else
+                <select class="border border-black-light text-sm rounded-lg w-2/3 block p-2.5" disabled>
                     <option selected value="">--Seleccione un método de pago--</option>
-                    <option value="Efectivo">Efectivo</option>
-                    <option value="Transferencia">Transferencia</option>
-                    <option value="Débito">Debito</option>
-                    <option value="Crédito">Credito</option>
                 </select>
+
+                @endif
             </div>
         </div>
         @error('payment_method')
@@ -116,12 +131,14 @@
 
         <div class="flex items-center justify-center p-6 space-x-2 rounded-b dark:border-gray-600">
             <div class="flex justify-center">
-                <div class="flex justify-center rounded-lg bg-green-medium-light hover:bg-green-medium-dark">
-                    <button id="button" type="button"
-                        class="font-medium text-sm px-5 py-2.5">
-                        Finalizar compra
-                    </button>
-                </div>
+                @if($concert->stock > 0)
+                    <div class="flex justify-center rounded-lg bg-green-medium-light hover:bg-green-medium-dark">
+                        <button id="button" type="button"
+                            class="font-medium text-sm px-5 py-2.5">
+                            Finalizar compra
+                        </button>
+                    </div>
+                @endif
             </div>
 
             <div class="flex justify-center">
