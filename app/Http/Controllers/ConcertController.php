@@ -63,13 +63,18 @@ class ConcertController extends Controller
 
         $currentDate = Carbon::now()->format('Y-m-d');
 
-        $concerts = Concert::where('date', '>', $currentDate)->orderBy('date', 'asc');
+        $concerts = Concert::where('date', '>', $currentDate);
+
 
         if (!empty($date)) {
             $concerts->whereDate('date', $date);
         }
 
         $concerts = $concerts->get();
+
+        $concerts = $concerts->sortBy('date')->sortBy(function ($concert) {
+            return $concert->stock > 0 ? 0 : 1;
+        });
 
         if ($concerts->count() > 0) {
             return view('client.index', [
