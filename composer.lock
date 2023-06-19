@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "380078ee887ab3eb7854cc42563567d9",
+    "content-hash": "dc243fa968d836a9e560a5dc5095a6eb",
     "packages": [
         {
             "name": "brick/math",
@@ -2474,128 +2474,122 @@
             "time": "2022-09-06T12:16:56+00:00"
         },
         {
-            "name": "php-flasher/flasher",
-            "version": "v1.15.2",
+            "name": "php-flasher/php-flasher",
+            "version": "v1.15.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-flasher/flasher.git",
-                "reference": "b39afa3fc267fd5d0e208fdfd610e82e0c20e4e2"
+                "url": "https://github.com/php-flasher/php-flasher.git",
+                "reference": "cc7ea4c93d11a5409d7cdeb856b84ba7a556ff36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-flasher/flasher/zipball/b39afa3fc267fd5d0e208fdfd610e82e0c20e4e2",
-                "reference": "b39afa3fc267fd5d0e208fdfd610e82e0c20e4e2",
+                "url": "https://api.github.com/repos/php-flasher/php-flasher/zipball/cc7ea4c93d11a5409d7cdeb856b84ba7a556ff36",
+                "reference": "cc7ea4c93d11a5409d7cdeb856b84ba7a556ff36",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3"
             },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "helpers.php"
-                ],
-                "psr-4": {
-                    "Flasher\\Prime\\": ""
-                }
+            "replace": {
+                "php-flasher/flasher": "self.version",
+                "php-flasher/flasher-cli": "self.version",
+                "php-flasher/flasher-cli-laravel": "self.version",
+                "php-flasher/flasher-cli-symfony": "self.version",
+                "php-flasher/flasher-laravel": "self.version",
+                "php-flasher/flasher-noty": "self.version",
+                "php-flasher/flasher-noty-laravel": "self.version",
+                "php-flasher/flasher-noty-symfony": "self.version",
+                "php-flasher/flasher-notyf": "self.version",
+                "php-flasher/flasher-notyf-laravel": "self.version",
+                "php-flasher/flasher-notyf-symfony": "self.version",
+                "php-flasher/flasher-pnotify": "self.version",
+                "php-flasher/flasher-pnotify-laravel": "self.version",
+                "php-flasher/flasher-pnotify-symfony": "self.version",
+                "php-flasher/flasher-sweetalert": "self.version",
+                "php-flasher/flasher-sweetalert-laravel": "self.version",
+                "php-flasher/flasher-sweetalert-symfony": "self.version",
+                "php-flasher/flasher-symfony": "self.version",
+                "php-flasher/flasher-toastr": "self.version",
+                "php-flasher/flasher-toastr-laravel": "self.version",
+                "php-flasher/flasher-toastr-symfony": "self.version"
             },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Younes KHOUBZA",
-                    "email": "younes.khoubza@gmail.com",
-                    "homepage": "https://www.linkedin.com/in/younes-khoubza",
-                    "role": "Developer"
-                }
-            ],
-            "description": "PHPFlasher - A powerful & easy-to-use package for adding flash messages to Laravel or Symfony projects. Provides feedback to users, improves engagement & enhances user experience. Intuitive design for beginners & experienced developers. A reliable, flexible solution.",
-            "homepage": "https://php-flasher.io",
-            "keywords": [
-                "custom-adapter",
-                "dark-mode",
-                "desktop-notifications",
-                "flash-messages",
-                "framework-agnostic",
-                "javascript",
-                "laravel",
-                "notification-system",
-                "noty",
-                "notyf",
-                "php",
-                "php-flasher",
-                "phpstorm-auto-complete",
-                "pnotify",
-                "rtl",
-                "sweetalert",
-                "symfony",
-                "toastr",
-                "user-experience",
-                "user-feedback",
-                "yoeunes"
-            ],
-            "support": {
-                "source": "https://github.com/php-flasher/flasher/tree/v1.15.2"
-            },
-            "funding": [
-                {
-                    "url": "https://www.paypal.com/paypalme/yoeunes",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/yoeunes",
-                    "type": "github"
-                },
-                {
-                    "url": "https://ko-fi.com/yoeunes",
-                    "type": "ko_fi"
-                },
-                {
-                    "url": "https://opencollective.com/php-flasher",
-                    "type": "open_collective"
-                },
-                {
-                    "url": "https://www.patreon.com/yoeunes",
-                    "type": "patreon"
-                }
-            ],
-            "time": "2023-06-06T22:25:47+00:00"
-        },
-        {
-            "name": "php-flasher/flasher-laravel",
-            "version": "v1.15.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-flasher/flasher-laravel.git",
-                "reference": "482800011447f4098ffb236b2a08a6c25ba651a8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-flasher/flasher-laravel/zipball/482800011447f4098ffb236b2a08a6c25ba651a8",
-                "reference": "482800011447f4098ffb236b2a08a6c25ba651a8",
-                "shasum": ""
-            },
-            "require": {
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.31",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "friendsofphp/php-cs-fixer": "^3.17",
+                "illuminate/routing": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0",
                 "illuminate/support": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0",
-                "php": ">=5.3",
-                "php-flasher/flasher": "^1.15.1"
+                "livewire/livewire": "^2.12.3",
+                "orchestra/testbench": "^2.0 || ^3.0 || ^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0",
+                "phpro/grumphp": "^1.16",
+                "phpstan/phpstan": "^1.10.16",
+                "phpunit/phpunit": "^10.2.1",
+                "symfony/config": "^2.0 || ^3.0 || ^4.0 || ^5.0 || ^6.0",
+                "symfony/console": "^2.0 || ^3.0 || ^4.0 || ^5.0 || ^6.0",
+                "symfony/dependency-injection": "^2.0 || ^3.0 || ^4.0 || ^5.0 || ^6.0",
+                "symfony/framework-bundle": "^2.0 || ^3.0 || ^4.0 || ^5.0 || ^6.0",
+                "symfony/http-kernel": "^2.0 || ^3.0 || ^4.0 || ^5.0 || ^6.0",
+                "symfony/translation": "^2.0 || ^3.0 || ^4.0 || ^5.0 || ^6.0",
+                "symfony/twig-bundle": "^2.0 || ^3.0 || ^4.0 || ^5.0 || ^6.0",
+                "symplify/monorepo-builder": "^11.2.3.72",
+                "vimeo/psalm": "^5.12"
             },
             "type": "library",
             "extra": {
                 "laravel": {
                     "aliases": {
-                        "Flasher": "Flasher\\Laravel\\Facade\\Flasher"
+                        "Flasher": "Flasher\\Laravel\\Facade\\Flasher",
+                        "Noty": "Flasher\\Laravel\\Facade\\Flasher",
+                        "Notyf": "Flasher\\Notyf\\Laravel\\Facade\\Notyf",
+                        "Pnotify": "Flasher\\Pnotify\\Laravel\\Facade\\Pnotify",
+                        "SweetAlert": "Flasher\\SweetAlert\\Laravel\\Facade\\SweetAlert",
+                        "Toastr": "Flasher\\Toastr\\Laravel\\Facade\\Toastr"
                     },
                     "providers": [
-                        "Flasher\\Laravel\\FlasherServiceProvider"
+                        "Flasher\\Cli\\Laravel\\FlasherCliServiceProvider",
+                        "Flasher\\Toastr\\Laravel\\FlasherToastrServiceProvider",
+                        "Flasher\\Laravel\\FlasherServiceProvider",
+                        "Flasher\\Noty\\Laravel\\FlasherNotyServiceProvider",
+                        "Flasher\\Pnotify\\Laravel\\FlasherPnotifyServiceProvider",
+                        "Flasher\\Notyf\\Laravel\\FlasherNotyfServiceProvider",
+                        "Flasher\\SweetAlert\\Laravel\\FlasherSweetAlertServiceProvider"
                     ]
                 }
             },
             "autoload": {
+                "files": [
+                    "src/Cli/Prime/helpers.php",
+                    "src/Noty/Prime/helpers.php",
+                    "src/Notyf/Prime/helpers.php",
+                    "src/Pnotify/Prime/helpers.php",
+                    "src/Prime/helpers.php",
+                    "src/SweetAlert/Prime/helpers.php",
+                    "src/Toastr/Prime/helpers.php"
+                ],
                 "psr-4": {
-                    "Flasher\\Laravel\\": ""
+                    "Flasher\\": "src/",
+                    "Flasher\\Prime\\": "src/Prime/",
+                    "Flasher\\Laravel\\": "src/Laravel/",
+                    "Flasher\\Symfony\\": "src/Symfony/",
+                    "Flasher\\Cli\\Prime\\": "src/Cli/Prime/",
+                    "Flasher\\Noty\\Prime\\": "src/Noty/Prime/",
+                    "Flasher\\Cli\\Laravel\\": "src/Cli/Laravel/",
+                    "Flasher\\Cli\\Symfony\\": "src/Cli/Symfony/",
+                    "Flasher\\Notyf\\Prime\\": "src/Notyf/Prime/",
+                    "Flasher\\Noty\\Laravel\\": "src/Noty/Laravel/",
+                    "Flasher\\Noty\\Symfony\\": "src/Noty/Symfony/",
+                    "Flasher\\Toastr\\Prime\\": "src/Toastr/Prime/",
+                    "Flasher\\Notyf\\Laravel\\": "src/Notyf/Laravel/",
+                    "Flasher\\Notyf\\Symfony\\": "src/Notyf/Symfony/",
+                    "Flasher\\Pnotify\\Prime\\": "src/Pnotify/Prime/",
+                    "Flasher\\Toastr\\Laravel\\": "src/Toastr/Laravel/",
+                    "Flasher\\Toastr\\Symfony\\": "src/Toastr/Symfony/",
+                    "Flasher\\Pnotify\\Laravel\\": "src/Pnotify/Laravel/",
+                    "Flasher\\Pnotify\\Symfony\\": "src/Pnotify/Symfony/",
+                    "Flasher\\SweetAlert\\Prime\\": "src/SweetAlert/Prime/",
+                    "Flasher\\SweetAlert\\Laravel\\": "src/SweetAlert/Laravel/",
+                    "Flasher\\SweetAlert\\Symfony\\": "src/SweetAlert/Symfony/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2611,7 +2605,6 @@
                 }
             ],
             "description": "PHPFlasher - A powerful & easy-to-use package for adding flash messages to Laravel or Symfony projects. Provides feedback to users, improves engagement & enhances user experience. Intuitive design for beginners & experienced developers. A reliable, flexible solution.",
-            "homepage": "https://php-flasher.io",
             "keywords": [
                 "custom-adapter",
                 "dark-mode",
@@ -2636,7 +2629,8 @@
                 "yoeunes"
             ],
             "support": {
-                "source": "https://github.com/php-flasher/flasher-laravel/tree/v1.15.2"
+                "issues": "https://github.com/php-flasher/php-flasher/issues",
+                "source": "https://github.com/php-flasher/php-flasher/tree/v1.15.3"
             },
             "funding": [
                 {
@@ -2660,7 +2654,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-06-06T10:26:33+00:00"
+            "time": "2023-06-19T07:31:09+00:00"
         },
         {
             "name": "phpoption/phpoption",

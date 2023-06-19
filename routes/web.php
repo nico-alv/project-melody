@@ -47,9 +47,6 @@ Route::get('/my-concerts', [ConcertController::class, 'myConcerts'])->name('clie
 
 // Order Concerts
 Route::get('/concert-order/{id}', [TicketReservationController::class, 'create'])->name('concert.order');
-
-// Order Concerts
-Route::get('/concert-order/{id}', [TicketReservationController::class, 'create'])->name('concert.order');
 Route::post('/concert-order/{id}', [TicketReservationController::class, 'store'])->name('concert.order.pay');
 Route::get('/my-concerts', [ConcertController::class, 'myConcerts'])->name('client.concerts');
 
