@@ -36,24 +36,33 @@ Route::post('/logout', [LogoutController::class, 'store'])->middleware('auth')->
 
 Route::get('/dashboard', [ConcertController::class, 'index'])->name('dashboard');
 
-//Rutas de conciertos
-Route::post('/concert', [ConcertController::class, 'store'])->name('concert');
-Route::get('concert', [ConcertController::class, 'create'])->name('concert.create');
-Route::post('/concert-list', [ConcertController::class, 'searchDate'])->name('concert.search');
-Route::get('/concert-list', [ConcertController::class, 'concertsList'])->name('concert.list');
 
-//ruta detalle de compras
-Route::get('/my-concerts', [ConcertController::class, 'myConcerts'])->name('client.concerts');
+Route::middleware(['auth', 'can:viewUserDashboard'])->group(function () {
+    //Rutas de conciertos
+    Route::post('/concert-list', [ConcertController::class, 'searchDate'])->name('concert.search');
+    Route::get('/concert-list', [ConcertController::class, 'concertsList'])->name('concert.list');
 
-// Order Concerts
-Route::get('/concert-order/{id}', [TicketReservationController::class, 'create'])->name('concert.order');
-Route::post('/concert-order/{id}', [TicketReservationController::class, 'store'])->name('concert.order.pay');
-Route::get('/my-concerts', [ConcertController::class, 'myConcerts'])->name('client.concerts');
+    //ruta detalle de compras
+    Route::get('/my-concerts', [ConcertController::class, 'myConcerts'])->name('client.concerts');
 
-// Ticket
-Route::get('/detail-order/{id}', [TicketController::class, 'generatePDF'])->name('generate.pdf');
-Route::get('descargar-pdf/{id}', [TicketController::class, 'downloadPDF'])->name('pdf.descargar');
-Route::get('/pdf', [TicketController::class, 'pdf'])->name('pdf.example');
+    // Order Concerts
+    Route::get('/concert-order/{id}', [TicketReservationController::class, 'create'])->name('concert.order');
+    Route::post('/concert-order/{id}', [TicketReservationController::class, 'store'])->name('concert.order.pay');
+    Route::get('/my-concerts', [ConcertController::class, 'myConcerts'])->name('client.concerts');
+
+    // Ticket
+    Route::get('/detail-order/{id}', [TicketController::class, 'generatePDF'])->name('generate.pdf');
+    Route::get('descargar-pdf/{id}', [TicketController::class, 'downloadPDF'])->name('pdf.descargar');
+    Route::get('/pdf', [TicketController::class, 'pdf'])->name('pdf.example');
+});
+
+Route::middleware(['auth', 'can:viewAdminDashboard'])->group(function () {
+    //Rutas de conciertos
+    Route::post('/concert', [ConcertController::class, 'store'])->name('concert');
+    Route::get('concert', [ConcertController::class, 'create'])->name('concert.create');
+});
+
+
 
 // Error 404
 

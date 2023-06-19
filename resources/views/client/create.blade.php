@@ -107,8 +107,8 @@
                     <option selected value="">--Seleccione un método de pago--</option>
                     <option value="Efectivo">Efectivo</option>
                     <option value="Transferencia">Transferencia</option>
-                    <option value="Débito">Debito</option>
-                    <option value="Crédito">Credito</option>
+                    <option value="Débito">Tarjeta de débito</option>
+                    <option value="Crédito">Tarjeta de crédito</option>
                 </select>
             </div>
         </div>

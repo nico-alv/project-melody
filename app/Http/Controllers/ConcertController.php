@@ -85,7 +85,7 @@ class ConcertController extends Controller
             return view('client.index', [
                 'concerts' => $concerts,
                 'date' => $date,
-                'errorMessage' => 'No hay conciertos disponibles para la fecha seleccionada. Intenta con otra fecha o recarga la página.',
+                'errorMessage' => 'No hay conciertos disponibles para el día seleccionado. Intenta con otra fecha o recarga la página.',
             ]);
         }
     }

@@ -74,8 +74,21 @@
         <p>Nombre:
             <span>{{ $ticket_reservation->concertDate->concert_name }}</span>
         </p>
-        <p>Fecha:
-            <span>{{ $ticket_reservation->concertDate->date }}</span>
+        <p>
+            @php
+            $dateTime = DateTime::createFromFormat('Y-m-d', $ticket_reservation->concertDate->date);
+            $day = $dateTime->format('d');
+            $month = $dateTime->format('F');
+            $translate = [
+                'January' => 'enero', 'February' => 'febrero', 'March' => 'marzo', 'April' => 'abril', 'May' => 'mayo',
+                'June' => 'junio', 'July' => 'julio', 'August' => 'agosto', 'September' => 'septiembre', 'October' => 'octubre',
+                'November' => 'noviembre', 'December' => 'diciembre',
+            ];
+            $translate = $translate[$month];
+            $ff = $day . ' de ' . $translate;
+        @endphp
+
+        Fecha de entrada: {{ $ff }}
         </p>
         <p>Cantidad de entradas:
             <span>{{ $ticket_reservation->ticket_quantity }}</span>
