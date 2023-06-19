@@ -52,4 +52,19 @@ class LoginTest extends TestCase
     $response->assertStatus(302); // Verifica el código de estado de la respuesta (redirección)
     $this->assertGuest(); // Verifica que el usuario no esté autenticado
 }
+public function test_fail_input()
+{
+    $userData = [
+        'email' => '',
+        'password' => '',
+    ];
+
+    $response = $this->post('/login', $userData);
+    $response->assertStatus(302); // Verifica el código de estado de la respuesta (redirección)
+    $response->assertSessionHasErrors([
+        'email',
+        'password'
+    ]);
+}
+
 }
