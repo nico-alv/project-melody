@@ -23,7 +23,7 @@
         <!-- Fechas -->
         <label for="date" class="my-auto pr-2 font-medium">Seleccione una fecha:</label>
         <div class="flex justify-center">
-            <input type="date" id="date_search" name="date_search" min="{{ date('Y-m-d') }}"
+            <input type="date" id="date_search" name="date_search" min="{{ date('Y-m-d', strtotime('+1 day')) }}"
             class="pl-10 p-2.5 rounded-lg border bg-orange-medium-light brightness-105 border-black-medium-light text-sm">
         </div>
 
