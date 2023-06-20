@@ -63,7 +63,8 @@
                     </td>
                     <td class="px-6 py-4">
                         {{
-                            ($concert-> ticket_quantity)*($concert->concertDate->price)
+                            '$' . number_format(($concert-> ticket_quantity)*($concert->concertDate->price), 0, ',', '.')
+
 
                         }}
                     </td>
@@ -71,7 +72,6 @@
                         {{ $concert -> payment_method  }}
                     </td>
                     <td class="px-6 py-4">
-
                         <a class="w-auto h-auto" href="{{ route('pdf.descargar', ['id' => $concert->ticket->id]) }}">
                             <p class="bg-yellow-medium-light rounded-full text-center text-black-dark font-semibold">
                                 descargar detalle

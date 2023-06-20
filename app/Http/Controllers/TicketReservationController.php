@@ -19,6 +19,9 @@ class TicketReservationController extends Controller
     public function create($id)
     {
         $concert = Concert::find($id);
+        if (!$concert) {
+            return redirect()->route('error-404'); // Redirigir a la página 404
+        }
         return view('client.create', [
             'concert' => $concert
         ]);

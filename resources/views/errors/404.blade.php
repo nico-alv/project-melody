@@ -1,5 +1,7 @@
 @extends('layout.app')
-
+@section('title')
+    Página no encontrada
+@endsection
 @section('content')
     <div class="flex justify-center items-center h-screen bg-orange-100">
         <div class="text-center">

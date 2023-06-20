@@ -22,7 +22,6 @@ class ConcertTest extends TestCase
         parent::tearDown();
     }
 
-
     public function testSuccessfulConcertCreation()
     {
         $admin = User::create([
@@ -51,8 +50,6 @@ class ConcertTest extends TestCase
         ]);
         $response->assertRedirect('/dashboard');
     }
-
-
     public function testInvalidConcertPrice()
     {
         $response = $this->post('/login', [
@@ -61,10 +58,10 @@ class ConcertTest extends TestCase
         ]);
         $response->assertStatus(302);
         $concert = [
-            'concert_name' => 'prueba',
+            'concert_name' => 'Concierto de prueba',
             'price' => 1,
             'stock' => 100,
-            'date' => Carbon::today()->addDays(5)->format('Y-m-d')
+            'date' => Carbon::today()->addDays(rand(3, 30))->format('Y-m-d')
         ];
         $response = $this->post('/concert', $concert);
         $response->assertSessionHasErrors('price');

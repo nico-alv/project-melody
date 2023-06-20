@@ -1,11 +1,18 @@
 @extends('layout.app')
 
 @section('title')
-    {{ $concert->concert_name }}
+    @if($concert->stock > 0 )
+        {{ $concert->concert_name }}
+    @else
+        Página no encontrada
+    @endif
 @endsection
 
 
 @section('content')
+    @if($concert->stock < 1)
+        {{ view('errors.404')}}
+    @endif
     <div class="max-w-lg mx-auto my-4 border-b-1 pb-4 bg-yellow-medium-light rounded p-8 mb-6">
         <div>
             <h2 class="sr-only">Pasos</h2>
@@ -76,10 +83,11 @@
                     entradas:</label>
                 <select id="ticket_quantity" name="ticket_quantity"
                     class="border border-black-light text-sm rounded-lg w-2/3 block p-2.5">
-                    <option selected value="">--Seleccione las entradas--</option>
-                    @for ($i = 1; $i <= $concert->stock; $i++)
-                        <option value="{{ $i }}">{{ $i }}</option>
-                    @endfor
+
+                        <option selected value="">--Seleccione las entradas--</option>
+                        @for ($i = 1; $i <= $concert->stock; $i++)
+                            <option value="{{ $i }}">{{ $i }}</option>
+                        @endfor
                 </select>
             </div>
         </div>
@@ -93,13 +101,14 @@
         <div class="pt-4 pb-2">
             <div class="flex justify-between">
                 <label for="payment_method" class="block my-auto text-sm font-medium">Forma de pago:</label>
+
                 <select id="payment_method" name="payment_method"
                     class="border border-black-light text-sm rounded-lg w-2/3 block p-2.5">
                     <option selected value="">--Seleccione un método de pago--</option>
                     <option value="Efectivo">Efectivo</option>
                     <option value="Transferencia">Transferencia</option>
-                    <option value="Débito">Debito</option>
-                    <option value="Crédito">Credito</option>
+                    <option value="Débito">Tarjeta de débito</option>
+                    <option value="Crédito">Tarjeta de crédito</option>
                 </select>
             </div>
         </div>
@@ -116,12 +125,14 @@
 
         <div class="flex items-center justify-center p-6 space-x-2 rounded-b dark:border-gray-600">
             <div class="flex justify-center">
+
                 <div class="flex justify-center rounded-lg bg-green-medium-light hover:bg-green-medium-dark">
                     <button id="button" type="button"
                         class="font-medium text-sm px-5 py-2.5">
                         Finalizar compra
                     </button>
                 </div>
+
             </div>
 
             <div class="flex justify-center">

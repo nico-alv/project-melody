@@ -21,7 +21,7 @@ class RegisterTest extends TestCase
     public function testUserCreation()
     {
         $userData = [
-            'name' => 'It',
+            'name' => '2t',
             'email' => 'italo.gonzalez.com',
             'password' => 'pass123',
         ];
@@ -35,6 +35,25 @@ class RegisterTest extends TestCase
             'password'
         ]);
     }
+
+    public function testEmptyFields()
+    {
+        $userData = [
+            'name' => '',
+            'email' => '',
+            'password' => '',
+        ];
+
+        $response = $this->post('/register', $userData);
+
+        $response->assertStatus(302);
+        $response->assertSessionHasErrors([
+            'name',
+            'email',
+            'password'
+        ]);
+    }
+
 
     public function testSuccessfulRegister()
     {
@@ -62,5 +81,29 @@ class RegisterTest extends TestCase
 
         $response->assertStatus(302);
         $response->assertSessionHasErrors('password');
+    }
+
+    public function testUniqueEmail()
+    {
+        // Primero, creamos un usuario en la base de datos con el correo electrónico dado
+
+        $userData = [
+            'name' => 'Italo Gonzalez',
+            'email' => 'Italo.gonzalez@example.com',
+            'password' => 'password123',
+        ];
+
+        $response = $this->post('/register', $userData);
+
+
+        $userData = [
+            'name' => 'Italo Gonzalez',
+            'email' => 'Italo.gonzalez@example.com', // Usamos el mismo correo electrónico
+            'password' => 'password123',
+        ];
+
+        $response = $this->post('/register', $userData);
+        $response->assertStatus(302);
+        $response->assertSessionHasErrors('email');
     }
 }
