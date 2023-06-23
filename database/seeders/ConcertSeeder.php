@@ -24,7 +24,7 @@ class ConcertSeeder extends Seeder
             'concert_name' => 'Adele at the party',
             'price' => 25000,
             'stock' => 0,
-            'date' => date('Y-m-d', strtotime('2023-08-29')),
+            'date' => date('Y-m-d', strtotime('2023-08-18')),
         ]);
 
         DB::table('concerts')->insert([
