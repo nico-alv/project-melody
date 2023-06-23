@@ -107,8 +107,8 @@
                     <option selected value="">--Seleccione un método de pago--</option>
                     <option value="Efectivo">Efectivo</option>
                     <option value="Transferencia">Transferencia</option>
-                    <option value="Débito">Tarjeta de débito</option>
-                    <option value="Crédito">Tarjeta de crédito</option>
+                    <option value="Tarjeta de débito">Tarjeta de débito</option>
+                    <option value="Tarjeta de crédito">Tarjeta de crédito</option>
                 </select>
             </div>
         </div>
@@ -123,7 +123,7 @@
             <input name="reservation_number" value="" hidden>
         </div>
 
-        <div class="flex items-center justify-center p-6 space-x-2 rounded-b dark:border-gray-600">
+        <div class="flex items-center justify-center p-6 space-x-2 rounded-b">
             <div class="flex justify-center">
 
                 <div class="flex justify-center rounded-lg bg-green-medium-light hover:bg-green-medium-dark">
