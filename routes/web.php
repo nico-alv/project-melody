@@ -72,4 +72,4 @@ Route::get('/error-404', function () {
 
 Route::any('{any}', function () {
     return view('errors.404');
-})->where('any', '.*');
+})->middleware('auth')->where('any', '.*');
