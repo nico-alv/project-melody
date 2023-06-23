@@ -13,7 +13,7 @@
         <thead class="text-xs text-white uppercase">
             <tr>
                 <th scope="col" class="px-6 py-3 bg-orange-light">
-                    Numero reserva
+                    Número reserva
                 </th>
                 <th scope="col" class="px-6 py-3 bg-orange-light">
                     Nombre concierto
