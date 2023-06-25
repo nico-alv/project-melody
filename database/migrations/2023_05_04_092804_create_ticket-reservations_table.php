@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('ticket_quantity');
             $table->string('payment_method');
             $table->integer('total');
-            $table->date('purchase_date');
+            $table->dateTime('purchase_date');
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('concert_id')->constrained('concerts');
         });
