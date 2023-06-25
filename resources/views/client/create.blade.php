@@ -150,7 +150,7 @@
         const amount = document.getElementById('ticket_quantity');
         const total = document.getElementById('total');
         const totalSubmit = document.getElementById('total-s');
-        amount.addEventListener('click', (e) => {
+        amount.addEventListener('input', (e) => {
             e.preventDefault();
             const venta = {{ $concert->price }} * amount.value;
 

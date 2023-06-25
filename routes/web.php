@@ -33,9 +33,7 @@ Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->na
 Route::post('/login', [LoginController::class, 'store']);
 Route::post('/logout', [LogoutController::class, 'store'])->middleware('auth')->name('logout');
 
-
 Route::get('/dashboard', [ConcertController::class, 'index'])->name('dashboard');
-
 
 Route::middleware(['auth', 'can:viewUserDashboard'])->group(function () {
     // Rutas de conciertos
