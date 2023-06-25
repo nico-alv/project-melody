@@ -5,18 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Concert extends Model
+class Ticket extends Model
 {
     use HasFactory;
     public $timestamps = false;
     protected $fillable = [
-        'concert_name',
+        'pdf_name',
+        'path',
         'date',
-        'stock',
-        'price'
+        'ticket_reservation_id'
     ];
-    public static function getConcerts()
-    {
-        return self::all();
-    }
 }
