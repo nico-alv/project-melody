@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Concert;
+use App\Models\Ticket_reservation;
 
 function makeMessages()
 {
@@ -51,9 +52,10 @@ function discountStock($id, $quantity)
 
 function generateReservationNumber()
 {
-
     do {
         $number = mt_rand(1000, 9999);
-    } while (substr($number, 0, 1) === '0');
+    } while (Ticket_reservation::where('reservation_number', $number)->first());
     return $number;
 }
+
+
