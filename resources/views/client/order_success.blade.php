@@ -53,7 +53,7 @@
             <div class="flex flex-col px-5 pt-5 pb-1 bg-orange-light">
 
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <table class="w-full text-sm text-left">
                         <tbody>
                             <tr
                                 class="bg-white border-b border-orange-dark">
