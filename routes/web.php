@@ -48,7 +48,6 @@ Route::middleware(['auth', 'can:viewUserDashboard'])->group(function () {
     // Order Concerts
     Route::get('/concert-order/{id}', [TicketReservationController::class, 'create'])->name('concert.order');
     Route::post('/concert-order/{id}', [TicketReservationController::class, 'store'])->name('concert.order.pay');
-    Route::get('/my-concerts', [ConcertController::class, 'myConcerts'])->name('client.concerts');
 
     // Ticket
     Route::get('/detail-order/{id}', [TicketController::class, 'generatePDF'])->name('generate.pdf');
