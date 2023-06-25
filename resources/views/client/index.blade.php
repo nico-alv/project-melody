@@ -23,13 +23,13 @@
         <!-- Fechas -->
         <label for="date" class="my-auto pr-2 font-medium">Seleccione una fecha:</label>
         <div class="flex justify-center">
-            <input type="date" id="date_search" name="date_search" min="{{ date('Y-m-d') }}"
-            class="pl-10 p-2.5 rounded-lg border bg-orange-medium-light brightness-105 border-black-medium-light text-sm">
+            <input type="date" id="date_search" name="date_search" min="{{ date('Y-m-d', strtotime('+1 day')) }}"
+            class="pl-10 p-2.5 rounded-lg border bg-white brightness-105 border-black-medium-light text-sm">
         </div>
 
         <!-- Boton buscar -->
         <div class="flex justify-center" title="Buscar fecha">
-            <div class="ml-1.5 flex justify-center rounded-lg bg-yellow-medium-dark hover:bg-yellow-dark">
+            <div class="ml-1.5 flex justify-center rounded-lg bg-yellow-medium-light hover:bg-yellow-medium-dark">
                 <button type="submit"  class="p-3 text-sm font-medium text-white">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +43,7 @@
 
         <!-- Boton refresh -->
         <div class="flex justify-center" title="Refrescar página">
-            <div class="ml-1.5 flex justify-center rounded-lg bg-green-medium-dark hover:bg-green-dark">
+            <div class="ml-1.5 flex justify-center rounded-lg bg-green-medium-light hover:bg-green-medium-dark">
                 <a id="refresh_button" type="button" href={{ route('concert.list') }}
                 class="p-3 text-sm font-medium text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-refresh width="20"

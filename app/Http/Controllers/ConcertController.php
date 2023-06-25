@@ -20,7 +20,7 @@ class ConcertController extends Controller
         if ($user->role == "Administrador") {
             $currentDate = Carbon::now()->format('Y-m-d');
 
-            $concerts = Concert::where('date', '>=', $currentDate)->orderBy('date', 'asc')->get();
+            $concerts = Concert::where('date', '>', $currentDate)->orderBy('date', 'asc')->get();
 
             return view('admin.dashboard', [
                 'concerts' => $concerts,
@@ -63,13 +63,18 @@ class ConcertController extends Controller
 
         $currentDate = Carbon::now()->format('Y-m-d');
 
-        $concerts = Concert::where('date', '>=', $currentDate)->orderBy('date', 'asc');
+        $concerts = Concert::where('date', '>', $currentDate);
+
 
         if (!empty($date)) {
             $concerts->whereDate('date', $date);
         }
 
         $concerts = $concerts->get();
+
+        $concerts = $concerts->sortBy('date')->sortBy(function ($concert) {
+            return $concert->stock > 0 ? 0 : 1;
+        });
 
         if ($concerts->count() > 0) {
             return view('client.index', [
@@ -80,7 +85,7 @@ class ConcertController extends Controller
             return view('client.index', [
                 'concerts' => $concerts,
                 'date' => $date,
-                'errorMessage' => 'No hay conciertos disponibles para la fecha seleccionada. Intenta con otra fecha o recarga la página.',
+                'errorMessage' => 'No hay conciertos disponibles para el día seleccionado. Intenta con otra fecha o recarga la página.',
             ]);
         }
     }
@@ -89,7 +94,7 @@ class ConcertController extends Controller
     {
         $currentDate = Carbon::now()->format('Y-m-d');
 
-        $concerts = Concert::where('date', '>=', $currentDate)->get();
+        $concerts = Concert::where('date', '>', $currentDate)->get();
 
         $concerts = $concerts->sortBy('date')->sortBy(function ($concert) {
             return $concert->stock > 0 ? 0 : 1;
@@ -102,14 +107,14 @@ class ConcertController extends Controller
 
     public function myConcerts()
     {
-        $user=auth()->user();
-        $count_1=0;
-        for ($i=0;$i<count($user->concertsClient);$i++){
-            $count_1 +=1;
+        $user = auth()->user();
+        $count_1 = 0;
+        for ($i = 0; $i < count($user->concertsClient); $i++) {
+            $count_1 += 1;
         }
         return view('client.my_concerts', [
             'user' => auth()->user(),
-            'count'=> $count_1
+            'count' => $count_1
         ]);
     }
 }

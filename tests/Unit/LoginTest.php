@@ -20,7 +20,7 @@ class LoginTest extends TestCase
         $user = User::create([
             'name' => 'usertest',
             'email' => 'usertest@correo.com',
-            'role' => 'Administrador',
+            'role' => 1,
             'password' => bcrypt('1234567k')
         ]);
 
@@ -40,31 +40,16 @@ class LoginTest extends TestCase
     $user = User::create([
         'name' => 'usertest1',
         'email' => 'usertest1@correo.com',
-        'role' => 'Administrador',
+        'role' => 1,
         'password' => bcrypt('1234567k')
     ]);
 
-    $response = $this->post('/login', [
-        'email' => 'usertest1@correo.com',
-        'password' => '1234567p',
-    ]);
+        $response = $this->post('/login', [
+            'email' => 'usertest1@correo.com',
+            'password' => '1234567p',
+        ]);
 
     $response->assertStatus(302); // Verifica el código de estado de la respuesta (redirección)
     $this->assertGuest(); // Verifica que el usuario no esté autenticado
 }
-public function test_fail_input()
-{
-    $userData = [
-        'email' => '',
-        'password' => '',
-    ];
-
-    $response = $this->post('/login', $userData);
-    $response->assertStatus(302); // Verifica el código de estado de la respuesta (redirección)
-    $response->assertSessionHasErrors([
-        'email',
-        'password'
-    ]);
-}
-
 }

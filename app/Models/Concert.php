@@ -18,8 +18,4 @@ class Concert extends Model
     {
         return self::all();
     }
-    public function save(array $options = [])
-    {
-        parent::save($options);
-    }
 }
