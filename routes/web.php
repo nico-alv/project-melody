@@ -42,10 +42,7 @@ Route::middleware(['auth', 'can:viewUserDashboard'])->group(function () {
     Route::post('/concert-list', [ConcertController::class, 'searchDate'])->name('concert.search');
     Route::get('/concert-list', [ConcertController::class, 'concertsList'])->name('concert.list');
 
-    // Rutas detalle de compras
-    Route::get('/my-concerts', [ConcertController::class, 'myConcerts'])->name('client.concerts');
-
-    // Rutas de creacion de compras
+    // Order Concerts
     Route::get('/concert-order/{id}', [TicketReservationController::class, 'create'])->name('concert.order');
     Route::post('/concert-order/{id}', [TicketReservationController::class, 'store'])->name('concert.order.pay');
     Route::get('/my-concerts', [ConcertController::class, 'myConcerts'])->name('client.concerts');
@@ -61,7 +58,8 @@ Route::middleware(['auth', 'can:viewAdminDashboard'])->group(function () {
     Route::get('concert', [ConcertController::class, 'create'])->name('concert.create');
 });
 
-// Rutas de error 404
+// Control de errores
+
 Route::get('/error-404', function () {
     return view('errors.404');
 })->name('error-404');
