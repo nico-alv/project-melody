@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('path');
             $table->foreignId('ticket_reservation_id')->constrained('ticket_reservations');
             $table->date('date');
-            $table->timestamps();
         });
     }
 

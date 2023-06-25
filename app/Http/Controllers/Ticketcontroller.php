@@ -29,8 +29,6 @@ class TicketController extends Controller
         return response()->download($path, $filename, ['Content-Type' => $mimeType]);
     }
 
-
-
     public function generatePDF($id_reservation)
     {
         $user = auth()->user();
