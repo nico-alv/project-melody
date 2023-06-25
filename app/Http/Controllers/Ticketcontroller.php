@@ -48,7 +48,7 @@ class TicketController extends Controller
 
         $domPDF->render();
 
-        $filename = 'user_' . Str::random(10) . '.pdf';
+        $filename = 'comprobante-' . $reservation->reservation_number . '.pdf';
 
         $path = 'pdfs\\' . $filename;
         Storage::disk('public')->put($path, $domPDF->output());
