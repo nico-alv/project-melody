@@ -55,7 +55,7 @@
                         {{ date('d/m/Y', strtotime($concert->concertDate->date)) }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ date('d/m/Y', strtotime($concert-> purchase_date)) }}
+                        {{ date('d/m/Y H:i', strtotime($concert-> purchase_date)) }}
                     </td>
 
                     <td class="px-6 py-4">
