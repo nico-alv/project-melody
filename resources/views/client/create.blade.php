@@ -81,14 +81,8 @@
             <div class="flex justify-between">
                 <label for="ticket_quantity" class="block my-auto text-sm font-medium">Cantidad de
                     entradas:</label>
-                <select id="ticket_quantity" name="ticket_quantity"
-                    class="border border-black-light text-sm rounded-lg w-2/3 block p-2.5">
-
-                        <option selected value="">--Seleccione las entradas--</option>
-                        @for ($i = 1; $i <= $concert->stock; $i++)
-                            <option value="{{ $i }}">{{ $i }}</option>
-                        @endfor
-                </select>
+                <input id="ticket_quantity"  type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                name="ticket_quantity" class="border border-black-light text-sm rounded-lg w-2/3 block p-2.5" placeholder="--Ingrese la cantidad de entradas--" />
             </div>
         </div>
             @error('ticket_quantity')
