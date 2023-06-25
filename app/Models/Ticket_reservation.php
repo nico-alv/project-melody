@@ -18,12 +18,12 @@ class Ticket_reservation extends Model
         'user_id',
         'concert_id'
     ];
-    public function concertDate(){
-        return $this->belongsTo(Concert::class,'concert_id');
+    public function concertDate()
+    {
+        return $this->belongsTo(Concert::class, 'concert_id');
     }
     public function ticket()
     {
         return $this->hasOne(Ticket::class, 'ticket_reservation_id');
     }
-
 }

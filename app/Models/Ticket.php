@@ -15,5 +15,4 @@ class Ticket extends Model
         'date',
         'ticket_reservation_id'
     ];
-
 }
