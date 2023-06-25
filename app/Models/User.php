@@ -12,7 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    public $timestamps = false;
     protected $fillable = [
         'name',
         'password',
@@ -30,6 +30,6 @@ class User extends Authenticatable
     ];
     public function concertsClient()
     {
-        return $this->hasMany(Ticket_reservation::class, 'user_id')->orderBy('purchase_date','desc');
+        return $this->hasMany(Ticket_reservation::class, 'user_id')->orderBy('purchase_date', 'desc');
     }
 }
