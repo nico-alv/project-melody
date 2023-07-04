@@ -79,13 +79,14 @@
             $dateTime = DateTime::createFromFormat('Y-m-d', $ticket_reservation->concertDate->date);
             $day = $dateTime->format('d');
             $month = $dateTime->format('F');
+            $year = $dateTime->format('Y');
             $translate = [
                 'January' => 'enero', 'February' => 'febrero', 'March' => 'marzo', 'April' => 'abril', 'May' => 'mayo',
                 'June' => 'junio', 'July' => 'julio', 'August' => 'agosto', 'September' => 'septiembre', 'October' => 'octubre',
                 'November' => 'noviembre', 'December' => 'diciembre',
             ];
             $translate = $translate[$month];
-            $ff = $day . ' de ' . $translate;
+            $ff = $day . ' de ' . $translate . ' de ' . $year;
         @endphp
 
         Fecha de entrada: {{ $ff }}

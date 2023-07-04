@@ -81,14 +81,8 @@
             <div class="flex justify-between">
                 <label for="ticket_quantity" class="block my-auto text-sm font-medium">Cantidad de
                     entradas:</label>
-                <select id="ticket_quantity" name="ticket_quantity"
-                    class="border border-black-light text-sm rounded-lg w-2/3 block p-2.5">
-
-                        <option selected value="">--Seleccione las entradas--</option>
-                        @for ($i = 1; $i <= $concert->stock; $i++)
-                            <option value="{{ $i }}">{{ $i }}</option>
-                        @endfor
-                </select>
+                <input id="ticket_quantity"  type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                name="ticket_quantity" class="border border-black-light text-sm rounded-lg w-2/3 block p-2.5" placeholder="--Ingrese la cantidad de entradas--" />
             </div>
         </div>
             @error('ticket_quantity')
@@ -107,8 +101,8 @@
                     <option selected value="">--Seleccione un método de pago--</option>
                     <option value="Efectivo">Efectivo</option>
                     <option value="Transferencia">Transferencia</option>
-                    <option value="Débito">Tarjeta de débito</option>
-                    <option value="Crédito">Tarjeta de crédito</option>
+                    <option value="Tarjeta de débito">Tarjeta de débito</option>
+                    <option value="Tarjeta de crédito">Tarjeta de crédito</option>
                 </select>
             </div>
         </div>
@@ -123,7 +117,7 @@
             <input name="reservation_number" value="" hidden>
         </div>
 
-        <div class="flex items-center justify-center p-6 space-x-2 rounded-b dark:border-gray-600">
+        <div class="flex items-center justify-center p-6 space-x-2 rounded-b">
             <div class="flex justify-center">
 
                 <div class="flex justify-center rounded-lg bg-green-medium-light hover:bg-green-medium-dark">
@@ -148,28 +142,7 @@
 @endsection
 
 @section('alert')
-    <script>
-        const button = document.getElementById("button");
-        const form = document.getElementById("form");
-
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            Swal.fire({
-                title: '¿Seguro que quieres continuar?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#00c586', //green-medium-light
-                cancelButtonColor: '#f3320d',  // orange-medium-light
-                confirmButtonText: 'Aceptar',
-                cancelButtonText: 'Cancelar',
-                allowOutsideClick: false,
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    form.submit();
-                }
-            })
-        })
-    </script>
+    <script src="/js/doubleCommitMessage.js"></script>
 @endsection
 
 @section('script')
@@ -177,7 +150,7 @@
         const amount = document.getElementById('ticket_quantity');
         const total = document.getElementById('total');
         const totalSubmit = document.getElementById('total-s');
-        amount.addEventListener('click', (e) => {
+        amount.addEventListener('input', (e) => {
             e.preventDefault();
             const venta = {{ $concert->price }} * amount.value;
 
