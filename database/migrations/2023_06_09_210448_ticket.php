@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('password');
-            $table->string('email')->unique();
-            $table->string('role');
-            $table->timestamps();
+        //
+        Schema::create('tickets', function (Blueprint $table) {
+            $table->id()->unique();
+            $table->string('pdf_name');
+            $table->string('path');
+            $table->foreignId('ticket_reservation_id')->constrained('ticket_reservations');
+            $table->date('date');
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('ticket');
     }
 };

@@ -3,9 +3,9 @@ class Concert extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'nameConcert',
-        'dateConcert',
-        'ticketsAvailable',
-        'entryPrice'
+        'concert_name',
+        'date',
+        'stock',
+        'price'
     ];
 }
