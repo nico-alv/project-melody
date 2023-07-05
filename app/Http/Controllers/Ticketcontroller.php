@@ -65,4 +65,30 @@ class TicketController extends Controller
             'ticket' => $ticket
         ]);
     }
+
+    public function showCollection()
+    {
+
+        $ventasPorMetodoPago = Ticket_reservation::select('payment_method')
+            ->selectRaw('SUM(total) as total')
+            ->groupBy('payment_method')
+            ->get();
+
+        $ventasPorcentaje = Ticket_reservation::select('payment_method')
+            ->selectRaw('SUM(total) as total, SUM(total) / (SELECT SUM(total) FROM ticket_reservations) * 100 as porcentaje')
+            ->groupBy('payment_method')
+            ->get();
+
+        $totalVendidoPorConcierto = Ticket_reservation::select('concerts.concert_name as concert_name')
+            ->selectRaw('SUM(ticket_reservations.total) as total')
+            ->join('concerts', 'concerts.id', '=', 'ticket_reservations.concert_id')
+            ->groupBy('concerts.concert_name')
+            ->get();
+
+        return view('admin.collection', [
+            'ventasPorMetodoPago' => $ventasPorMetodoPago,
+            'ventasPorcentaje' => $ventasPorcentaje,
+            'totalVendidoPorConcierto' => $totalVendidoPorConcierto
+        ]);
+    }
 }
