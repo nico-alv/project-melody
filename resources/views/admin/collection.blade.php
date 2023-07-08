@@ -5,9 +5,9 @@
 @endsection
 
 @section('title-page')
-    <div class="bg-orange-medium-light p-10 -mt-10">
-        Estadisticas ventas 'Melody'
-    </div>
+
+    Estadisticas ventas 'Melody'
+    <hr class="my-6 border-white ">
 
 @endsection
 
@@ -40,7 +40,7 @@
             datasets: [{
                 label: '',
                 data: totalVendidoPorConcierto.map(item => item.total),
-                backgroundColor: ['red', 'blue', 'yellow', 'green', 'purple', 'orange'],
+                backgroundColor: ['#f3320d', '#0257d2', '#00b87d', '#fcc104'],
                 borderWidth: 1
             }]
         };
@@ -81,7 +81,7 @@
             datasets: [{
                 label: '',
                 data: ventasPorMetodoPago.map(item => item.total),
-                backgroundColor: ['red', 'blue', 'yellow', 'green', 'purple', 'orange'],
+                backgroundColor: ['#f3320d', '#0257d2', '#00b87d', '#fcc104'],
                 borderWidth: 1
             }]
         };
@@ -122,7 +122,7 @@
             datasets: [{
                 label: 'Total Vendido en Porcentajes',
                 data: ventasPorcentaje.map(item => item.porcentaje) ,
-                backgroundColor: ['red', 'blue', 'yellow', 'green', 'purple', 'orange'],
+                backgroundColor: ['#f3320d', '#0257d2', '#00b87d', '#fcc104'],
                 borderWidth: 1
             }]
         };
