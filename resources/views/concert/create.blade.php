@@ -56,7 +56,7 @@ Registrar Concierto
                 </label>
                 <div class="flex flex-row">
                     <input id="stock" placeholder="Ingrese el stock" name="stock" class="shadow rounded-lg w-full mt-1 py-2 px-3">
-                    <!-- Tooltip campo precio -->
+                    <!-- Tooltip campo stock -->
                     <img data-tooltip-target="info-concert-stock" data-tooltip-placement="right" src="{{ asset('img/info_tooltip.png') }}"
                     class="ml-2 mt-2.5 w-7 h-7" alt="icono_tooltip">
                     <div id="info-concert-stock" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">

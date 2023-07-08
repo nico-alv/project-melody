@@ -14,15 +14,18 @@
         <div class="md:flex md:justify-center pb-4">
             <div>
                 <a href="{{route('concert.create')}}"
+                    title="Ir a añadir un nuevo concierto al sistema"
                     class="text-center text-black font-bold p-3 mx-3 rounded bg-yellow-medium-light hover:bg-yellow-medium-dark transition">Agregar
                     concierto</a>
             </div>
             <div>
                 <a href="#"
+                    title="Ir a ver todas las compras que se han realizado"
                     class="text-center text-black font-bold p-3 mx-3 rounded bg-yellow-medium-light hover:bg-yellow-medium-dark transition">Ver compras realizadas</a>
             </div>
             <div>
                 <a href="{{route('collection')}}"
+                    title="Ir a ver gráficos con la información de las ventas"
                     class="text-center text-black font-bold p-3 mx-3 rounded bg-yellow-medium-light hover:bg-yellow-medium-dark transition">Visualizar recaudación</a>
             </div>
         </div>
