@@ -12,14 +12,40 @@ Registrar Concierto
             @csrf
             <div class="mb-5">
                 <label for="concert_name" class="text-white font-bold">Nombre</label>
-                <input id="concert_name" name="concert_name" placeholder="Ingrese el nombre" class="shadow rounded-lg w-full mt-1 py-2 px-3">
+                <div class="flex flex-row">
+                    <input id="concert_name" name="concert_name" placeholder="Ingrese el nombre" class="shadow rounded-lg w-full mt-1 py-2 px-3">
+                    <!-- Tooltip campo nombre -->
+                    <img data-tooltip-target="info-concert-name" data-tooltip-placement="right" src="{{ asset('img/info_tooltip.png') }}"
+                    class="ml-2 mt-2.5 w-7 h-7" alt="icono_tooltip">
+                    <div id="info-concert-name" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
+                        El nombre del concierto debe contener al menos 5 caracteres
+
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                    <!------------------------->
+                </div>
                 @error('concert_name')
                     <p class="bg-pink-medium-light border border-pink-dark text-white mt-1 px-4 py-2 rounded-full">{{ $message }}</p>
                 @enderror
             </div>
             <div class="mb-5">
                 <label for="price" class="text-white font-bold">Precio</label>
-                <input id="price" name="price" placeholder="Ingrese el precio" class="shadow rounded-lg w-full mt-1 py-2 px-3">
+                <div class="flex flex-row">
+                    <input id="price" name="price" placeholder="Ingrese el precio" class="shadow rounded-lg w-full mt-1 py-2 px-3">
+                    <!-- Tooltip campo precio -->
+                    <img data-tooltip-target="info-concert-price" data-tooltip-placement="right" src="{{ asset('img/info_tooltip.png') }}"
+                    class="ml-2 mt-2.5 w-7 h-7" alt="icono_tooltip">
+                    <div id="info-concert-price" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
+                        El precio debe:
+                        <br>
+                        <span class="font-extrabold">&middot</span> Contener solo números
+                        <br>
+                        <span class="font-extrabold">&middot</span> Ser mayor o igual a $20.000
+
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                    <!------------------------->
+                </div>
                 @error('price')
                     <p class="bg-pink-medium-light border border-pink-dark text-white mt-1 px-4 py-2 rounded-full">{{ $message }}</p>
                 @enderror
@@ -28,7 +54,22 @@ Registrar Concierto
                 <label for="stock" class="text-white font-bold">
                     Stock
                 </label>
-                <input id="stock" placeholder="Ingrese el stock" name="stock" class="shadow rounded-lg w-full mt-1 py-2 px-3">
+                <div class="flex flex-row">
+                    <input id="stock" placeholder="Ingrese el stock" name="stock" class="shadow rounded-lg w-full mt-1 py-2 px-3">
+                    <!-- Tooltip campo precio -->
+                    <img data-tooltip-target="info-concert-stock" data-tooltip-placement="right" src="{{ asset('img/info_tooltip.png') }}"
+                    class="ml-2 mt-2.5 w-7 h-7" alt="icono_tooltip">
+                    <div id="info-concert-stock" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
+                        El stock debe:
+                        <br>
+                        <span class="font-extrabold">&middot</span> Contener solo números
+                        <br>
+                        <span class="font-extrabold">&middot</span> Ser de un rango entre 100 y 400
+
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                    <!------------------------->
+                </div>
                 @error('stock')
                     <p class="bg-pink-medium-light border border-pink-dark text-white mt-1 px-4 py-2 rounded-full">{{ $message }}</p>
                 @enderror
