@@ -19,7 +19,7 @@
                     concierto</a>
             </div>
             <div>
-                <a href="#"
+                <a href="{{route('purchases.index')}}"
                     title="Ir a ver todas las compras que se han realizado"
                     class="text-center text-black font-bold p-3 mx-3 rounded bg-yellow-medium-light hover:bg-yellow-medium-dark transition">Ver compras realizadas</a>
             </div>

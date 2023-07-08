@@ -28,8 +28,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function concertsClient()
-    {
-        return $this->hasMany(Ticket_reservation::class, 'user_id')->orderBy('purchase_date', 'desc');
-    }
 }
