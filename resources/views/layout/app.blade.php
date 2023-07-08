@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @vite('resources/css/app.css')
     @vite('resources/js/doubleCommitMessage.js')
+    <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.all.min.js"></script>
@@ -22,14 +23,14 @@
                 <div class="flex items-center">
                     @auth
                         @if (url()->current() != route('dashboard'))
-                            <a href="{{ route('dashboard')}}" class="flex justify-center text-white bg-blue-medium-dark rounded-t-lg text-xs hover:bg-blue-dark uppercase font-bold px-2 py-6">Menú principal</a>
+                            <a href="{{ route('dashboard')}}" title="Volver al menú principal" class="flex justify-center text-white bg-blue-medium-dark rounded-t-lg text-xs hover:bg-blue-dark uppercase font-bold px-2 py-6">Menú principal</a>
                         @else
                             <p class="flex justify-center bg-blue-medium-light shadow-lg rounded-t-lg text-xs text-white uppercase font-bold select-none px-2 py-6">Menú principal</p>
                         @endif
                         <div class="rounded-t-lg bg-green-medium-dark">
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
-                                <input type="submit" class="flex justify-center hover:rounded-t-lg text-xs cursor-pointer hover:bg-green-dark uppercase font-bold px-2 py-6" value="Cerrar Sesión">
+                                <input type="submit" title="Salir de la sesión" class="flex justify-center hover:rounded-t-lg text-xs cursor-pointer hover:bg-green-dark uppercase font-bold px-2 py-6" value="Cerrar Sesión">
                             </form>
                         </div>
                     @endauth
