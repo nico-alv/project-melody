@@ -51,12 +51,18 @@ Route::middleware(['auth', 'can:viewUserDashboard'])->group(function () {
     Route::get('descargar-pdf/{id}', [TicketController::class, 'downloadPDF'])->name('pdf.descargar');
 });
 
+
+
 //Rutas de acceso "Administrador"
 Route::middleware(['auth', 'can:viewAdminDashboard'])->group(function () {
     //Rutas de conciertos
     Route::post('/concert', [ConcertController::class, 'store'])->name('concert');
     Route::get('concert', [ConcertController::class, 'create'])->name('concert.create');
     Route::get('/collection', [TicketController::class, 'showCollection'])->name('collection');
+    //Rutas de busqueda de clientes
+    Route::get('/clients', [ConcertController::class, 'clients'])->name('clients.list');
+    Route::get('/client-search', [ConcertController::class, 'searchClient'])->name('clients.search');
+    Route::get('descargar-pdf/{id}', [TicketController::class, 'downloadPDF'])->name('pdf.descargar');
 });
 
 // Control de errores

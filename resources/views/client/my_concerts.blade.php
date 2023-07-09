@@ -32,7 +32,7 @@
                     Total pagado
                 </th>
                 <th scope="col" class="px-6 py-3 bg-orange-light">
-                    medio de pago
+                    Medio de pago
                 </th>
                 <th scope="col" class="px-6 py-3 bg-orange-light">
                     <p class="text-center">

@@ -25,6 +25,10 @@
                 <a href="{{route('collection')}}"
                     class="text-center text-black font-bold p-3 mx-3 rounded bg-yellow-medium-light hover:bg-yellow-medium-dark transition">Visualizar recaudación</a>
             </div>
+            <div>
+                <a href="{{route('clients.list')}}"
+                    class="text-center text-black font-bold p-3 mx-3 rounded bg-yellow-medium-light hover:bg-yellow-medium-dark transition">Buscar cliente</a>
+            </div>
         </div>
     </div>
 
