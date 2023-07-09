@@ -8,6 +8,8 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TicketReservationController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\PurchasesController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +37,6 @@ Route::post('/logout', [LogoutController::class, 'store'])->middleware('auth')->
 
 Route::get('/dashboard', [ConcertController::class, 'index'])->name('dashboard');
 
-//Rutas de acceso "Usuario"
 Route::middleware(['auth', 'can:viewUserDashboard'])->group(function () {
     // Rutas de conciertos
     Route::post('/concert-list', [ConcertController::class, 'searchDate'])->name('concert.search');
@@ -49,14 +50,23 @@ Route::middleware(['auth', 'can:viewUserDashboard'])->group(function () {
     // Rutas de visualización y descarga de PDFs
     Route::get('/ticket/{id}', [TicketController::class, 'generatePDF'])->name('generate.pdf');
     Route::get('descargar-pdf/{id}', [TicketController::class, 'downloadPDF'])->name('pdf.descargar');
+
+    
+
+    
+
 });
 
-//Rutas de acceso "Administrador"
 Route::middleware(['auth', 'can:viewAdminDashboard'])->group(function () {
     //Rutas de conciertos
     Route::post('/concert', [ConcertController::class, 'store'])->name('concert');
     Route::get('concert', [ConcertController::class, 'create'])->name('concert.create');
+
+    //Ruta gráficos
     Route::get('/collection', [TicketController::class, 'showCollection'])->name('collection');
+
+    //Ruta para visualizar compras realizadas    
+    Route::get('/purchases', [PurchasesController::class, 'index'])->name('purchases.index');
 });
 
 // Control de errores

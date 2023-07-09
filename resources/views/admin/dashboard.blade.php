@@ -18,7 +18,7 @@
                     concierto</a>
             </div>
             <div>
-                <a href="#"
+                <a href="{{route('purchases.index')}}"
                     class="text-center text-black font-bold p-3 mx-3 rounded bg-yellow-medium-light hover:bg-yellow-medium-dark transition">Ver compras realizadas</a>
             </div>
             <div>
