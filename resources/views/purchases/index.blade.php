@@ -19,7 +19,7 @@
                     Cantidad entradas
                 </th>
                 <th scope="col" class="px-6 py-3 bg-orange-light">
-                    Cantidad entrada vendidas
+                    Cantidad entradas vendidas
                 </th>
                 <th scope="col" class="px-6 py-3 bg-orange-light">
                     Cantidad entradas disponibles
@@ -41,21 +41,25 @@
                         {{ $concert->date ? date('d/m/Y', strtotime($concert->date)) : '-' }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $concert->ticket_quantity }}
+                        {{ $concert->stock }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $concert->ticketReservations->sum('ticket_quantity') }}
+                        {{ $concert->ticketReservations->first()->entradas_vendidas ?? 0 }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $concert->stock - $concert->ticketReservations->sum('ticket_quantity') }}
+                        {{ $concert->stock - ($concert->ticketReservations->first()->entradas_vendidas ?? 0) }}  
                     </td>
                     <td class="px-6 py-4">
-                        {{ '$' . number_format(($concert->ticketReservations->sum('ticket_quantity')) * ($concert->price), 0, ',', '.') }}
+                        @if ($concert->ticketReservations->isNotEmpty())
+                            {{ '$' . number_format($concert->ticketReservations->first()->monto_total_vendido,0, '', '') }}
+                        @else
+                            $0
+                        @endif
                     </td>
             @empty
                 <tr>
                     <td colspan="7" class="px-6 py-4 text-center">
-                        No hay conciertos disponibles para visualizar.
+                        No hay conciertos para mostrar.
                     </td>
                 </tr>
             @endforelse
