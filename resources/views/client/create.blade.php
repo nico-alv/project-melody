@@ -81,9 +81,23 @@
             <div class="flex justify-between">
                 <label for="ticket_quantity" class="block my-auto text-sm font-medium">Cantidad de
                     entradas:</label>
+
+
                 <input id="ticket_quantity"  type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-                name="ticket_quantity" class="border border-black-light text-sm rounded-lg w-2/3 block p-2.5" placeholder="--Ingrese la cantidad de entradas--" />
-            </div>
+                    name="ticket_quantity" class="border border-black-light text-sm rounded-lg w-7/12 block p-2.5" placeholder="--Ingrese la cantidad de entradas--" />
+                <!-- Tooltip campo cantidad de entradas -->
+                <img data-tooltip-target="info-buy-tickets" data-tooltip-placement="right" src="{{ asset('img/info_tooltip.png') }}"
+                class="ml-2 mt-2.5 w-7 h-7" alt="icono_tooltip">
+                <div id="info-buy-tickets" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
+                    La cantidad de entradas ingresada debe:
+                    <br>
+                    <span class="font-extrabold">&middot</span> Contener solamente números
+                    <br>
+                    <span class="font-extrabold">&middot</span> Ser un valor entre 1 y {{ $concert->stock }}
+
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>
+                <!------------------------->
         </div>
             @error('ticket_quantity')
                 <p class="bg-pink-medium-light border border-pink-dark text-white text-center py-2 mb-3 rounded-full">{{ $message }}</p>
@@ -94,16 +108,27 @@
             @endif
         <div class="pt-4 pb-2">
             <div class="flex justify-between">
-                <label for="payment_method" class="block my-auto text-sm font-medium">Forma de pago:</label>
+                <label for="payment_method" class="block my-auto text-sm font-medium pr-10">Forma de pago:</label>
 
                 <select id="payment_method" name="payment_method"
-                    class="border border-black-light text-sm rounded-lg w-2/3 block p-2.5">
+                    class="border border-black-light text-sm rounded-lg block w-7/12 p-2.5">
                     <option selected value="">--Seleccione un método de pago--</option>
                     <option value="Efectivo">Efectivo</option>
                     <option value="Transferencia">Transferencia</option>
                     <option value="Tarjeta de débito">Tarjeta de débito</option>
                     <option value="Tarjeta de crédito">Tarjeta de crédito</option>
                 </select>
+                <!-- Tooltip campo forma de pago -->
+                <img data-tooltip-target="info-method" data-tooltip-placement="right" src="{{ asset('img/info_tooltip.png') }}"
+                class="ml-2 mt-2.5 w-7 h-7" alt="icono_tooltip">
+                <div id="info-method" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
+                    Este es el medio por el cual pagará
+                    <br>
+                    las entradas
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>
+                <!------------------------->
+
             </div>
         </div>
         @error('payment_method')
@@ -120,7 +145,7 @@
         <div class="flex items-center justify-center p-6 space-x-2 rounded-b">
             <div class="flex justify-center">
 
-                <div class="flex justify-center rounded-lg bg-green-medium-light hover:bg-green-medium-dark">
+                <div title="Se efectuará el pago de las entradas" class="flex justify-center rounded-lg bg-green-medium-light hover:bg-green-medium-dark">
                     <button id="button" type="button"
                         class="font-medium text-sm px-5 py-2.5">
                         Finalizar compra
@@ -130,7 +155,7 @@
             </div>
 
             <div class="flex justify-center">
-                <div class="flex justify-center rounded-lg bg-yellow-medium-light hover:bg-yellow-medium-dark">
+                <div title="Volver a la lista de conciertos" class="flex justify-center rounded-lg bg-yellow-medium-light hover:bg-yellow-medium-dark">
                     <a href="{{ route('concert.list') }}" type="button"
                         class="font-medium text-sm px-5 py-2.5">
                         Volver
