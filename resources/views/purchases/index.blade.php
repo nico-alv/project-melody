@@ -27,11 +27,13 @@
                 <th scope="col" class="px-6 py-3 bg-orange-light">
                     Monto total vendido
                 </th>
-                
-            
+                <th scope="col" class="px-6 py-3 bg-orange-light">
+                    Detalle concierto
+                 </th>
             </tr>
         </thead>
         <tbody>
+
             @forelse ($concerts as $concert)
                 <tr class="bg-white border-b">
                     <td class="px-6 py-4">
@@ -47,13 +49,26 @@
                         {{ $concert->ticketReservations->first()->entradas_vendidas ?? 0 }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $concert->stock - ($concert->ticketReservations->first()->entradas_vendidas ?? 0) }}  
+                        {{ $concert->stock - ($concert->ticketReservations->first()->entradas_vendidas ?? 0) }}
                     </td>
                     <td class="px-6 py-4">
                         @if ($concert->ticketReservations->isNotEmpty())
                             {{ '$' . number_format($concert->ticketReservations->first()->monto_total_vendido,0, '', '') }}
                         @else
                             $0
+                        @endif
+                    </td>
+                    <td class="px-6 py-4">
+                        @if ($concert->ticketReservations->isNotEmpty())
+                        <a class="w-auto h-auto">
+                            <p class="bg-yellow-medium-light rounded-full text-center text-black-dark font-semibold">
+                               <a  href="{{ route('concert.clients', ['id' => $concert->id]) }}">
+                                ver detalles
+                               </a>
+                            </p>
+                        </a>
+                        @else
+
                         @endif
                     </td>
             @empty

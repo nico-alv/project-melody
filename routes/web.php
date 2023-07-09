@@ -42,6 +42,8 @@ Route::middleware(['auth', 'can:viewUserDashboard'])->group(function () {
     Route::post('/concert-list', [ConcertController::class, 'searchDate'])->name('concert.search');
     Route::get('/concert-list', [ConcertController::class, 'concertsList'])->name('concert.list');
 
+    Route::get('/my-concerts', [ConcertController::class, 'myConcerts'])->name('client.concerts');
+
     // Order Concerts
     Route::get('/concert-order/{id}', [TicketReservationController::class, 'create'])->name('concert.order');
     Route::post('/concert-order/{id}', [TicketReservationController::class, 'store'])->name('concert.order.pay');
@@ -50,9 +52,9 @@ Route::middleware(['auth', 'can:viewUserDashboard'])->group(function () {
     Route::get('/ticket/{id}', [TicketController::class, 'generatePDF'])->name('generate.pdf');
     Route::get('descargar-pdf/{id}', [TicketController::class, 'downloadPDF'])->name('pdf.descargar');
 
-    
 
-    
+
+
 
 });
 
@@ -64,8 +66,9 @@ Route::middleware(['auth', 'can:viewAdminDashboard'])->group(function () {
     //Ruta gráficos
     Route::get('/collection', [TicketController::class, 'showCollection'])->name('collection');
 
-    //Ruta para visualizar compras realizadas    
+    //Ruta para visualizar compras realizadas
     Route::get('/purchases', [PurchasesController::class, 'index'])->name('purchases.index');
+    Route::get('purchases/{id}', [PurchasesController::class, 'concertClients'])->name('concert.clients');
 });
 
 // Control de errores
