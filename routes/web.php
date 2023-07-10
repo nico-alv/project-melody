@@ -48,7 +48,6 @@ Route::middleware(['auth', 'can:viewUserDashboard'])->group(function () {
 
     // Rutas de visualización y descarga de PDFs
     Route::get('/ticket/{id}', [TicketController::class, 'generatePDF'])->name('generate.pdf');
-    Route::get('descargar-pdf/{id}', [TicketController::class, 'downloadPDF'])->name('pdf.descargar');
 });
 
 
@@ -62,9 +61,11 @@ Route::middleware(['auth', 'can:viewAdminDashboard'])->group(function () {
     //Rutas de busqueda de clientes
     Route::get('/clients', [ConcertController::class, 'clients'])->name('clients.list');
     Route::get('/client-search', [ConcertController::class, 'searchClient'])->name('clients.search');
-    Route::get('descargar-pdf/{id}', [TicketController::class, 'downloadPDF'])->name('pdf.descargar');
+
 });
 
+// Descarga de PDF
+Route::get('descargar-pdf/{id}', [TicketController::class, 'downloadPDF'])->name('pdf.descargar');
 // Control de errores
 
 Route::get('/error-404', function () {
