@@ -15,16 +15,45 @@
 
 
     <div class="flex flex-col justify-center items-center h-auto">
-        <div class="w-1/2 bg-white p-4 m-3">
+        <div class="flex flex-row w-1/2 bg-white p-4 m-3">
             <canvas id="graph1" class="w-full h-64"></canvas>
+            <!-- Tooltip gráfico 1 -->
+            <img data-tooltip-target="info-graph-1" data-tooltip-placement="right" src="{{ asset('img/info_tooltip.png') }}"
+            class="-ml-6 -mt-1 w-7 h-7" alt="icono_tooltip">
+            <div id="info-graph-1" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
+                Este gráfico muestra la información de la recaudación
+                <br>
+                de cada concierto que registre al menos una venta
+            </div>
+            <!------------------------->
         </div>
 
-        <div class="w-1/2 bg-white p-4 m-3">
+        <div class="flex flex-row w-1/2 bg-white p-4 m-3">
             <canvas id="graph2" class="w-full h-64"></canvas>
+            <!-- Tooltip gráfico 2 -->
+            <img data-tooltip-target="info-graph-2" data-tooltip-placement="right" src="{{ asset('img/info_tooltip.png') }}"
+            class="-ml-6 -mt-1 w-7 h-7" alt="icono_tooltip">
+            <div id="info-graph-2" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
+                Este gráfico muestra la información de la recaudación
+                <br>
+                total categorizada por el método de pago utilizado
+            </div>
+            <!------------------------->
         </div>
 
-        <div class="w-10/12 p-4 m-3">
-            <canvas id="graph3" class=" bg-white w-1/2 h-64 mx-auto"></canvas>
+        <div class="flex flex-row w-1/2 bg-white p-4 m-3">
+            <canvas id="graph3" class="w-full h-64"></canvas>
+            <!-- Tooltip gráfico 3 -->
+            <img data-tooltip-target="info-graph-3" data-tooltip-placement="right" src="{{ asset('img/info_tooltip.png') }}"
+            class="-ml-6 -mt-1 w-7 h-7" alt="icono_tooltip">
+            <div id="info-graph-3" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
+                Este gráfico indica el porcentaje de ventas que se
+                <br>
+                registraron dependiendo del metodo de pago utilizado
+                <br>
+                en relación a las ventas totales
+            </div>
+            <!------------------------->
         </div>
     </div>
 @endsection
@@ -138,7 +167,7 @@
                         font: {
                             size: 20
                         },
-                        padding: {top: 15}
+                        padding: {top: 0}
                     },
                     tooltip: {
                         callbacks: {
