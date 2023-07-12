@@ -1,13 +1,25 @@
 @extends('layout.app')
-
+@section('title-page')
+    Buscar un cliente
+@endsection
 @section('content')
 <form action="{{ route('clients.search') }}" class="my-12" method="GET" novalidate>
+
     <div class="flex justify-center bg-orange-medium-light py-4">
+            <!-- Tooltip correo -->
+            <img data-tooltip-target="info-concert-date" data-tooltip-placement="right" src="{{ asset('img/info_tooltip.png') }}"
+                class="ml-2 mt-2.5 w-7 h-7" alt="icono_tooltip">
+            <div id="info-concert-date" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
+                Se debe ingresar un correo ya existente en el sistema
+                <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+            <!------------------------->
             <label for="email_search" class="sr-only">Search</label>
             <div class="md:mx-lg-auto px-4">
                 <input type="email" name="email_search" placeholder="Ingrese correo a buscar"
                     class="bg-white border text-black text-center text-sm rounded-lg block p-2.5 px-20 w-full">
             </div>
+
             <!-- Boton buscar -->
             <div class="flex justify-center" title="Buscar fecha">
                 <div class="ml-1.5 flex justify-center rounded-lg bg-yellow-medium-light hover:bg-yellow-medium-dark">
@@ -36,6 +48,7 @@
             </div>
         </div>
     </div>
+
 </form>
 
     @if ($client == null)
@@ -49,29 +62,29 @@
             <table class="w-full text-sm text-left text-black">
                 <thead class="text-xs text-white uppercase">
                     <tr>
-                        <th scope="col" class="px-6 py-3 bg-orange-light">
+                        <th scope="col" class="px-6 py-3 text-center bg-orange-light">
                             Número reserva
                         </th>
-                        <th scope="col" class="px-6 py-3 bg-orange-light">
+                        <th scope="col" class="px-6 py-3 text-center bg-orange-light">
                             Nombre concierto
                         </th>
-                        <th scope="col" class="px-6 py-3 bg-orange-light">
+                        <th scope="col" class="px-6 py-3 text-center bg-orange-light">
                             Fecha concierto
                         </th>
-                        <th scope="col" class="px-6 py-3 bg-orange-light">
+                        <th scope="col" class="px-6 py-3 text-center bg-orange-light">
                             Fecha compra
                         </th>
 
-                        <th scope="col" class="px-6 py-3 bg-orange-light">
+                        <th scope="col" class="px-6 py-3 text-center bg-orange-light">
                             Cantidad entradas
                         </th>
-                        <th scope="col" class="px-6 py-3 bg-orange-light">
+                        <th scope="col" class="px-6 py-3 text-center bg-orange-light">
                             Total pagado
                         </th>
-                        <th scope="col" class="px-6 py-3 bg-orange-light">
+                        <th scope="col" class="px-6 py-3 text-center bg-orange-light">
                             Medio de pago
                         </th>
-                        <th scope="col" class="px-6 py-3 bg-orange-light">
+                        <th scope="col" class="px-6 py-3 text-center bg-orange-light">
                             <p class="text-center">
                                 Descargar
                             </p>
@@ -128,6 +141,7 @@
                     @endforeach
                 </tbody>
             </table>
+
         </div>
         @if ($ticket_reservations)
             <div class="flex justify-center items-center mx-auto my-8">
