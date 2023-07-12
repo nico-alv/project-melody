@@ -75,8 +75,6 @@
                     <td class="px-6 py-4">
                         {{
                             '$' . number_format(($concert-> ticket_quantity)*($concert->concertDate->price), 0, ',', '.')
-
-
                         }}
                     </td>
                     <td class="px-6 py-4">
@@ -95,7 +93,6 @@
         </tbody>
     </table>
 </div>
-
 @if ( $count == 0 )
     <p class="text-2xl text-white text-center font-bold bg-blue-medium-dark py-5 mt-5">
         No hay entradas adquiridas por desplegar

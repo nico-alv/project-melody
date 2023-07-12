@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Ticket_reservation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,4 +20,10 @@ class Concert extends Model
     {
         return self::all();
     }
+
+    public function ticketReservations()
+    {
+    return $this->hasMany(Ticket_reservation::class, 'concert_id');
+    }
+
 }

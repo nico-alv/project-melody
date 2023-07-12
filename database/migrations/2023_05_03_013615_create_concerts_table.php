@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('stock');
             $table->date('date')->unique();
+            $table->timestamps();
         });
     }
 
