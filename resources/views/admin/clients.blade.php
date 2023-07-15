@@ -1,4 +1,7 @@
 @extends('layout.app')
+@section('title')
+    Buscar un cliente
+@endsection
 @section('title-page')
     Buscar un cliente
 @endsection
