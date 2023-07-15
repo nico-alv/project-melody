@@ -8,7 +8,7 @@
     <div class="flex justify-center bg-orange-medium-light py-4">
             <label for="email_search" class="sr-only">Search</label>
             <div class="md:mx-lg-auto px-4 w-1/4">
-                <input type="email" name="email_search" placeholder="Ingrese correo un a buscar"
+                <input type="email" name="email_search" placeholder="Ingrese un correo a buscar"
                     class="bg-white border text-black text-center text-sm rounded-lg block p-2.5 w-full">
             </div>
             <!-- Boton buscar -->
