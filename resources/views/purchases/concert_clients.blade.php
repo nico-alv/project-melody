@@ -9,7 +9,7 @@
     {{$concert->concert_name}}
 </h1>
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg text-center pt-4">
-    <table class="w-full text-sm text-left text-black">
+    <table class="w-full text-sm text-center text-black">
         <thead class="text-xs text-white uppercase">
             <tr>
                 <th scope="col" class="px-6 py-3 bg-orange-light">

@@ -7,7 +7,7 @@
 @section('content')
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left text-black">
-        <thead class="text-xs text-white uppercase">
+        <thead class="text-xs text-center text-white uppercase">
             <tr>
                 <th scope="col" class="px-6 py-3 bg-orange-light">
                     Nombre concierto
@@ -35,10 +35,11 @@
         <tbody>
 
             @forelse ($concerts as $concert)
-                <tr class="bg-white border-b">
+                <tr class="bg-white text-center border-b">
                     <td class="px-6 py-4">
                         {{ $concert->concert_name }}
                     </td>
+                    
                     <td class="px-6 py-4">
                         {{ $concert->date ? date('d/m/Y', strtotime($concert->date)) : '-' }}
                     </td>
@@ -60,13 +61,19 @@
                     </td>
                     <td class="px-6 py-4">
                         @if ($concert->ticketReservations->isNotEmpty())
-                        <a class="w-auto h-auto">
-                            <p class="bg-yellow-medium-light rounded-full text-center text-black-dark font-semibold">
-                               <a  href="{{ route('concert.clients', ['id' => $concert->id]) }}">
-                                ver detalles
-                               </a>
-                            </p>
-                        </a>
+                        <div>
+                            <a data-tooltip-target="details" data-tooltip-placement="right" href="{{ route('concert.clients', ['id' => $concert->id]) }}"
+                                class="text-center p-2 bg-yellow-medium-light rounded-full text-center text-black-dark font-semibold">
+                                Ver Detalles
+                            </a>
+                            <div id="details" role="tooltip"
+                                class="text-center absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                Ver detalle completo
+                                <br>
+                                de este concierto.
+                                <div class="tooltip-arrow" data-popper-arrow></div>
+                            </div>
+                        </div>
                         @else
 
                         @endif
