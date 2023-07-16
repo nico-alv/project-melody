@@ -5,7 +5,6 @@
 @endsection
 
 @section('title-page')
-
     Estadisticas ventas 'Melody'
     <hr class="my-6 border-white ">
 
@@ -13,7 +12,11 @@
 
 @section('content')
 
-
+@if($totalVendidoPorConcierto->isEmpty() && $ventasPorMetodoPago->isEmpty() && $ventasPorcentaje->isEmpty())
+    <div class="flex justify-center items-center h-full">
+        <h2 class="text-2xl font-bold text-white">No hay compras registradas</h2>
+    </div>
+@else
     <div class="flex flex-col justify-center items-center h-auto">
         <div class="flex flex-row w-1/2 bg-white p-4 m-3">
             <canvas id="graph1" class="w-full h-64"></canvas>
@@ -56,6 +59,7 @@
             <!------------------------->
         </div>
     </div>
+    @endif
 @endsection
 
 @section('script')
@@ -101,6 +105,7 @@
                 }
             }
         });
+        
 
         const ctx2 = document.getElementById('graph2');
         const ventasPorMetodoPago = {!! json_encode($ventasPorMetodoPago) !!};
@@ -184,3 +189,4 @@
         });
     </script>
 @endsection
+

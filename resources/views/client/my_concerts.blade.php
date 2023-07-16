@@ -8,7 +8,7 @@
 @section('content')
 
 
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+<div class="relative overflow-x-hidden overflow-y-hidden shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left text-black">
         <thead class="text-xs text-white uppercase">
             <tr>
