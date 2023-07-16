@@ -56,7 +56,7 @@
                 </td>
                 <td class="px-6 py-4">
                     <p class="text-center">
-                        {{ date('d/m/Y h:i:s', strtotime($detail_order->created_at)) }}
+                        {{ date('d/m/Y h:i:s', strtotime($detail_order->purchase_date)) }}
                     </p>
                 </td>
                 <td class="px-6 py-4">
