@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Concert;
+use App\Models\Ticket_reservation;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -116,5 +117,35 @@ class ConcertController extends Controller
             'user' => auth()->user(),
             'count' => $count_1
         ]);
+    }
+
+    public function clients()
+    {
+        $client = null;
+        return view('admin.clients', [
+            'message' => null,
+            'client' => $client,
+            'ticket_reservations' => null
+        ]);
+    }
+
+    public function searchClient(Request $request)
+    {
+        $email = $request->email_search;
+        $client = User::where('email',"=",$email)->first();
+        if(!$client){
+            return view('admin.clients', [
+                'message' => 'El correo electrónico no existe.',
+                'client' => $client,
+                'ticket_reservations' => null
+            ]);
+        } else {
+            $ticket_reservations = Ticket_reservation::where('user_id', $client->id)->paginate(5);
+            return view('admin.clients', [
+                'mesage' => null,
+                'client' => $client,
+                'ticket_reservations' => $ticket_reservations
+            ]);
+        }
     }
 }

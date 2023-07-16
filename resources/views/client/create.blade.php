@@ -1,5 +1,4 @@
 @extends('layout.app')
-
 @section('title')
     @if($concert->stock > 0 )
         {{ $concert->concert_name }}
@@ -7,8 +6,6 @@
         Página no encontrada
     @endif
 @endsection
-
-
 @section('content')
     @if($concert->stock < 1)
         {{ view('errors.404')}}
@@ -91,9 +88,9 @@
                 <div id="info-buy-tickets" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
                     La cantidad de entradas ingresada debe:
                     <br>
-                    <span class="font-extrabold">&middot</span> Contener solamente números
+                    <span class="font-extrabold">&middot</span> Contener solamente números.
                     <br>
-                    <span class="font-extrabold">&middot</span> Ser un valor entre 1 y {{ $concert->stock }}
+                    <span class="font-extrabold">&middot</span> Ser un valor entre 1 y {{ $concert->stock }}.
 
                     <div class="tooltip-arrow" data-popper-arrow></div>
                 </div>
@@ -124,7 +121,7 @@
                 <div id="info-method" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
                     Este es el medio por el cual pagará
                     <br>
-                    las entradas
+                    las entradas.
                     <div class="tooltip-arrow" data-popper-arrow></div>
                 </div>
                 <!------------------------->

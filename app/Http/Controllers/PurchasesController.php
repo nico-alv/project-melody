@@ -28,15 +28,15 @@ class PurchasesController extends Controller
         $concert = Concert::find($id);
 
         // Obtener los detalles de orden para el concierto seleccionado mediante su id
-        $detail_orders = Ticket_reservation::where('concert_id', $id)->get();
+        $ticket_reservations = Ticket_reservation::where('concert_id', $id)->get();
 
         // Obtener los usuarios relacionados con los detalles de orden
-        $clients = User::whereIn('id', $detail_orders->pluck('user_id'))->get();
+        $clients = User::whereIn('id', $ticket_reservations->pluck('user_id'))->get();
 
 
         return view('purchases.concert_clients', [
             'concert'=> $concert,
-            'detail_orders' => $detail_orders,
+            'ticket_reservations' => $ticket_reservations,
             'clients' => $clients
         ]);
     }
