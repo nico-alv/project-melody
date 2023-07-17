@@ -15,7 +15,7 @@
                     class="bg-white border text-black text-center text-sm rounded-lg block p-2.5 w-full">
             </div>
             <!-- Boton buscar -->
-            <div class="flex justify-center" title="Buscar fecha">
+            <div class="flex justify-center" title="Buscar cliente">
                 <div class="ml-1.5 flex justify-center rounded-lg bg-yellow-medium-light hover:bg-yellow-medium-dark">
                     <button type="submit" class="p-3 text-sm font-medium text-white">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -133,11 +133,12 @@
                             </td>
                             <td class="px-6 py-4">
                                 <p class="text-center">
-                                    {{ $ticket_reservation->total }}
+                                    {{'$' . number_format($ticket_reservation->total, 0, ',', '.')}}
                                 </p>
                             </td>
                             <td class="px-6 py-4">
                                 <p class="text-center">
+
                                     {{ $ticket_reservation->payment_method }}
                                 </p>
                             </td>
