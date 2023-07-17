@@ -7,11 +7,10 @@ use App\Http\Controllers\TicketReservationController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory, Notifiable;
     public $timestamps = false;
     protected $fillable = [
         'name',
@@ -20,14 +19,6 @@ class User extends Authenticatable
         'role'
     ];
 
-    protected $hidden = [
-        'password',
-        'remember_token'
-    ];
-
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
     public function concertsClient()
     {
         return $this->hasMany(Ticket_reservation::class, 'user_id')->orderBy('purchase_date', 'desc');

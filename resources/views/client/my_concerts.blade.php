@@ -8,7 +8,7 @@
 @section('content')
 
 
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+<div class="relative overflow-x-hidden overflow-y-hidden shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left text-black">
         <thead class="text-xs text-white uppercase">
             <tr>
@@ -32,12 +32,23 @@
                     Total pagado
                 </th>
                 <th scope="col" class="px-6 py-3 bg-orange-light">
-                    medio de pago
+                    Medio de pago
                 </th>
                 <th scope="col" class="px-6 py-3 bg-orange-light">
-                    <p class="text-center">
+                    <div class="flex flex-row justify-center">
+                        <p >
                         Descargar
-                    </p>
+                        </p>
+                        <!-- Tooltip descargar comprobante -->
+                        <img data-tooltip-target="info-download" data-tooltip-placement="bottom" src="{{ asset('img/info_tooltip.png') }}"
+                        class="ml-2 -mt-0.5 w-5 h-5" alt="icono_tooltip">
+                        <div id="info-download" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
+                            S<span class="lowercase">e descargará el comprobante de compra</span>
+                            <div class="tooltip-arrow" data-popper-arrow></div>
+                        </div>
+                        <!------------------------->
+                    </div>
+
                 </th>
             </tr>
         </thead>
@@ -64,8 +75,6 @@
                     <td class="px-6 py-4">
                         {{
                             '$' . number_format(($concert-> ticket_quantity)*($concert->concertDate->price), 0, ',', '.')
-
-
                         }}
                     </td>
                     <td class="px-6 py-4">
@@ -84,7 +93,6 @@
         </tbody>
     </table>
 </div>
-
 @if ( $count == 0 )
     <p class="text-2xl text-white text-center font-bold bg-blue-medium-dark py-5 mt-5">
         No hay entradas adquiridas por desplegar

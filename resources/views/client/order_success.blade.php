@@ -119,7 +119,7 @@
             </div>
             <div class="flex items-center justify-center p-6 border-t bg-orange-light rounded-b-lg border-orange-dark ">
                 <div class="flex justify-center">
-                    <div class="flex justify-center rounded-lg bg-yellow-medium-light hover:bg-yellow-medium-dark">
+                    <div title="Volver al menú principal" class="flex justify-center rounded-lg bg-yellow-medium-light hover:bg-yellow-medium-dark">
                         <a href="{{ route('dashboard') }}" type="button"
                             class="font-medium text-sm px-5 py-2.5">
                             Finalizar
