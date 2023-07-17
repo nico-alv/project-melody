@@ -1,9 +1,7 @@
 @extends('layout.app')
-
 @section('title')
     Dashboard {{ auth()->user()->name }}
 @endsection
-
 @section('title-page')
     Bienvenido {{ auth()->user()->name }}
 @endsection

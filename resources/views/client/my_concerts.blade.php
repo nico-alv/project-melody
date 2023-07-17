@@ -1,10 +1,7 @@
 @extends('layout.app')
-
 @section('title')
     Mis conciertos
 @endsection
-
-
 @section('content')
 
 
@@ -43,7 +40,7 @@
                         <img data-tooltip-target="info-download" data-tooltip-placement="bottom" src="{{ asset('img/info_tooltip.png') }}"
                         class="ml-2 -mt-0.5 w-5 h-5" alt="icono_tooltip">
                         <div id="info-download" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
-                            S<span class="lowercase">e descargará el comprobante de compra</span>
+                            S<span class="lowercase">e descargará el comprobante de compra.</span>
                             <div class="tooltip-arrow" data-popper-arrow></div>
                         </div>
                         <!------------------------->

@@ -20,9 +20,9 @@ Registrar Cliente
                     <div id="info-name" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
                         El nombre debe contener:
                         <br>
-                        <span class="font-extrabold">&middot</span> Solo letras
+                        <span class="font-extrabold">&middot</span> Solo letras.
                         <br>
-                        <span class="font-extrabold">&middot</span> Al menos 3 caracteres
+                        <span class="font-extrabold">&middot</span> Al menos 3 caracteres.
 
                         <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
@@ -61,9 +61,9 @@ Registrar Cliente
                     <div id="info-password" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
                         La contraseña debe contener:
                         <br>
-                        <span class="font-extrabold">&middot</span> Al menos una letra y un número
+                        <span class="font-extrabold">&middot</span> Al menos una letra y un número.
                         <br>
-                        <span class="font-extrabold">&middot</span> Al menos 8 caracteres
+                        <span class="font-extrabold">&middot</span> Al menos 8 caracteres.
                         <br>
                         La contraseña no debe contener:
                         <br>

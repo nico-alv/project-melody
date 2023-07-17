@@ -1,9 +1,7 @@
 @extends('layout.app')
-
 @section('title')
     Compra realizada
 @endsection
-
 @section('content')
     <div class="max-w-lg mx-auto my-4 border-b-1 pb-4 bg-yellow-medium-light rounded p-8 mb-6">
         <div>

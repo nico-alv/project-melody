@@ -1,9 +1,7 @@
 @extends('layout.app')
-
 @section('title')
     Recaudación
 @endsection
-
 @section('title-page')
     Estadísticas ventas 'Melody'
     <hr class="my-6 border-white ">
@@ -26,7 +24,7 @@
                 <div id="info-graph-1" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
                     Este gráfico muestra la información de la recaudación
                     <br>
-                    de cada concierto que registre al menos una venta
+                    de cada concierto que registre al menos una venta.
                 </div>
 
         </div>
@@ -50,7 +48,7 @@
                 <div id="info-graph-2" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
                     Este gráfico muestra la información de la recaudación
                     <br>
-                    total categorizada por el método de pago utilizado
+                    total categorizada por el método de pago utilizado.
                 </div>
         </div>
 
@@ -74,7 +72,7 @@
                     <br>
                     registraron dependiendo del metodo de pago utilizado
                     <br>
-                    en relación a las ventas totales
+                    en relación a las ventas totales.
                 </div>
         </div>
         @if(!empty($metodosDePagoSinVentas))
