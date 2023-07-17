@@ -18,7 +18,7 @@ function makeMessages()
         'stock.between' => 'El valor ingresado no es numérico o es inferior a 100 o superior a 400.',
         'stock.numeric' => 'El valor ingresado no es numérico o es inferior a 100 o superior a 400.',
         'email.email' => 'Ingrese una dirección de correo electrónico válida.',
-        'email.unique' => 'El correo ingresado ya esta existe en el sistema, intente iniciar sesión.',
+        'email.unique' => 'El correo ingresado ya existe en el sistema, intente iniciar sesión.',
         'password.min' => 'La contraseña posee menos de 8 carácteres.',
         'price.min' => 'El valor de la entrada no puede ser inferior a $20.000 pesos.',
         'price.numeric' => 'El valor de la entrada debe ser numérico.',
