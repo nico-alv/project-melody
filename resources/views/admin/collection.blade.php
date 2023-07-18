@@ -16,7 +16,7 @@
 @else
     <div class="flex flex-col justify-center items-center h-auto">
 
-        <div class="flex flex-row w-1/2 bg-white p-4 m-3">
+        <div class="flex flex-row w-1/2 bg-white p-4 mt-3 mx-3 -mb-3 border-b border-b-black-dark">
                 <canvas id="graph1" class="w-full h-64"></canvas>
                 <!-- Tooltip gráfico 1 -->
                 <img data-tooltip-target="info-graph-1" data-tooltip-placement="right" src="{{ asset('img/info_tooltip.png') }}"
@@ -28,6 +28,7 @@
                 </div>
 
         </div>
+
         @if(!empty($conciertosSinVentas))
         <div class="flex flex-col w-1/2 bg-white p-4 m-3 overflow-y-auto h-32">
             @foreach($conciertosSinVentas as $concert)
@@ -40,7 +41,7 @@
 
 
 
-        <div class="flex flex-row w-1/2 bg-white p-4 m-3">
+        <div class="flex flex-row w-1/2 bg-white p-4 mt-3 mx-3 -mb-3 border-b border-b-black-dark">
                 <canvas id="graph2" class="w-full h-64"></canvas>
                 <!-- Tooltip gráfico 2 -->
                 <img data-tooltip-target="info-graph-2" data-tooltip-placement="right" src="{{ asset('img/info_tooltip.png') }}"
@@ -62,7 +63,7 @@
             </div>
         @endif
 
-        <div class="flex flex-row w-1/2 bg-white p-4 m-3">
+        <div class="flex flex-row w-1/2 bg-white p-4 mt-3 mx-3 -mb-3 border-b border-b-black-dark">
                 <canvas id="graph3" class="w-full h-64"></canvas>
                 <!-- Tooltip gráfico 3 -->
                 <img data-tooltip-target="info-graph-3" data-tooltip-placement="right" src="{{ asset('img/info_tooltip.png') }}"
