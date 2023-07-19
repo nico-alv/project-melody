@@ -23,7 +23,7 @@ class ConcertSeeder extends Seeder
         DB::table('concerts')->insert([
             'concert_name' => 'Adele at the party',
             'price' => 25000,
-            'stock' => 0,
+            'stock' => 50,
             'date' => date('Y-m-d', strtotime('2023-08-18')),
         ]);
 

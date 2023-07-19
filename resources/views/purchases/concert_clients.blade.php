@@ -22,7 +22,6 @@
                 <th scope="col" class="px-6 py-3 text-center bg-orange-light">
                     Fecha de compra
                 </th>
-
                 <th scope="col" class="px-6 py-3 text-center bg-orange-light">
                     Cantidad entradas compradas
                 </th>

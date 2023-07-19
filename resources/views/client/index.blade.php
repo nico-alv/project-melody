@@ -1,5 +1,4 @@
 @extends('layout.app')
-
 @section('title')
     Conciertos
 @endsection
@@ -63,7 +62,7 @@
         <div id="info-concert-date" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
             Al seleccionar una fecha se filtrará y si existe
             <br>
-            se mostrará el concierto para ese día
+            se mostrará el concierto para ese día.
 
             <div class="tooltip-arrow" data-popper-arrow></div>
         </div>

@@ -1,13 +1,10 @@
 @extends('layout.app')
-
 @section('title')
     Visualización de compras realizadas
 @endsection
-
 @section('title-page')
     Visualización de compras realizadas
 @endsection
-
 @section('content')
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left text-black">
@@ -32,7 +29,19 @@
                     Monto total vendido
                 </th>
                 <th scope="col" class="px-6 py-3 text-center bg-orange-light">
-                    Detalle concierto
+                    <div class="flex flex-row justify-center">
+                        <p>
+                        Detalle concierto
+                        </p>
+                        <!-- Tooltip descargar comprobante -->
+                        <img data-tooltip-target="info-detail" data-tooltip-placement="bottom" src="{{ asset('img/info_tooltip.png') }}"
+                        class="ml-2 -mt-0.5 w-5 h-5" alt="icono_tooltip">
+                        <div id="info-detail" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
+                            S<span class="lowercase">e mostrarán las reservas del concierto.</span>
+                            <div class="tooltip-arrow" data-popper-arrow></div>
+                        </div>
+                    </div>
+                    <!------------------------->
                  </th>
             </tr>
         </thead>

@@ -18,7 +18,7 @@ Registrar Concierto
                     <img data-tooltip-target="info-concert-name" data-tooltip-placement="right" src="{{ asset('img/info_tooltip.png') }}"
                     class="ml-2 mt-2.5 w-7 h-7" alt="icono_tooltip">
                     <div id="info-concert-name" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
-                        El nombre del concierto debe contener al menos 5 caracteres
+                        El nombre del concierto debe contener al menos 5 caracteres.
 
                         <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
@@ -38,9 +38,9 @@ Registrar Concierto
                     <div id="info-concert-price" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
                         El precio debe:
                         <br>
-                        <span class="font-extrabold">&middot</span> Contener solo números
+                        <span class="font-extrabold">&middot</span> Contener solo números.
                         <br>
-                        <span class="font-extrabold">&middot</span> Ser mayor o igual a $20.000
+                        <span class="font-extrabold">&middot</span> Ser mayor o igual a $20.000.
 
                         <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
@@ -62,9 +62,9 @@ Registrar Concierto
                     <div id="info-concert-stock" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-black-light rounded-lg shadow-sm opacity-0 tooltip">
                         El stock debe:
                         <br>
-                        <span class="font-extrabold">&middot</span> Contener solo números
+                        <span class="font-extrabold">&middot</span> Contener solo números.
                         <br>
-                        <span class="font-extrabold">&middot</span> Ser de un rango entre 100 y 400
+                        <span class="font-extrabold">&middot</span> Ser de un rango entre 100 y 400.
 
                         <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
