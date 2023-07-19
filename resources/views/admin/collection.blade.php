@@ -9,7 +9,7 @@
 
 @section('content')
 
-@if($totalVendidoPorConcierto->isEmpty() && $ventasPorMetodoPago->isEmpty() && $ventasPorcentaje->isEmpty())
+@if($totalSoldPerConcert->isEmpty() && $salesPerPayment->isEmpty() && $salesPerPercentage->isEmpty())
         <p class="text-2xl text-white text-center font-bold bg-blue-medium-dark py-5 mt-5">
             No hay compras registradas.
         </p>
@@ -29,17 +29,15 @@
 
         </div>
 
-        @if(!empty($conciertosSinVentas))
+        @if(!empty($concertsWithoutSales))
         <div class="flex flex-col w-1/2 bg-white p-4 m-3 overflow-y-auto h-32">
-            @foreach($conciertosSinVentas as $concert)
+            @foreach($concertsWithoutSales as $concert)
                 <div class="flex justify-center items-center h-full">
                     <h2 class="text-sm font-bold">El concierto {{$concert}} no tiene compras registradas.</h2>
                 </div>
             @endforeach
         </div>
         @endif
-
-
 
         <div class="flex flex-row w-1/2 bg-white p-4 mt-3 mx-3 -mb-3 border-b border-b-black-dark">
                 <canvas id="graph2" class="w-full h-64"></canvas>
@@ -53,9 +51,9 @@
                 </div>
         </div>
 
-        @if(!empty($metodosDePagoSinVentas))
+        @if(!empty($paymentMethodsWithoutSales))
             <div class="flex flex-col w-1/2 bg-white p-4 m-3 overflow-y-auto h-32">
-                @foreach($metodosDePagoSinVentas as $metodoPago)
+                @foreach($paymentMethodsWithoutSales as $metodoPago)
                     <div class="flex justify-center items-center h-full">
                         <h2 class="text-sm font-bold">No hay venta de entradas con {{strtolower($metodoPago)}}.</h2>
                     </div>
@@ -76,9 +74,9 @@
                     en relación a las ventas totales.
                 </div>
         </div>
-        @if(!empty($metodosDePagoSinVentas))
+        @if(!empty($paymentMethodsWithoutSales))
             <div class="flex flex-col w-1/2 bg-white p-4 m-3 overflow-y-auto h-32">
-                @foreach($metodosDePagoSinVentas as $metodoPago)
+                @foreach($paymentMethodsWithoutSales as $metodoPago)
                     <div class="flex justify-center items-center h-full">
                         <h2 class="text-sm font-bold">No hay venta de entradas con {{strtolower($metodoPago)}}.</h2>
                     </div>
@@ -93,14 +91,14 @@
 @section('script')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        @if(!$totalVendidoPorConcierto->isEmpty())
+        @if(!$totalSoldPerConcert->isEmpty())
             const ctx1 = document.getElementById('graph1');
-            const totalVendidoPorConcierto = {!! json_encode($totalVendidoPorConcierto) !!};
+            const $totalSoldPerConcert = {!! json_encode($totalSoldPerConcert) !!};
             const data1 = {
-                labels: totalVendidoPorConcierto.map(item => item.concert_name),
+                labels: $totalSoldPerConcert.map(item => item.concert_name),
                 datasets: [{
                     label: '',
-                    data: totalVendidoPorConcierto.map(item => item.total),
+                    data: $totalSoldPerConcert.map(item => item.total),
                     backgroundColor: ['#f3320d', '#0257d2', '#00b87d', '#fcc104'],
                     borderWidth: 1
                 }]
@@ -133,9 +131,9 @@
             });
         @endif
 
-        @if(!$ventasPorMetodoPago->isEmpty())
+        @if(!$salesPerPayment->isEmpty())
             const ctx2 = document.getElementById('graph2');
-            const ventasPorMetodoPago = {!! json_encode($ventasPorMetodoPago) !!};
+            const ventasPorMetodoPago = {!! json_encode($salesPerPayment) !!};
             const data2 = {
                 labels: ventasPorMetodoPago.map(item => item.payment_method),
                 datasets: [{
@@ -173,9 +171,9 @@
             });
         @endif
 
-        @if(!$ventasPorcentaje->isEmpty())
+        @if(!$salesPerPercentage->isEmpty())
             const ctx3 = document.getElementById('graph3');
-            const ventasPorcentaje = {!! json_encode($ventasPorcentaje) !!};
+            const ventasPorcentaje = {!! json_encode($salesPerPercentage) !!};
             const data3 = {
                 labels: ventasPorcentaje.map(item => item.payment_method),
                 datasets: [{

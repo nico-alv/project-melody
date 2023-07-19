@@ -69,35 +69,35 @@ class TicketController extends Controller
 
     public function showCollection()
 {
-    $ventasPorMetodoPago = Ticket_reservation::select('payment_method')
+    $salesPerPayment = Ticket_reservation::select('payment_method')
         ->selectRaw('SUM(total) as total')
         ->groupBy('payment_method')
         ->get();
 
-    $ventasPorcentaje = Ticket_reservation::select('payment_method')
+    $salesPerPercentage = Ticket_reservation::select('payment_method')
         ->selectRaw('SUM(total) as total, SUM(total) / (SELECT SUM(total) FROM ticket_reservations) * 100 as porcentaje')
         ->groupBy('payment_method')
         ->get();
 
-    $totalVendidoPorConcierto = Ticket_reservation::select('concerts.concert_name as concert_name')
+    $totalSoldPerConcert = Ticket_reservation::select('concerts.concert_name as concert_name')
         ->selectRaw('SUM(ticket_reservations.total) as total')
         ->join('concerts', 'concerts.id', '=', 'ticket_reservations.concert_id')
         ->groupBy('concerts.concert_name')
         ->get();
 
-    $conciertos = Concert::select('concert_name')->get()->pluck('concert_name')->toArray();
-    $conciertosConVentas = $totalVendidoPorConcierto->pluck('concert_name')->toArray();
-    $conciertosSinVentas = array_diff($conciertos, $conciertosConVentas);
-    $metodosDePago = ['Efectivo', 'Transferencia', 'Tarjeta de débito', 'Tarjeta de crédito']; // Actualizar esto con tus métodos de pago reales
-    $metodosDePagoSinVentas = $ventasPorMetodoPago->pluck('payment_method')->toArray();
-    $metodosDePagoSinVentas = array_diff($metodosDePago, $metodosDePagoSinVentas);
+    $concerts = Concert::select('concert_name')->get()->pluck('concert_name')->toArray();
+    $concertsWithSales = $totalSoldPerConcert->pluck('concert_name')->toArray();
+    $concertsWithoutSales = array_diff($concerts, $concertsWithSales);
+    $paymentMethods = ['Efectivo', 'Transferencia', 'Tarjeta de débito', 'Tarjeta de crédito']; // Actualizar esto con tus métodos de pago reales
+    $paymentMethodsWithoutSales = $salesPerPayment->pluck('payment_method')->toArray();
+    $paymentMethodsWithoutSales = array_diff($paymentMethods, $paymentMethodsWithoutSales);
 
     return view('admin.collection', [
-        'ventasPorMetodoPago' => $ventasPorMetodoPago,
-        'ventasPorcentaje' => $ventasPorcentaje,
-        'totalVendidoPorConcierto' => $totalVendidoPorConcierto,
-        'conciertosSinVentas' => $conciertosSinVentas,
-        'metodosDePagoSinVentas' => $metodosDePagoSinVentas,
+        'salesPerPayment' => $salesPerPayment,
+        'salesPerPercentage' => $salesPerPercentage,
+        'totalSoldPerConcert' => $totalSoldPerConcert,
+        'concertsWithoutSales' => $concertsWithoutSales,
+        'paymentMethodsWithoutSales' => $paymentMethodsWithoutSales,
     ]);
 }
 }

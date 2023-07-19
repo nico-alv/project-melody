@@ -17,7 +17,7 @@ class Ticket extends Model
         'date',
         'ticket_reservation_id'
     ];
-    public static function crearConPDF($reservation_number, $user)
+    public static function createWithPDF($reservation_number, $user)
     {
         $domPDF = new Dompdf();
         $reservation = Ticket_reservation::where('reservation_number', $reservation_number)->first();

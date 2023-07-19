@@ -15,61 +15,61 @@ class TicketReservationSeeder extends Seeder
      */
     public function run(): void
     {
-        $usuario1 = User::findOrFail(3);
-        $usuario2 = User::findOrFail(2);
-        $concierto1 = Concert::findOrfail(1);
-        $concierto2 = Concert::findOrfail(3);
+        $user1 = User::findOrFail(3);
+        $user2 = User::findOrFail(2);
+        $concert1 = Concert::findOrfail(1);
+        $concert2 = Concert::findOrfail(3);
 
-        $cantTickets = mt_rand(1, 5);
-        $numeroReserva = mt_rand(1000, 9999);
+        $ticketQuantity = mt_rand(1, 5);
+        $reservationNumber = mt_rand(1000, 9999);
         DB::table('ticket_reservations')->insert([
-            'reservation_number' => $numeroReserva,
-            'ticket_quantity' => $cantTickets,
+            'reservation_number' => $reservationNumber,
+            'ticket_quantity' => $ticketQuantity,
             'payment_method' => 'Efectivo',
-            'total' => $concierto1->price*$cantTickets,
+            'total' => $concert1->price*$ticketQuantity,
             'purchase_date' => now(),
-            'user_id' => $usuario1->id,
-            'concert_id' => $concierto1->id,
+            'user_id' => $user1->id,
+            'concert_id' => $concert1->id,
         ]);
-        Ticket::crearConPDF($numeroReserva, $usuario1);
+        Ticket::createWithPDF($reservationNumber, $user1);
 
-        $cantTickets = mt_rand(1, 5);
-        $numeroReserva = mt_rand(1000, 9999);
+        $ticketQuantity = mt_rand(1, 5);
+        $reservationNumber = mt_rand(1000, 9999);
         DB::table('ticket_reservations')->insert([
-            'reservation_number' => $numeroReserva,
-            'ticket_quantity' => $cantTickets,
+            'reservation_number' => $reservationNumber,
+            'ticket_quantity' => $ticketQuantity,
             'payment_method' => 'Tarjeta de débito',
-            'total' => $concierto1->price*$cantTickets,
+            'total' => $concert1->price*$ticketQuantity,
             'purchase_date' => now(),
-            'user_id' => $usuario2->id,
-            'concert_id' => $concierto1->id,
+            'user_id' => $user2->id,
+            'concert_id' => $concert1->id,
         ]);
-        Ticket::crearConPDF($numeroReserva, $usuario2);
+        Ticket::createWithPDF($reservationNumber, $user2);
 
-        $cantTickets = mt_rand(1, 5);
-        $numeroReserva = mt_rand(1000, 9999);
+        $ticketQuantity = mt_rand(1, 5);
+        $reservationNumber = mt_rand(1000, 9999);
         DB::table('ticket_reservations')->insert([
-            'reservation_number' => $numeroReserva,
-            'ticket_quantity' => $cantTickets,
+            'reservation_number' => $reservationNumber,
+            'ticket_quantity' => $ticketQuantity,
             'payment_method' => 'Efectivo',
-            'total' => $concierto2->price*$cantTickets,
+            'total' => $concert2->price*$ticketQuantity,
             'purchase_date' => now(),
-            'user_id' => $usuario1->id,
-            'concert_id' => $concierto2->id,
+            'user_id' => $user1->id,
+            'concert_id' => $concert2->id,
         ]);
-        Ticket::crearConPDF($numeroReserva, $usuario1);
+        Ticket::createWithPDF($reservationNumber, $user1);
 
-        $cantTickets = mt_rand(1, 5);
-        $numeroReserva = mt_rand(1000, 9999);
+        $ticketQuantity = mt_rand(1, 5);
+        $reservationNumber = mt_rand(1000, 9999);
         DB::table('ticket_reservations')->insert([
-            'reservation_number' => $numeroReserva,
-            'ticket_quantity' => $cantTickets,
+            'reservation_number' => $reservationNumber,
+            'ticket_quantity' => $ticketQuantity,
             'payment_method' => 'Tarjeta de débito',
-            'total' => $concierto2->price*$cantTickets,
+            'total' => $concert2->price*$ticketQuantity,
             'purchase_date' => now(),
-            'user_id' => $usuario2->id,
-            'concert_id' => $concierto2->id,
+            'user_id' => $user2->id,
+            'concert_id' => $concert2->id,
         ]);
-        Ticket::crearConPDF($numeroReserva, $usuario2);
+        Ticket::createWithPDF($reservationNumber, $user2);
     }
 }
